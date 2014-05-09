@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-optim/include
+END
+MedeaOptimPerceptronControlArchitecture.h
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-optim/include/MedeaOptimPerceptronControlArchitecture.h
+END
+MedeaOptimAgentObserver.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-optim/include/MedeaOptimAgentObserver.h
+END
+MedeaOptimAgentWorldModel.h
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-optim/include/MedeaOptimAgentWorldModel.h
+END
+MedeaOptimWorldObserver.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-optim/include/MedeaOptimWorldObserver.h
+END
+MedeaOptimSharedData.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-optim/include/MedeaOptimSharedData.h
+END

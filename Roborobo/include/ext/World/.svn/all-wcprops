@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/edearob/!svn/ver/18/dev/simu/Roborobo/include/ext/World
+END
+RobotAgentWorldInterfaceDangerWorld.h
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/edearob/!svn/ver/18/dev/simu/Roborobo/include/ext/World/RobotAgentWorldInterfaceDangerWorld.h
+END
+InanimateObject.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/ext/World/InanimateObject.h
+END
+EnergyPoint.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/ext/World/EnergyPoint.h
+END

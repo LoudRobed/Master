@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-MovingSp/src
+END
+MedeaMovingSpPerceptronControlArchitecture.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-MovingSp/src/MedeaMovingSpPerceptronControlArchitecture.cpp
+END
+MedeaSpPerceptronControlArchitecture.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-MovingSp/src/MedeaSpPerceptronControlArchitecture.cpp
+END
+MedeaMovingSpAgentObserver.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-MovingSp/src/MedeaMovingSpAgentObserver.cpp
+END
+MedeaSpAgentObserver.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-MovingSp/src/MedeaSpAgentObserver.cpp
+END
+MedeaMovingSpAgentWorldModel.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-MovingSp/src/MedeaMovingSpAgentWorldModel.cpp
+END
+MedeaSpAgentWorldModel.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-MovingSp/src/MedeaSpAgentWorldModel.cpp
+END
+MedeaMovingSpGenome.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-MovingSp/src/MedeaMovingSpGenome.cpp
+END
+BasicGenome.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-MovingSp/src/BasicGenome.cpp
+END
+MedeaMovingSpWorldObserver.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-MovingSp/src/MedeaMovingSpWorldObserver.cpp
+END
+MedeaSpWorldObserver.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-MovingSp/src/MedeaSpWorldObserver.cpp
+END
+MedeaSpNetworkGenerator.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-MovingSp/src/MedeaSpNetworkGenerator.cpp
+END
+MedeaSpSharedData.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-MovingSp/src/MedeaSpSharedData.cpp
+END
+MedeaSpEnergyPoint.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-MovingSp/src/MedeaSpEnergyPoint.cpp
+END

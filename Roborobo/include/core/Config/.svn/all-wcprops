@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/edearob/!svn/ver/13/dev/simu/Roborobo/include/core/Config
+END
+ConfigurationLoader.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/edearob/!svn/ver/13/dev/simu/Roborobo/include/core/Config/ConfigurationLoader.h
+END
+GlobalConfigurationLoader.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/core/Config/GlobalConfigurationLoader.h
+END

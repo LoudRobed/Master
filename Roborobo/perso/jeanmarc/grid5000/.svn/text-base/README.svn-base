@@ -1,0 +1,140 @@
+Author : montanier@lri.fr
+Date : 07 April 2011
+Last update : 27 June 2011 
+
+=====================
+Intro
+=====================
+
+This file presents the scripts katapult, runExperiment.sh, runParrallal.sh and briefly the use of grid5000 with roborobo
+
+At first you need to create a grid5000 account. For this please check :
+https://www.grid5000.fr/mediawiki/index.php/Grid5000:Get_an_account
+
+Then, in order to get familiar with grid5000 and its use it might be wise to check the following page:
+https://www.grid5000.fr/mediawiki/index.php/Cluster_experiment-OAR2
+
+In order to ease the use of roborobo on grid5000 the scripts presented here use the deployment capabilities given with grid5000. The main idea behind a deployment is to use an OS customized for our own ends : filesystem, packages and so on ... The details are presented on the following page :
+https://www.grid5000.fr/mediawiki/index.php/Deploy_environment
+
+This remaining of this file will only present you how to use the scripts katapult, runExperiment.sh, runParallal.sh and oarsub
+
+=====================
+Launch an experiment on grid5000
+=====================
+First of all : get an access to one of the cluster of grid5000 :
+local$ ssh LOGIN@access.CLUSTER.grid5000.fr
+access$ ssh frontend
+
+Then from your local computer copy the scripts :
+local$ scp roborobo.env LOGIN@access.CLUSTER.grid5000.fr
+Copy also the tgz image present in /users/tao-nosave/jmontani/roboroboImage.tgz
+local$ scp roboroboImage.tgz LOGIN@access.CLUSTER.grid5000.fr
+
+If you want to use the scripts on another cluster you should again copy the scripts.
+
+You can book some node for your experiment by using oarsub, the dedicated tool created by the grid5000 project:
+oarsub -I -p "cluster='CLUSTER_NAME'" -t deploy -l nodes=NB_NODES,walltime="NB_HOURS"
+  - cluster=CLUSTER_NAME	: is the name of the cluster you want to use for this experiment. If you have no preferences, you can remove completely the -p option
+  - nodes=NB_NODES				: say how many node should be used. One node is one computer. One node is often composed of many cores 
+  - walltime="NB_HOURS"		: Precise the length of the experiment in hours. Once the allowed time is passed the job is killed by grid5000. One can precise the experiment length with the following format HH:MM:SS
+  - -t deploy			 				: say that an OS will be deployed for this experiment. Do not remove
+	- -I 										: say that the job will be an interactive one. Do not remove
+
+Then you have to deploy the envrionment with which you are working.
+kadeploy3 -f $OAR_NODEFILE -a roborobo.env
+  - roborobo.env 					: describe the environment to use. In this case, the file roboroboImage.tgz containing a compiled roborobo
+	- $OAR_NODEFILE					: list of nodes available for the deployment. Do not change
+
+Once the deployment is complete you should this on the standard output a message like this :
+$ Nodes correctly deployed on cluster genepi
+$ genepi-9.grenoble.grid5000.fr
+
+You can now connect to the deployed node by the following command
+$ ssh root@genepi-9.grenoble.grid5000.fr 
+The password is : grid5000
+
+
+=====================
+Launch an experiment and get the log files back on your computer
+=====================
+First of all : get an access to one of the cluster of grid5000 :
+local$ ssh LOGIN@access.CLUSTER.grid5000.fr
+access$ ssh frontend
+
+Then from your local computer copy the scripts :
+local$ scp katapult runExperiment.sh startExperimentAllNode startExperimentOneNode.sh roborobo.env buildTunnelToLri.sh LOGIN@access.CLUSTER.grid5000.fr:~
+Copy also the tgz image present in /users/tao-nosave/jmontani/roboroboImage.tgz
+
+local$ scp roboroboImage.tgz LOGIN@access.CLUSTER.grid5000.fr:
+
+Finally you will have to generate a public/private-key WITHOUT password on the frontend
+frontend$ ssh-keygen -t rsa
+
+If you want to use the scripts on another cluster you should again copy the scripts and generate a new couple of keys or copy the keys from one .ssh directory to another.
+
+The script *runExperiment.sh* will actually do all the job for you. Of course the trick is that you have to modify the other files in order to modify your experiment.
+
+== *runExperiment.sh*
+
+The last line looks something like this :
+oarsub -p "cluster='CLUSTER_NAME'" -t deploy -l nodes=NB_NODES,walltime="NB_HOURS" "./katapult -o roborobo.env --copy-ssh-key --sleep -a \"startExperimentOneNode.sh passFile\" /home/jmontanier/startExperimentAllNode.sh passFile"
+
+oarsub is the software used to submit jobs on grid5000. Its role is to book the requested nodes. It comes with many options :
+  - cluster=CLUSTER_NAME	: is the name of the cluster you want to use for this experiment. If you have no preferences, you can remove completely the -p option
+  - nodes=NB_NODES				: say how many node should be used. One node is one computer. One node is often composed of many cores 
+  - walltime="NB_HOURS"		: Precise the length of the experiment in hours. Once the allowed time is passed the job is killed by grid5000. One can precise the experiment length with the following format HH:MM:SS
+  - -t deploy			 				: say that an OS will be deployed for this experiment. Do not remove
+
+katapult is the script used to launch an experiment. This script is started as soon as the booked node are ready to use. Do not modify any of the options used in this script
+
+== *startExperimentOneNode.sh*
+
+Once the nodes are ready and deployed the script *startExperimentOneNode.sh* is called on every deployed node with the root login. Therefore this file has to contain all the operation you are doing on your regular computer in order to start your roborobo experiment.
+
+Here is an example :
+== startExperimentOneNode.sh ==
+#!/bin/bash
+ 
+passFile=$1 # file containing all the necessary information 
+
+cd Roborobo # go in the Roborobo folder
+
+# prepare all the symbolic links
+ln -s perso/jeanmarc/grid5000/buildTunnelToAcces.sh
+ln -s perso/jeanmarc/grid5000/destroyTunnels.sh
+ln -s perso/jeanmarc/grid5000/postExperimentTransmit.sh
+ln -s perso/jeanmarc/grid5000/prepareTunnels.sh
+ln -s perso/jeanmarc/grid5000/runParallal.sh
+ln -s perso/jeanmarc/grid5000/sshConnect.sh
+ln -s perso/jeanmarc/grid5000/sshExecuteCommand.sh
+ln -s perso/jeanmarc/grid5000/transmitMnemosyne.sh
+
+perl -pi -e 's/gHighestBoundRespawn.*/gHighestBoundRespawn = 100/' config/MedeaAltruism.properties # modify the configuration file to match your needs
+
+name=$(cat /etc/hostname)
+theDate=$(date)
+proc=$(grep processor /proc/cpuinfo | wc -l) # extract the number of core on the computer
+echo "$name : run roborobo on $proc proccessor :  $theDate" # print some information on the standard output. Those informations can be latter check in the OAR.ID_JOB.stdout file
+
+./runParallal.sh -p "postExperimentTransmit.sh $HOME/$passFile 0 Resultats/test Resultats/test-extinguish" 8 config/MedeaAltruism.properties $proc # run Roborobo in parallal on all the cores of the computer
+# *postExperimentTransmit.sh* is the script in charge of transmitting the log files produced by roborobo. 
+#  - The first parameter show the path to the file containing all the information needed to access the computer finally storing the log files (called archiver).
+#  - The second parameter is the extinguish threshold. If, at the end of a run, the number of active robot is below or equal to that threshold, this run will be considered as extinguish.
+#  - The third parameter is the path on the archiver computer for the non-extinguished runs
+#  - The forth parameter is the path on the archiver computer for the extinguished runs
+# Modifying the options of *runParallal.sh* will modify the number of instance of robot, the configuration file used and the number of experiment finally produced
+#  - The first parameter correspond to the number of non-extinguished runs finally produced
+#  - The second parameter correspond to the configuration files used for the experiment
+#  - The third parameter is the number of core used. This should stay at $proc, except if you have a good reason to not use all the cores
+# A resume of the *runParallal.sh* options is available by typing "$./runParallal.sh -h"
+
+theDate=$(date)
+echo "$name : end $theDate" #small message at the end of the run
+== startExperimentOneNode.sh ==
+
+Once everything is set, you just have to type :
+$ ./runExperiment.sh
+
+This will ask you your password to go through the grid5000 gateway (i.e. the password of your account)
+Then it will ask you the login and password for your computer

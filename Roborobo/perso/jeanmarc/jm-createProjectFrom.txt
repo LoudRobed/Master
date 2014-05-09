@@ -1,0 +1,7 @@
+copier la structure du precedent prj
+	renommer tous les fichiers (rename 's/Prev(.*)\.cpp/New$1.cpp' *)
+	dans chaque fichier faire les renommages BASIC -> NEWPROJECT et Basic -> NewProject
+	dans chaque fichier changer l'author et la date
+copie et modification de src/ext/PrevConfigurationLoader.cpp
+copie et modification de include/ext/Config/PrevConfigurationLoader.h
+ajout du configuration loader dans src/core/ConfigurationLoader.cpp ( ne pas oublier l'ajout d'include du .h)

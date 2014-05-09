@@ -1,0 +1,6 @@
+chown: cannot access `/state/partition1/scratch/pbstmp.393827.rocks.hpc.ntnu.no': No such file or directory
+roborobo: no process killed
+runParallell.sh: no process killed
+bash: line 1: 31172 Killed                  ./runParallal.sh 1 config/MedeaAltruism.properties 1
+=>> PBS: job killed: walltime 3310 exceeded limit 3300
+/opt/torque/mom_priv/jobs/393827.rocks.hpc.ntnu.no.SC: line 43:  7603 Terminated              sleep 1

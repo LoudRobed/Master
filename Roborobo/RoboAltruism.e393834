@@ -1,0 +1,58 @@
+Warning: Permanently added 'compute-0-14' (RSA) to the list of known hosts.
+chown: cannot access `/state/partition1/scratch/pbstmp.393834.rocks.hpc.ntnu.no': No such file or directory
+Warning: Permanently added 'compute-0-20' (RSA) to the list of known hosts.
+chown: cannot access `/state/partition1/scratch/pbstmp.393834.rocks.hpc.ntnu.no': No such file or directory
+chown: cannot access `/state/partition1/scratch/pbstmp.393834.rocks.hpc.ntnu.no': No such file or directory
+Warning: Permanently added 'compute-0-22' (RSA) to the list of known hosts.
+chown: cannot access `/state/partition1/scratch/pbstmp.393834.rocks.hpc.ntnu.no': No such file or directory
+Warning: Permanently added 'compute-0-23' (RSA) to the list of known hosts.
+chown: cannot access `/state/partition1/scratch/pbstmp.393834.rocks.hpc.ntnu.no': No such file or directory
+chown: cannot access `/state/partition1/scratch/pbstmp.393834.rocks.hpc.ntnu.no': No such file or directory
+Warning: Permanently added 'compute-0-32' (RSA) to the list of known hosts.
+chown: cannot access `/state/partition1/scratch/pbstmp.393834.rocks.hpc.ntnu.no': No such file or directory
+Warning: Permanently added 'compute-0-6' (RSA) to the list of known hosts.
+chown: cannot access `/state/partition1/scratch/pbstmp.393834.rocks.hpc.ntnu.no': No such file or directory
+Warning: Permanently added 'compute-1-10' (RSA) to the list of known hosts.
+Warning: Permanently added 'compute-1-11' (RSA) to the list of known hosts.
+runParallell.sh: no process killed
+tee: temp141953893327000: Disk quota exceeded
+rm: cannot remove `temp143604901293000': No such file or directory
+tee: temp144822147717000: Disk quota exceeded
+rm: cannot remove `temp141554658852000': No such file or directory
+tee: temp145040989232000: Disk quota exceeded
+rm: cannot remove `temp141549650865000': No such file or directory
+tee: temp145137079441000: Disk quota exceeded
+rm: cannot remove `temp141550887233000': No such file or directory
+tee: temp145152469924000: Disk quota exceeded
+rm: cannot remove `temp141614907528000': No such file or directory
+tee: temp145440936668000: Disk quota exceeded
+rm: cannot remove `temp141554024747000': No such file or directory
+tee: temp145554475389000: Disk quota exceeded
+rm: cannot remove `temp141553624767000': No such file or directory
+tee: temp145625562853000: Disk quota exceeded
+rm: cannot remove `temp141550680475000': No such file or directory
+tee: temp145803605207000: Disk quota exceeded
+rm: cannot remove `temp141604345233000': No such file or directory
+rm: cannot remove `temp141547375353000': No such file or directory
+rm: cannot remove `temp141623865589000': No such file or directory
+rm: cannot remove `temp141552941017000': No such file or directory
+tee: temp150408758841000: Disk quota exceeded
+tee: temp150414576176000: Disk quota exceeded
+tee: temp150405583437000: Disk quota exceeded
+rm: cannot remove `temp141626435684000': No such file or directory
+tee: temp150514409342000: Disk quota exceeded
+tee: temp150552544091000: Disk quota exceeded
+tee: temp150650458562000: Disk quota exceeded
+rm: cannot remove `temp141554024442000': No such file or directory
+tee: temp150818556537000: Disk quota exceeded
+rm: cannot remove `temp141549616195000': No such file or directory
+=>> PBS: job killed: walltime 3302 exceeded limit 3300
+Killed by signal 15.
+Killed by signal 15.
+Killed by signal 15.
+Killed by signal 15.
+Killed by signal 15.
+Killed by signal 15.
+Killed by signal 15.
+Killed by signal 15.
+Killed by signal 15.

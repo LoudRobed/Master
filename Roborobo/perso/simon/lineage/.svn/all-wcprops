@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/simon/lineage
+END
+PHYLO.txt
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/simon/lineage/PHYLO.txt
+END
+toNewick.py
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/simon/lineage/toNewick.py
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/simon/lineage/README.txt
+END
+followaGene.sh
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/simon/lineage/followaGene.sh
+END
+extractAncestorRate.sh
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/simon/lineage/extractAncestorRate.sh
+END
+traceCommonAncestor.sh
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/simon/lineage/traceCommonAncestor.sh
+END
+extractPrunedTree.sh
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/simon/lineage/extractPrunedTree.sh
+END
+extractTree.sh
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/simon/lineage/extractTree.sh
+END
+toNewickIt.py
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/simon/lineage/toNewickIt.py
+END

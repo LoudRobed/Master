@@ -1,0 +1,173 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/edearob/!svn/ver/104/dev/simu/Roborobo/include/ext/Config
+END
+MedeaAltruismBattleConfigurationLoader.h
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/ext/Config/MedeaAltruismBattleConfigurationLoader.h
+END
+StrongCausalityConfigurationLoader.h
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/ext/Config/StrongCausalityConfigurationLoader.h
+END
+MedeaAltruismConfigurationLoader.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/ext/Config/MedeaAltruismConfigurationLoader.h
+END
+BasicProjectKilobotConfigurationLoader.h
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/ext/Config/BasicProjectKilobotConfigurationLoader.h
+END
+OnePlusOneOnlineConfigurationLoader.h
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/ext/Config/OnePlusOneOnlineConfigurationLoader.h
+END
+ReplayConfigurationLoader.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/ext/Config/ReplayConfigurationLoader.h
+END
+MedeaAltruismReEvoConfigurationLoader.h
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/ext/Config/MedeaAltruismReEvoConfigurationLoader.h
+END
+MedeaEcologyConfigurationLoader.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/ext/Config/MedeaEcologyConfigurationLoader.h
+END
+MedeaMovingSpConfigurationLoader.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/ext/Config/MedeaMovingSpConfigurationLoader.h
+END
+MedeaAltruismIncreasePressureConfigurationLoader.h
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/ext/Config/MedeaAltruismIncreasePressureConfigurationLoader.h
+END
+MedeaAltruismReplayPartialEvoConfigurationLoader.h
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/ext/Config/MedeaAltruismReplayPartialEvoConfigurationLoader.h
+END
+MedeaAltUtilityConfigurationLoader.h
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/ext/Config/MedeaAltUtilityConfigurationLoader.h
+END
+SpikeAntsConfigurationLoader.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/ext/Config/SpikeAntsConfigurationLoader.h
+END
+BasicProjectMedeaConfigurationLoader.h
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/ext/Config/BasicProjectMedeaConfigurationLoader.h
+END
+MedeaAltruismReplayConfigurationLoader.h
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/ext/Config/MedeaAltruismReplayConfigurationLoader.h
+END
+MedeaConfigurationLoader.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/ext/Config/MedeaConfigurationLoader.h
+END
+BattleConfigurationLoader.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/ext/Config/BattleConfigurationLoader.h
+END
+MedeaPheromonesConfigurationLoader.h
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/ext/Config/MedeaPheromonesConfigurationLoader.h
+END
+MedeaTwoSunsConfigurationLoader.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/ext/Config/MedeaTwoSunsConfigurationLoader.h
+END
+MedeaSpConfigurationLoader.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/ext/Config/MedeaSpConfigurationLoader.h
+END
+MedeaHGTConfigurationLoader.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/ext/Config/MedeaHGTConfigurationLoader.h
+END
+MedeaAggregationBattleConfigurationLoader.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/edearob/!svn/ver/104/dev/simu/Roborobo/include/ext/Config/MedeaAggregationBattleConfigurationLoader.h
+END
+BasicProjectAggregationConfigurationLoader.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/edearob/!svn/ver/15/dev/simu/Roborobo/include/ext/Config/BasicProjectAggregationConfigurationLoader.h
+END
+BasicConfigurationLoader.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/ext/Config/BasicConfigurationLoader.h
+END
+MedeaAggregationConfigurationLoader.h
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/edearob/!svn/ver/20/dev/simu/Roborobo/include/ext/Config/MedeaAggregationConfigurationLoader.h
+END
+MedeaOptimConfigurationLoader.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/ext/Config/MedeaOptimConfigurationLoader.h
+END
+MedeaSpecializeConfigurationLoader.h
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/ext/Config/MedeaSpecializeConfigurationLoader.h
+END
+MedeaCommConfigurationLoader.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/ext/Config/MedeaCommConfigurationLoader.h
+END

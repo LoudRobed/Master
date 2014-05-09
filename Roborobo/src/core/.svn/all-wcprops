@@ -1,0 +1,149 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/edearob/!svn/ver/80/dev/simu/Roborobo/src/core
+END
+LogManager.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/core/LogManager.cpp
+END
+ExtendedProperties.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/core/ExtendedProperties.cpp
+END
+Timer.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/core/Timer.cpp
+END
+roborobo.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/edearob/!svn/ver/17/dev/simu/Roborobo/src/core/roborobo.cpp
+END
+ConnectionMechanism.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/edearob/!svn/ver/15/dev/simu/Roborobo/src/core/ConnectionMechanism.cpp
+END
+main.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/edearob/!svn/ver/71/dev/simu/Roborobo/src/core/main.cpp
+END
+InspectorAgent.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/core/InspectorAgent.cpp
+END
+Observer.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/core/Observer.cpp
+END
+World.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/edearob/!svn/ver/18/dev/simu/Roborobo/src/core/World.cpp
+END
+SDL_gfxRoborobo.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/edearob/!svn/ver/20/dev/simu/Roborobo/src/core/SDL_gfxRoborobo.cpp
+END
+Misc.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/core/Misc.cpp
+END
+RobotAgentConnectableWorldModel.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/edearob/!svn/ver/13/dev/simu/Roborobo/src/core/RobotAgentConnectableWorldModel.cpp
+END
+RobotAgentWorldInterface.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/core/RobotAgentWorldInterface.cpp
+END
+RobotAgentWorldModel.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/edearob/!svn/ver/13/dev/simu/Roborobo/src/core/RobotAgentWorldModel.cpp
+END
+ConfigurationLoader.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/edearob/!svn/ver/80/dev/simu/Roborobo/src/core/ConfigurationLoader.cpp
+END
+Agent.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/core/Agent.cpp
+END
+WorldObserver.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/core/WorldObserver.cpp
+END
+RobotAgentConnectable.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/edearob/!svn/ver/26/dev/simu/Roborobo/src/core/RobotAgentConnectable.cpp
+END
+SDL_gfxPrimitives.c
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/core/SDL_gfxPrimitives.c
+END
+BehaviorControlArchitecture.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/core/BehaviorControlArchitecture.cpp
+END
+RobotAgent.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/edearob/!svn/ver/26/dev/simu/Roborobo/src/core/RobotAgent.cpp
+END
+AgentObserver.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/core/AgentObserver.cpp
+END
+SDL_gfxPrimitivesExtra.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/core/SDL_gfxPrimitivesExtra.cpp
+END
+WorldModel.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/core/WorldModel.cpp
+END

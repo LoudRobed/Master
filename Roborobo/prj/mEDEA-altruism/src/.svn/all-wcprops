@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/edearob/!svn/ver/20/dev/simu/Roborobo/prj/mEDEA-altruism/src
+END
+MedeaAltruismReplayWorldObserver.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-altruism/src/MedeaAltruismReplayWorldObserver.cpp
+END
+HullArea.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-altruism/src/HullArea.cpp
+END
+MedeaAltruismReplayAgentObserver.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-altruism/src/MedeaAltruismReplayAgentObserver.cpp
+END
+MedeaAltruismPerceptronControlArchitecture.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-altruism/src/MedeaAltruismPerceptronControlArchitecture.cpp
+END
+MedeaAltruismAgentWorldModel.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-altruism/src/MedeaAltruismAgentWorldModel.cpp
+END
+MedeaAltruismReplayPartialEvoAgentWorldModel.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-altruism/src/MedeaAltruismReplayPartialEvoAgentWorldModel.cpp
+END
+MedeaAltruismBattleWorldObserver.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-altruism/src/MedeaAltruismBattleWorldObserver.cpp
+END
+MedeaAltruismWorldObserver.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-altruism/src/MedeaAltruismWorldObserver.cpp
+END
+MedeaAltruismSharedData.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-altruism/src/MedeaAltruismSharedData.cpp
+END
+MedeaAltruismReEvoWorldObserver.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-altruism/src/MedeaAltruismReEvoWorldObserver.cpp
+END
+MedeaAltruismIncreasePressureWorldObserver.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-altruism/src/MedeaAltruismIncreasePressureWorldObserver.cpp
+END
+MedeaAltruismBattleAgentObserver.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-altruism/src/MedeaAltruismBattleAgentObserver.cpp
+END
+MedeaAltruismReplayPartialEvoWorldObserver.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-altruism/src/MedeaAltruismReplayPartialEvoWorldObserver.cpp
+END
+MedeaAltruismAgentObserver.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-altruism/src/MedeaAltruismAgentObserver.cpp
+END
+MedeaAltruismReEvoAgentObserver.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-altruism/src/MedeaAltruismReEvoAgentObserver.cpp
+END
+MedeaAltruismIncreasePressureAgentObserver.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-altruism/src/MedeaAltruismIncreasePressureAgentObserver.cpp
+END
+MedeaAltruismReplayPartialEvoAgentObserver.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-altruism/src/MedeaAltruismReplayPartialEvoAgentObserver.cpp
+END

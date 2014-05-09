@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-MovingSp/include
+END
+MedeaMovingSpGenome.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-MovingSp/include/MedeaMovingSpGenome.h
+END
+BasicGenome.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-MovingSp/include/BasicGenome.h
+END
+MedeaMovingSpWorldObserver.h
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-MovingSp/include/MedeaMovingSpWorldObserver.h
+END
+MedeaSpWorldObserver.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-MovingSp/include/MedeaSpWorldObserver.h
+END
+MedeaSpNetworkGenerator.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-MovingSp/include/MedeaSpNetworkGenerator.h
+END
+MedeaSpSharedData.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-MovingSp/include/MedeaSpSharedData.h
+END
+MedeaSpEnergyPoint.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-MovingSp/include/MedeaSpEnergyPoint.h
+END
+MedeaMovingSpPerceptronControlArchitecture.h
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-MovingSp/include/MedeaMovingSpPerceptronControlArchitecture.h
+END
+MedeaSpPerceptronControlArchitecture.h
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-MovingSp/include/MedeaSpPerceptronControlArchitecture.h
+END
+MedeaMovingSpAgentObserver.h
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-MovingSp/include/MedeaMovingSpAgentObserver.h
+END
+MedeaSpAgentObserver.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-MovingSp/include/MedeaSpAgentObserver.h
+END
+MedeaMovingSpAgentWorldModel.h
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-MovingSp/include/MedeaMovingSpAgentWorldModel.h
+END
+MedeaSpAgentWorldModel.h
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-MovingSp/include/MedeaSpAgentWorldModel.h
+END

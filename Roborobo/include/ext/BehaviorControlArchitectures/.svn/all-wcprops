@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/ext/BehaviorControlArchitectures
+END
+EnergyPerceptronControlArchitecture.h
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/ext/BehaviorControlArchitectures/EnergyPerceptronControlArchitecture.h
+END
+PerceptronBehaviorControlArchitecture.h
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/ext/BehaviorControlArchitectures/PerceptronBehaviorControlArchitecture.h
+END

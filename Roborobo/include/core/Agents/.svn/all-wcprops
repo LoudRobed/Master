@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/edearob/!svn/ver/20/dev/simu/Roborobo/include/core/Agents
+END
+Agent.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/core/Agents/Agent.h
+END
+RobotAgentConnectable.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/edearob/!svn/ver/20/dev/simu/Roborobo/include/core/Agents/RobotAgentConnectable.h
+END
+ConnectionMechanism.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/edearob/!svn/ver/15/dev/simu/Roborobo/include/core/Agents/ConnectionMechanism.h
+END
+RobotAgent.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/edearob/!svn/ver/20/dev/simu/Roborobo/include/core/Agents/RobotAgent.h
+END
+InspectorAgent.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/core/Agents/InspectorAgent.h
+END

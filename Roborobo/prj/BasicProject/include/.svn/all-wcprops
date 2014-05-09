@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/BasicProject/include
+END
+BasicWorldObserver.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/BasicProject/include/BasicWorldObserver.h
+END
+BasicControlArchitecture.h
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/BasicProject/include/BasicControlArchitecture.h
+END
+BasicAgentObserver.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/BasicProject/include/BasicAgentObserver.h
+END
+BasicAgentWorldModel.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/BasicProject/include/BasicAgentWorldModel.h
+END

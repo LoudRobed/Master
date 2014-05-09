@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-MovingSp/mEDEA-sp/include
+END
+MedeaSpWorldObserver.h
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-MovingSp/mEDEA-sp/include/MedeaSpWorldObserver.h
+END
+MedeaSpNetworkGenerator.h
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-MovingSp/mEDEA-sp/include/MedeaSpNetworkGenerator.h
+END
+MedeaSpSharedData.h
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-MovingSp/mEDEA-sp/include/MedeaSpSharedData.h
+END
+MedeaSpEnergyPoint.h
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-MovingSp/mEDEA-sp/include/MedeaSpEnergyPoint.h
+END
+MedeaSpPerceptronControlArchitecture.h
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-MovingSp/mEDEA-sp/include/MedeaSpPerceptronControlArchitecture.h
+END
+MedeaSpAgentObserver.h
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-MovingSp/mEDEA-sp/include/MedeaSpAgentObserver.h
+END
+MedeaSpAgentWorldModel.h
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-MovingSp/mEDEA-sp/include/MedeaSpAgentWorldModel.h
+END

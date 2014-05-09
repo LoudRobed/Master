@@ -1,0 +1,44 @@
+
+README for ESN support in NNlib
+=================================
+
+
+INSTALL:
+---------
+ - You MUST have the gsl library installed (http://www.gnu.org/s/gsl/).
+ - You must change the following lines in your Makefile to support the gsl library :
+	LDFLAGS      = `sdl-config --cflags --libs` -lSDL_image -lgsl
+	INCLUDE      = -Iinclude/ext -Iinclude/contrib -Iinclude/core -Iprj/ -I/usr/include/gsl/
+  (assuming '/usr/include/gsl' is where the includes of gsl are)
+ - You must put the file 'ESN.cpp' in 'src/contrib/neuralnetworks/', and the file 'ESN.h' in 'include/contrib/neuralnetworks/'
+ - The file 'ESNTester.cpp' is NOT required
+
+
+
+USAGE AND REMARKS:
+-------------------
+
+- The file 'ESNTester.cpp' contains a simple test for ESNs (just call the function 'testESN()').
+- To create a new ESN:
+
+	ESN esn(weights, nbInputs, nbOutputs, reservoirSize, connectivity, alpha, 0.5, 0.5, 0.5, 0.5, 0.5,
+			false,	// allowInputToOutputDirectConnections
+			false,	// allowOutputSelfRecurrentConnections
+			true,	// allowInputToReservoirConnections
+			false 	// allowOutputToReservoirConnections
+			);
+
+- can be used as others neural networks of the NNlib:
+	esn.setWeigths(weights);
+	esn.setInputs(inputs);
+	esn.step();
+	outputs = esn.readOut();
+	...
+
+
+BUGS AND KNOWN LIMITATIONS:
+----------------------------
+- known bug when allowOutputSelfRecurrentConnections is true, on big reservoirs with high factor of connectivity.
+- possible bug when allowOutputToReservoirConnections is true, with high factor of connectivity.
+- possible bugs when allowOutputSelfRecurrentConnections is true and input == 0
+

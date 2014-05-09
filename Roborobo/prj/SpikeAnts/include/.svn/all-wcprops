@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/SpikeAnts/include
+END
+lif.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/SpikeAnts/include/lif.h
+END
+qif.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/SpikeAnts/include/qif.h
+END
+SpikeAntsWorldObserver.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/SpikeAnts/include/SpikeAntsWorldObserver.h
+END
+globals.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/SpikeAnts/include/globals.h
+END
+SpikeAntsControlArchitecture.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/SpikeAnts/include/SpikeAntsControlArchitecture.h
+END
+SpikeAntsAgentObserver.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/SpikeAnts/include/SpikeAntsAgentObserver.h
+END
+SpikeAntsAgentWorldModel.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/SpikeAnts/include/SpikeAntsAgentWorldModel.h
+END

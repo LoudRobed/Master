@@ -1,0 +1,95 @@
+How to implement organisms in roborobo
+Work in progress - v. 2011-02-13::16h18
+
+=-=-=-=
+
+DOCKING
+- one robot (the cell) may dock to n robots (the organism)
+- terminology: an organism is made of cells which are at specific (docking) sites. An organism may recruit new cells at any fred sites. A site is free if no docking exists, which may not imply that docking is technically feasible (the site should physically accessible)
+- any single robot may turn in an organism
+- during docking, the organism remains still
+- each robot has four docking sites (NSWE)
+- an organism may recruit a new cell. Recruitement is made from a free site and specifies the desired site of the cell to be recruited (enabled cell/organism polarisation)
+- docking may fail due to impossible moved required (collision)
+- undocking may be performed anywhere as breaking a physical bond does not imply moving.
+
+LOCOMOTION
+- compute point of equilibrium (barycenter)
+- sum of vectors, then normalised
+- friction enabled ...?
+
+COLLISION
+- check RobotAgent::move(recursiveIt). This method moves an agent, including collision solving. Having one single agent colliding will cancel all the organism move. You'll have to compute the move recursively. This will be expensive.
+- one very-much-not-desired but easier solution would be to compute if all robots of an organism can move, then cancel the whole move if at least one fail. Easier, but approximation will get you non-realistic locomotion rendering with still organism for awkward reason.
+
+VALIDATION:
+- except from testing if it works, you should take special care in testing that even with modifications, the classic roborobo demo is *not* impacted. I.e. same speed as before, no (or very small) overhead due to the new implementations. If you cannot address this, please do not commit your changes (and use  fork version for your own version).
+==> THIS IS VERY IMPORTANT for the sake of all other people working on it.
+
+OPTIMISATIONS:
+- backtracking collision could be made only for colliding robots. 
+- all agents of an organism will be registered (check RobotAgent::registerAgent), implying a loss negative impact on speed. "XXXX"
+
+=-=-=-=-=
+
+SUGGESTIONS:
+
+- Add four connector pointers in the Agent Class (pointers to other Agent)
+- Update symmetricaly (i.e. register/unregister of one docking impact both Agents)
+- Add a flag for ''first cell'' tagging the original first cell of an organism. 
+  => Used for entry point during position update.
+  => any non-''firstCell'' will not be considered in the update. Why: (1) avoid removing robot from the update list (cost probably negligible wrt to maintaining updated list) and (2) compatible wrt. current implementation.
+  => recommended alternative: ''int cellAge'' instead of first cell (cellAge=0 <=> firstCell=true, cellAge<>0 <=> firstCell=false)
+- When update on organism
+  - compute all new positions for each cell in the organism
+  - backtrack until no collision ==> Warning this may be *very* costly (use existing algo)
+  - compute mouvement for a reference virtual point, then re-compute all agents positions using displacement from this virtual point (rather than applying mouvement to each seperated agents -- prone to approximation)
+- disable user-control for robots in organism mode
+
+=-=-=-=-=
+
+Suggestion of coding road-map
+
+STEP 1: implementing docking status in agents.
+
+In Agent.h, add new attributes and methods
+  - what? an agent can dock to other. Therefore, any docking should be registered
+  - attributes: 
+	- (Agent*) {front,left,right,back}DockedAgent;  // to whom am i docked
+    - bool {front,left,right,back}DockedFlag;  // am i docked there ? (redundant with previous)
+    - bool cellAge; // cellAge=0 if first cell of an organism. Then, my.cellAge=cellAge-of-my-recruiter + 1. cellAge=-1 if not docked and not calling for an organism.
+  - methods:
+    - bool is{Front,Back,Left,Right}Docked() {…};
+
+STEP 2: adding organism to the update status procedure
+
+Remark: World.h contains an ''std::vector<RobotAgent*> agents;'' with all agents, used to update position. In World.cpp, the method updateWorld() manages position update, and addresses possible collisions.
+
+In World.cpp, modify updateWorld() method
+  => this method updates agent state
+  - what? agents that are part of an organism should be updated once
+  - how? agents are updated in shuffled order. Only one agent should be taken as an entry point for updating a whole organism. The agent tagged as a ''first cel'' of an organism is used as an entry point, all other are ignored.
+
+STEP 3a : managing docking (and undocking)
+
+Two agents may dock when in contact. 
+- If not in contact: assume organism stand still and new cell moves towards docking unit. straight-forward (ie. assume no alignement, cf. next step)
+- If in contact: apply rotation of the new cell wrt. target cell center until relative position are okay, then rotate to match desired orientation/polarity. In case of collision: cancel docking (i.e. not possible due to physical constraint)
+
+STEP 3b : computing position update for the organism (the tricky part)
+
+This part is tricky because 
+(1) position update depends on the aggregation of all agent's motor commands
+(2) collision must be taken into account -- and solved recursively
+(3) to avoid numerical error, position of each agent must be reconstructed from a reference. (ie. rather than apply mouvement to each agent, we applied mouvement to one virtual reference and then compute position of one physical agent, then reconstruct/position all other agents from this agent, one by one)
+
+Check RobotAgent::move(…):
+0. for an organism, only the move(…) method for the ''initial'' agent with cellAge=0 is called
+1. unregister all agents in the organism
+2. compute general displacement vector (gather each translation/rotation commands). As a first step, i would suggest starting with (a) compute barycenter, (b) sum all translation/rotation vector. Note that this will look realistic most of the time, but wont actually be realistic at all -- to compute a realistic method, you should implement situated friction.
+3. change position/orientation of ''initial'' agent, update position/orientation of all other agents from this point (i.e. teleport all agents one by one, wrt to their connected reference - e.g. agent #j is located/rotated wrt its ''parent'' in the organism). If collision is detected, cancel move, and try a less large mouvement (cf. current move implementation). 
+
+
+=-=-=-=-=
+
+

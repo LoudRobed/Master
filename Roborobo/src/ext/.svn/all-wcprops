@@ -1,0 +1,215 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/edearob/!svn/ver/109/dev/simu/Roborobo/src/ext
+END
+MedeaPheromonesConfigurationLoader.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/ext/MedeaPheromonesConfigurationLoader.cpp
+END
+BattleConfigurationLoader.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/ext/BattleConfigurationLoader.cpp
+END
+MedeaTwoSunsConfigurationLoader.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/ext/MedeaTwoSunsConfigurationLoader.cpp
+END
+EnergyPerceptronControlArchitecture.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/ext/EnergyPerceptronControlArchitecture.cpp
+END
+EvolvingRobotAgentWorldModelDangerWorld.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/ext/EvolvingRobotAgentWorldModelDangerWorld.cpp
+END
+MedeaAggregationConfigurationLoader.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/edearob/!svn/ver/109/dev/simu/Roborobo/src/ext/MedeaAggregationConfigurationLoader.cpp
+END
+MedeaOptimConfigurationLoader.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/ext/MedeaOptimConfigurationLoader.cpp
+END
+EnergyPoint.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/edearob/!svn/ver/28/dev/simu/Roborobo/src/ext/EnergyPoint.cpp
+END
+PerceptronBehaviorControlArchitecture.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/ext/PerceptronBehaviorControlArchitecture.cpp
+END
+MedeaAltruismBattleConfigurationLoader.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/ext/MedeaAltruismBattleConfigurationLoader.cpp
+END
+ReplayConfigurationLoader.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/ext/ReplayConfigurationLoader.cpp
+END
+OnePlusOneOnlineConfigurationLoader.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/ext/OnePlusOneOnlineConfigurationLoader.cpp
+END
+BasicProjectKilobotConfigurationLoader.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/ext/BasicProjectKilobotConfigurationLoader.cpp
+END
+MedeaEcologyConfigurationLoader.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/ext/MedeaEcologyConfigurationLoader.cpp
+END
+MedeaAltruismReEvoConfigurationLoader.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/ext/MedeaAltruismReEvoConfigurationLoader.cpp
+END
+MedeaAltruismIncreasePressureConfigurationLoader.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/ext/MedeaAltruismIncreasePressureConfigurationLoader.cpp
+END
+MedeaAltruismReplayPartialEvoConfigurationLoader.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/ext/MedeaAltruismReplayPartialEvoConfigurationLoader.cpp
+END
+SpikeAntsConfigurationLoader.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/ext/SpikeAntsConfigurationLoader.cpp
+END
+RobotAgentWorldInterfaceDangerWorld.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/edearob/!svn/ver/19/dev/simu/Roborobo/src/ext/RobotAgentWorldInterfaceDangerWorld.cpp
+END
+MedeaAltruismReplayConfigurationLoader.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/ext/MedeaAltruismReplayConfigurationLoader.cpp
+END
+MedeaConfigurationLoader.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/ext/MedeaConfigurationLoader.cpp
+END
+InanimateObject.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/ext/InanimateObject.cpp
+END
+MedeaHGTConfigurationLoader.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/ext/MedeaHGTConfigurationLoader.cpp
+END
+MedeaSpConfigurationLoader.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/ext/MedeaSpConfigurationLoader.cpp
+END
+MedeaAggregationBattleConfigurationLoader.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/edearob/!svn/ver/109/dev/simu/Roborobo/src/ext/MedeaAggregationBattleConfigurationLoader.cpp
+END
+BasicProjectAggregationConfigurationLoader.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/edearob/!svn/ver/20/dev/simu/Roborobo/src/ext/BasicProjectAggregationConfigurationLoader.cpp
+END
+BasicConfigurationLoader.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/ext/BasicConfigurationLoader.cpp
+END
+MedeaSpecializeConfigurationLoader.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/ext/MedeaSpecializeConfigurationLoader.cpp
+END
+MedeaCommConfigurationLoader.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/ext/MedeaCommConfigurationLoader.cpp
+END
+EvolvingRobotAgentWorldModel.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/ext/EvolvingRobotAgentWorldModel.cpp
+END
+StrongCausalityConfigurationLoader.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/ext/StrongCausalityConfigurationLoader.cpp
+END
+MedeaAltruismConfigurationLoader.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/edearob/!svn/ver/19/dev/simu/Roborobo/src/ext/MedeaAltruismConfigurationLoader.cpp
+END
+MedeaMovingSpConfigurationLoader.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/ext/MedeaMovingSpConfigurationLoader.cpp
+END
+MedeaAltUtilityConfigurationLoader.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/ext/MedeaAltUtilityConfigurationLoader.cpp
+END
+BasicProjectMedeaConfigurationLoader.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/ext/BasicProjectMedeaConfigurationLoader.cpp
+END

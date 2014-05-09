@@ -1,0 +1,187 @@
+10
+
+dir
+147
+http://basar.idi.ntnu.no/svn/edearob/dev/simu/Roborobo/prj
+http://basar.idi.ntnu.no/svn/edearob
+
+
+
+2014-01-11T21:37:28.051040Z
+136
+jeanmarm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+c02f4297-6486-e211-a182-005056930022
+
+mEDEA-sp
+dir
+
+mEDEA-twosuns
+dir
+
+mEDEA-HGT
+dir
+
+BasicProject-aggregation
+dir
+
+mEDEA-aggregation
+dir
+
+mEDEA-specialize
+dir
+
+mEDEA-optim
+dir
+
+SpikeAnts
+dir
+
+_HOWTO-clone-projects.txt
+file
+
+
+
+
+2013-05-30T13:35:08.901428Z
+502bb2c4e4b5fc9a6b5ff1d2ee9b59a9
+2013-03-21T13:22:44.721703Z
+12
+jeanmarm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2715
+
+mEDEA-comm
+dir
+
+BasicProject
+dir
+
+mEDEA-altruism
+dir
+
+OnePlusOne-Online
+dir
+
+BasicProject-Kilobot
+dir
+
+mEDEA-altruism-utility
+dir
+
+mEDEA-ecology
+dir
+
+mEDEA-MovingSp
+dir
+
+mEDEA
+dir
+
+BasicProject-mEDEA
+dir
+
+_README-projects-description.txt
+file
+
+
+
+
+2013-05-30T13:35:08.901428Z
+8443a4463cdad9b886b1fb7530d64163
+2013-03-21T13:22:44.721703Z
+12
+jeanmarm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1842
+
+createProjectFrom.sh
+file
+
+
+
+
+2013-05-30T13:35:08.901428Z
+fc8ab980ab4e9c4536c5afc109af270f
+2013-03-21T13:22:44.721703Z
+12
+jeanmarm
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+6199
+
+mEDEA-pheromones
+dir
+

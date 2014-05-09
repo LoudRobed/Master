@@ -1,0 +1,12 @@
+carrignon(at)lri.fr
+
+Newick tree are handleable with a lot of tools. R do it quite well with the "ade4" package, but an other way, maybe easier for someone who don't wan't to loose a day understanding R is to use a GUI such as Dendroscope
+
+To install it just go to 
+http://ab.inf.uni-tuebingen.de/software/dendroscope/
+and follow the instructions. 
+
+If you want to use R, there is also the ape package but it's remains some problem convertings our trees into the right phylo format. 
+
+TODO : soon more on R (script and so on)
+

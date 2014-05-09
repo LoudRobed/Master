@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/edearob/!svn/ver/104/dev/simu/Roborobo/perso/jeanmarc
+END
+validExperiment.sh
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/jeanmarc/validExperiment.sh
+END
+postExperimentKeepValid.sh
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/jeanmarc/postExperimentKeepValid.sh
+END
+postExperimentMove.sh
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/edearob/!svn/ver/76/dev/simu/Roborobo/perso/jeanmarc/postExperimentMove.sh
+END
+prepareReEvo.py
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/jeanmarc/prepareReEvo.py
+END
+postExperimentPartialEvo.sh
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/jeanmarc/postExperimentPartialEvo.sh
+END
+jmAltruism
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/jeanmarc/jmAltruism
+END
+runTipiPart.sh
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/jeanmarc/runTipiPart.sh
+END
+removeLogs.sh
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/jeanmarc/removeLogs.sh
+END
+examplePartialEvo.sh
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/jeanmarc/examplePartialEvo.sh
+END
+extractGenome.py
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/jeanmarc/extractGenome.py
+END
+postExperimentKeepValidArea-increasePressure.sh
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/jeanmarc/postExperimentKeepValidArea-increasePressure.sh
+END
+launchBattleMRCA.py
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/edearob/!svn/ver/104/dev/simu/Roborobo/perso/jeanmarc/launchBattleMRCA.py
+END
+jm-createProjectFrom.txt
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/jeanmarc/jm-createProjectFrom.txt
+END
+reEvoHead
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/jeanmarc/reEvoHead
+END
+deleteProject.sh
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/jeanmarc/deleteProject.sh
+END
+runTipiReEvo.sh
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/jeanmarc/runTipiReEvo.sh
+END
+postExperimentKeepValid-increasePressure.sh
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/jeanmarc/postExperimentKeepValid-increasePressure.sh
+END
+countExtinction.sh
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/jeanmarc/countExtinction.sh
+END

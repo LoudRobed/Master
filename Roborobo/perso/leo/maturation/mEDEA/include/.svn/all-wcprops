@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/leo/maturation/mEDEA/include
+END
+MedeaPerceptronControlArchitecture.h
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/leo/maturation/mEDEA/include/MedeaPerceptronControlArchitecture.h
+END
+BattleAgentObserver.h
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/leo/maturation/mEDEA/include/BattleAgentObserver.h
+END
+MedeaAgentObserver.h
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/leo/maturation/mEDEA/include/MedeaAgentObserver.h
+END
+MedeaAgentWorldModel.h
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/leo/maturation/mEDEA/include/MedeaAgentWorldModel.h
+END
+ReplayAgentObserver.h
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/leo/maturation/mEDEA/include/ReplayAgentObserver.h
+END
+BattleWorldObserver.h
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/leo/maturation/mEDEA/include/BattleWorldObserver.h
+END
+MedeaWorldObserver.h
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/leo/maturation/mEDEA/include/MedeaWorldObserver.h
+END
+MedeaSharedData.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/leo/maturation/mEDEA/include/MedeaSharedData.h
+END
+ReplayWorldObserver.h
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/leo/maturation/mEDEA/include/ReplayWorldObserver.h
+END

@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/edearob/!svn/ver/111/dev/simu/Roborobo/src/contrib/neuralnetworks
+END
+Elman.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/contrib/neuralnetworks/Elman.cpp
+END
+NNlib-ESN-standalone.tgz
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/contrib/neuralnetworks/NNlib-ESN-standalone.tgz
+END
+NeuralNetworkException.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/contrib/neuralnetworks/NeuralNetworkException.cpp
+END
+NeuralNetwork.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/contrib/neuralnetworks/NeuralNetwork.cpp
+END
+PUNN.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/contrib/neuralnetworks/PUNN.cpp
+END
+Perceptron.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/contrib/neuralnetworks/Perceptron.cpp
+END
+ReservoirNeuralNetwork.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/contrib/neuralnetworks/ReservoirNeuralNetwork.cpp
+END
+CTRNN.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/edearob/!svn/ver/111/dev/simu/Roborobo/src/contrib/neuralnetworks/CTRNN.cpp
+END
+LayeredNeuralNetwork.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/contrib/neuralnetworks/LayeredNeuralNetwork.cpp
+END
+NNlib-ESN.tgz
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/contrib/neuralnetworks/NNlib-ESN.tgz
+END
+MLP.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/src/contrib/neuralnetworks/MLP.cpp
+END
+RecurrentNeuralNetwork.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/edearob/!svn/ver/111/dev/simu/Roborobo/src/contrib/neuralnetworks/RecurrentNeuralNetwork.cpp
+END

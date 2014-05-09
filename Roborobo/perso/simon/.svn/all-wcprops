@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/simon
+END
+runParallal.sh
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/simon/runParallal.sh
+END
+getProp
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/simon/getProp
+END
+cleanAll.sh
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/simon/cleanAll.sh
+END

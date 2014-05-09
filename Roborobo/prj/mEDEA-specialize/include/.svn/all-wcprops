@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-specialize/include
+END
+MedeaSpecializeWorldObserver.h
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-specialize/include/MedeaSpecializeWorldObserver.h
+END
+MedeaSpecializeSharedData.h
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-specialize/include/MedeaSpecializeSharedData.h
+END
+MedeaSpecializePerceptronControlArchitecture.h
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-specialize/include/MedeaSpecializePerceptronControlArchitecture.h
+END
+MedeaSpecializeAgentObserver.h
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-specialize/include/MedeaSpecializeAgentObserver.h
+END
+MedeaSpecializeAgentWorldModel.h
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-specialize/include/MedeaSpecializeAgentWorldModel.h
+END

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/BasicProject-mEDEA/src
+END
+BasicProjectMedeaNNControlArchitecture.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/BasicProject-mEDEA/src/BasicProjectMedeaNNControlArchitecture.cpp
+END
+BasicProjectMedeaWorldObserver.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/BasicProject-mEDEA/src/BasicProjectMedeaWorldObserver.cpp
+END
+BasicProjectMedeaSharedData.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/BasicProject-mEDEA/src/BasicProjectMedeaSharedData.cpp
+END
+BasicProjectMedeaAgentObserver.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/BasicProject-mEDEA/src/BasicProjectMedeaAgentObserver.cpp
+END
+BasicProjectMedeaAgentWorldModel.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/BasicProject-mEDEA/src/BasicProjectMedeaAgentWorldModel.cpp
+END

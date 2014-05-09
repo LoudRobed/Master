@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-comm/include
+END
+MedeaCommWorldObserver.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-comm/include/MedeaCommWorldObserver.h
+END
+MedeaCommSharedData.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-comm/include/MedeaCommSharedData.h
+END
+MedeaCommEnergyPoint.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-comm/include/MedeaCommEnergyPoint.h
+END
+MedeaCommPerceptronControlArchitecture.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-comm/include/MedeaCommPerceptronControlArchitecture.h
+END
+MedeaCommAgentObserver.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-comm/include/MedeaCommAgentObserver.h
+END
+MedeaCommAgentWorldModel.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-comm/include/MedeaCommAgentWorldModel.h
+END

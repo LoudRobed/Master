@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/simon/sparsity
+END
+drawAllNetworks.sh
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/simon/sparsity/drawAllNetworks.sh
+END
+testAllSparsity.sh
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/perso/simon/sparsity/testAllSparsity.sh
+END

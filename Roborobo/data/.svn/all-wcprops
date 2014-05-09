@@ -1,0 +1,263 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/edearob/!svn/ver/104/dev/simu/Roborobo/data
+END
+coop_background.png
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/data/coop_background.png
+END
+miniagent-mask.png
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/data/miniagent-mask.png
+END
+zonecaption001.jpg
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/data/zonecaption001.jpg
+END
+simple_zones.png
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/data/simple_zones.png
+END
+default_environment.png
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/data/default_environment.png
+END
+agent-specs.png
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/data/agent-specs.png
+END
+simple_environment-2-big.png
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/data/simple_environment-2-big.png
+END
+danger_zones.png
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/data/danger_zones.png
+END
+simple_foreground-2-big.png
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/data/simple_foreground-2-big.png
+END
+coop_environment.png
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/data/coop_environment.png
+END
+simple_background-2-big.png
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/data/simple_background-2-big.png
+END
+agent-positive-mask.png
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/edearob/!svn/ver/13/dev/simu/Roborobo/data/agent-positive-mask.png
+END
+empty_foreground.png
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/edearob/!svn/ver/104/dev/simu/Roborobo/data/empty_foreground.png
+END
+miniagent-mask-blue.png
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/data/miniagent-mask-blue.png
+END
+danger_foreground.png
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/data/danger_foreground.png
+END
+agent-specs-round.png
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/data/agent-specs-round.png
+END
+danger_background.png
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/data/danger_background.png
+END
+agent-mask-black.png
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/data/agent-mask-black.png
+END
+default_zones.png
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/data/default_zones.png
+END
+envt03_environment.png
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/data/envt03_environment.png
+END
+simple_zones-big.png
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/data/simple_zones-big.png
+END
+envt03_foreground.png
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/data/envt03_foreground.png
+END
+simple_environment-2.png
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/data/simple_environment-2.png
+END
+simple_environment.png
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/data/simple_environment.png
+END
+miniagent-mask-orange.png
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/data/miniagent-mask-orange.png
+END
+envt03_background.png
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/data/envt03_background.png
+END
+default_foreground.png
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/data/default_foreground.png
+END
+agent-mask-edgesOnly.png
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/data/agent-mask-edgesOnly.png
+END
+coop_zones.png
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/data/coop_zones.png
+END
+simple_foreground-2.png
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/data/simple_foreground-2.png
+END
+default_background.png
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/data/default_background.png
+END
+simple_foreground.png
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/data/simple_foreground.png
+END
+danger_environment.png
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/data/danger_environment.png
+END
+empty_foreground.xcf
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/edearob/!svn/ver/104/dev/simu/Roborobo/data/empty_foreground.xcf
+END
+miniagent-specs.png
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/data/miniagent-specs.png
+END
+agent-mask.png
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/data/agent-mask.png
+END
+simple_background-2.png
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/data/simple_background-2.png
+END
+agent-negative-mask.png
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/edearob/!svn/ver/13/dev/simu/Roborobo/data/agent-negative-mask.png
+END
+simple_background.png
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/data/simple_background.png
+END
+coop_foreground.png
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/data/coop_foreground.png
+END
+miniagent-mask-edgesOnly.png
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/data/miniagent-mask-edgesOnly.png
+END
+envt03_zones.png
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/data/envt03_zones.png
+END
+danger_template.psd
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/data/danger_template.psd
+END

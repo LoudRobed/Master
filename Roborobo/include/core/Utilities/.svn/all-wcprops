@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/edearob/!svn/ver/20/dev/simu/Roborobo/include/core/Utilities
+END
+SDL_gfxPrimitives.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/core/Utilities/SDL_gfxPrimitives.h
+END
+SDL_gfxPrimitivesExtra.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/core/Utilities/SDL_gfxPrimitivesExtra.h
+END
+SDLMain.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/core/Utilities/SDLMain.h
+END
+SDL_gfxPrimitives_font.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/core/Utilities/SDL_gfxPrimitives_font.h
+END
+SDL_gfxRoborobo.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/edearob/!svn/ver/20/dev/simu/Roborobo/include/core/Utilities/SDL_gfxRoborobo.h
+END
+Misc.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/core/Utilities/Misc.h
+END
+LogManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/core/Utilities/LogManager.h
+END
+ExtendedProperties.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/core/Utilities/ExtendedProperties.h
+END
+Timer.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/core/Utilities/Timer.h
+END

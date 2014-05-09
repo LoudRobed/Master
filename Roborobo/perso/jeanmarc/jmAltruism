@@ -1,0 +1,903 @@
+# 21 09 2010
+
+first test (20109021_09h15):
+----------------
+init energy of 100
+energy max of 400 
+energy revive of 500
+
+400 energy points of size 10 and value 100
+respawn lag of 400
+
+only one run is stored, but all the other trials shows the same thing
+Is the respawn lag already dynamic ?
+	|_ Yes. This is one of the parameter to play with
+
+# modify the parameters so that it's easier to change the slope of the respawn lag
+
+11h19
+-----------
+respawn threshold : 50
+lower bound respawn : 400
+higher bound respawn : 4000
+try longer to see if something happen after
+answer : no
+
+11h33
+--------
+increase a lot the uperbound of respawn lag : 40001 *
+result : the task is just harder, but still almost always selfish
+
+14h19m05s
+--------
+respawn threshold : 50
+lower bound respawn : 400
+higher bound respawn : 4000
+gMaxEnergyPoints = 800 *
+gEnergyPointRadius = 5.0 *
+gEnergyPointValue = 50.0  * 
+try to use a lot of small energy points
+result : similar. The level of wasted energy but can be explained by the use of small energy points. In average robots have always a lowest energy, they have to move more in order to reach small energy points
+
+
+14h19m12s & 14h32 
+--------
+respawn threshold : 50
+lower bound respawn : 400
+higher bound respawn : 4000
+gMaxEnergyPoints = 200 *
+gEnergyPointRadius = 20.0 *
+gEnergyPointValue = 200.0 * 
+try to use few big energy points
+result : doesn't work all the time. Differences ? The energy seems more harvested in the exepriment which is working
+
+14h45 & 14h46
+--------
+gEnergyMax = 800 *
+respawn threshold : 50
+lower bound respawn : 400
+higher bound respawn : 4000
+gMaxEnergyPoints = 200
+gEnergyPointRadius = 20.0
+gEnergyPointValue = 200.0   
+increase the maximum energy in the big points setup
+result : doesn't works all the time, and it's hard to know why.
+in 14h46 : why is the wasted energy dropping down ?
+
+##############
+The indicator chosen can also show that there is no good strategy to harvest :
+ - Sometimes the energy wasted is low because robots doesn't manage to survive. 
+ - Some other times the energy harvested is high an there is almost all the robots active
+
+Analyze the whole run. Is there a way to see the differences between individuals. Plotting points ?
+Has to be put in correlation with the number of active robot or the number of genomes in the list ?
+There is no threshold to say if the run is altruistic or not.
+##############
+
+fewBigEnergyPoint-200-20-200-800
+--------
+gEnergyMax = 800 *
+respawn threshold : 50
+lower bound respawn : 400
+higher bound respawn : 4000
+gMaxEnergyPoints = 200
+gEnergyPointRadius = 20.0
+gEnergyPointValue = 200.0   
+Run many test (20) with this setup
+
+##############
+1 - Realized that there was a bug in the value displayed. Bug effective on the high values of wasted energy. Will redo the experiments after correcting the bug
+3 - representation mergee de plusieurs run. Comment represente l'info sur un seul graph ?
+2 - implementer la possibilite de prendre une partie du point d'energy. Respawn lag proportionnel a l'energie prise sur le point
+##############
+
+fewBigEnergyPoint2-200-20-200-800
+--------
+gEnergyMax = 800 *
+respawn threshold : 50
+lower bound respawn : 400
+higher bound respawn : 4000
+gMaxEnergyPoints = 200
+gEnergyPointRadius = 20.0
+gEnergyPointValue = 200.0   
+Run many test (60) with this setup
+The display bug has been corrected
+
+
+#22 09 2010
+
+draw the results on the 60 experiments of fewBigEnergyPoint2. Same stuff
+
+11h58
+--------
+First implementation of the dynamic harvesting
+Is done with the big energy point setup
+gEnergyMax = 800 *
+respawn threshold : 50
+lower bound respawn : 400
+higher bound respawn : 4000
+gMaxEnergyPoints = 200
+gEnergyPointRadius = 20.0
+gEnergyPointValue = 200.0  
+result : It's clear that selfish appear and take the whole population
+
+##############
+At first redo a test with fix respawn lag. Expect to see the same result
+Then, Will do a test with many small points. Expect to see altruistic behavior
+##############
+
+15h06
+--------
+gEnergyMax = 800 
+respawn threshold : 100 *
+lower bound respawn : 400
+higher bound respawn : 4000
+gMaxEnergyPoints = 200
+gEnergyPointRadius = 20.0
+gEnergyPointValue = 200.0  
+result : not exactly the same result as in the morning but really I don't think it comes from the dynamic. Will run many test later to know.
+
+15h20
+--------
+gEnergyMax = 800 
+respawn threshold : 100 
+lower bound respawn : 400
+higher bound respawn : 4000
+gMaxEnergyPoints = 200 *
+gEnergyPointRadius = 20.0 *
+gEnergyPointValue = 200.0 *
+result : have a hard time to obtain a high number of robots ...
+but still goes to selfish
+
+##############
+The implementation of dynamic was stupid. The energy still disapear and was fully loaded. 
+So have to implement dynamic respawn. Respawn time of an energy point will be the only thing changing in compare to the energy taken from this energy point.
+Woudld be better to have the NN saying how much energy it wants in absolute value and not in proportion
+##############
+
+Implementation of dynamic respawn
+
+#24 09 2010
+
+##############
+Should have a measure for the whole life (nb of energy point taken, or amount of energy taken). This will somehow take into consideration the fact that sometimes the robot carefully aboid an energy point.
+pb : it will be also linked to the number of active robot
+##############
+
+12h51m29s
+--------
+gEnergyMax = 800 
+respawn threshold : 100 
+lower bound respawn : 400
+higher bound respawn : 4000
+gMaxEnergyPoints = 800
+gEnergyPointRadius = 5.0 
+gEnergyPointValue = 50.0 
+this totalHarvested measure is actually the deltaEnergy measure, doesn't say anything about the atruistic features of the agents. Just see that there is a consensus to take approximately what is needed to survive
+There is a difference between deltaEnergy an totalEnergyHarvested : deltaE take also into account the movements of the robot. The total energy harvested only shows the energy harvested
+just one thing : good to see that we have the same thing with the fuzzy energy points and the previous ones 
+another thing : at 25000 there is a jump in the values of harvestedEnergy and totalHarvestedEnergy, but no jump in the number of robots. Means a move towards selfishness
+
+#26 09 2010
+
+#implementation of fuzzy respawn
+
+11h14
+--------
+gHighestBoundRespawn = 40*
+gMaxEnergyPoints = 800
+gEnergyPointRadius = 5.0
+gEnergyPointValue = 50.0
+The measure use is the energyLeft (between 800 and 0)/energyTaken(between 50 and 0). The result has been displayed with points to see the apparation of different strategies.
+At first really altruistic strategy, then it disappear. Then one can think that the agent become good enough at moving and therfore there is a lack of pressure on this parameter (start to go toward altruism)
+If this tendency to altruism is confirmed, should make the runs last longer
+find a measure between 0 and 1 (energyLeft(between 0 and 1)/energyTaken(between 0 and 1)). If the measure is equal to 1 the agent is selfish, otherwise altruistic
+Actually the division isn't a good measure because it's hard to read. 
+1/1 = 1 : selfish agent
+1/0.01 = 100 : ?? agent. Ok he has took some energy, but not that much. He is for sure less selfish than the previous example. But the value shows that he is actually more selfish ...
+what about multiplying the two of them ?
+Real solution should probably be to make a 3d plot or something like that
+When multiplying energyLeft and energyTaken:
+	- seen an increase which would mean a more selfish behavior
+	- in the end can see a drop but the run should have last longer
+
+##############
+Do many runs with different setup (hope to see always altruism but in different ways)
+Trace a movie with energyLeft on one axis and energyTaken on the other axis
+##############
+
+#27 09 2010
+
+manySmallPoints-40
+--------
+gMaxIt = 80000 *
+gHighestBoundRespawn = 40
+gMaxEnergyPoints = 800
+gEnergyPointRadius = 5.0 
+gEnergyPointValue = 50.0
+many extinction : 14/60
+has make the run two times longer to see some evlolutions : it was a good idea
+different strategy available. It seems that the altruistic indicator can move freely between 0 and 1 and still maintain around 100 agent alive
+three runs are detailed in the directory examples : 
+	shows that indeed there is many strategies available. 
+	energyLeft and energyTaken are correlated in the different strategies (increase together, decrease together)
+	multiplication of the two is a good way to show altruism
+	seems that can be altruistic if move differently (correlation movement, energy taken)
+Movie + second look at the graphs: it seems that in this setup egoism is more stable than altruism because:
+	on the video one can see high dispertion on the altruistic runs
+	in the graph, there is switches from altruism to egoism but never full switch back
+
+##############
+design an experiment which force a strategy ? Have the feeling that the 2609 was too easy (too many strategy possible)
+However we have already 23% of the run failing, shouldn't increase too much the difficulty
+##############
+
+manySmallPoints-400
+--------
+gMaxIt = 80000 
+gHighestBoundRespawn = 400*
+gMaxEnergyPoints = 800
+gEnergyPointRadius = 5.0 
+gEnergyPointValue = 50.0
+extinctions : 13/30
+The altruistic measure is quite low in the succeeding runs but that's only because it's harder to find an energy point. Therefore the wasted erngy is low
+
+#28 09 2010
+
+fewBigPoints-40
+--------
+gMaxIt = 80000 
+gHighestBoundRespawn = 40
+gMaxEnergyPoints = 200 *
+gEnergyPointRadius = 20.0 * 
+gEnergyPointValue = 200.0 *
+
+#29 09 2010
+
+network problem
+
+fewBigPoints-400
+--------
+gMaxIt = 80000 
+gHighestBoundRespawn = 400 *
+gMaxEnergyPoints = 200
+gEnergyPointRadius = 20.0 
+gEnergyPointValue = 200.0
+It was looking like it was working well with a respawnLag max of 40. So try with 400 even if I haven't the full results of 40
+With less point there is higher variations around the quartile. 
+Value of harvesting can be centered around 50% of the energy point, even in this difficult setup.
+Have some altruistic runs : 18h29 looks like it is stable
+
+#30 09 2010
+
+get the results from computer, move files at various places
+
+##############
+#TODO :
+When altruism is present it doesn't prevent egoistic behaviors. This could explain the high variations when altruistic behavior is used in the swarm. However when a certain amount of the population use selfish behavior, it becomes impossible for altruism to emmerge. And this explain why selfish behavior looks more stable
+future experiments :
+0 - find another measure than the wastedEnergy. Something which show if the robot "decided" to take the energy point.
+1a - Would like to show if "enabling" altruism has an advantage. Therefore will run the fewBigPoints and manySmall points with max harvesting automatically
+	Stupid, of course it will be better. Have already shown that when agents have the possibility, they modify the energy harvested
+1b - Find a setup in which egoist behavior perform worth than altruistic behaviors, increase the number of robots ? decrease the number of energy point ?
+	The idea is to have a setup that can end in two types of run : selfish with a certain percentage of the population active and altruist with all the population active.
+	Can mEDEA do that ? Doesn't she try to maximise all the time the number of active robot ?
+2 Is there a locality in the altruistic behavior ? would like to see if it appears at a first place and spread from there
+##############
+
+It's time to work on the latex file !
+
+#01 10 10
+
+fewBigPoints-600
+--------
+gMaxIt = 80000 
+gHighestBoundRespawn = 600 *
+gMaxEnergyPoints = 200
+gEnergyPointRadius = 20.0 
+gEnergyPointValue = 200.0
+Want to see if I can obtain an experiment with selfish behavior and less than 100 active robots
+
+#02 10 10
+
+##############
+complete new analysis of all the results !
+By looking at the total energyHarvested, one can see that in the fewBigPoint setup that the population maintain with a median at 200 ! (while the needed amount of energy to make one robot survive one generation is 400)
+In the manySmallPoint-40, the median move between 300 and 500. 
+In the manySmallPoint-400 (conditions really hard), the successfull runs shows a median at 100 !
+Above 400 is selfish, under is altruistic !
+Altruism when agents have to share the ressources !
+##############
+
+changeInactive-40
+--------
+When the robot is inactive it doesn't use any energy
+gMaxIt = 80000 
+gHighestBoundRespawn = 40
+gMaxEnergyPoints = 200
+gEnergyPointRadius = 20.0 
+gEnergyPointValue = 200.0
+results:
+
+changeInactive-400
+--------
+gMaxIt = 80000 
+gHighestBoundRespawn = 400
+gMaxEnergyPoints = 200
+gEnergyPointRadius = 20.0 
+gEnergyPointValue = 200.0
+results :
+
+#05 10 10
+
+##############
+When the pressure is max, is the system altruist ? or selfish ?
+The value of the energyPoint depend of the number of robots ? Would allow smoother reaction of the swarm
+##############
+
+#add a synchronisation system when the robot die
+
+changeInactive-1500
+--------
+gMaxIt = 80000 
+gHighestBoundRespawn = 1500*
+gMaxEnergyPoints = 200
+gEnergyPointRadius = 20.0 
+gEnergyPointValue = 200.0
+result : finnaly got some runs that doesn't achieve all the time the maximum number of robots.
+Now the problem is that the values are really spread
+
+#change a bit the synchronization : after the synchronization period, reset the genome list. So the number of genome in the list after is fair
+#add a log of the number of active energyPoint
+
+101006-200-400-100
+--------
+gMaxIt = 80000 
+gHighestBoundRespawn = 200*
+gMaxEnergyPoints = 400 *
+gEnergyPointRadius = 10.0 *
+gEnergyPointValue = 100.0 *
+result : the new measure of altuism seems to be a good one. 
+When it's too low (altuist) the agents can't increase their numbers : they take too few energy
+When it gets higher than the threshold (selfish), this decrease the number of energy point availble. However there is still around 200 energy points available at any time.
+One can also see that once the population went into one path (altuist or selfish), it rarely moves out of it.
+This is pretty anoying because the population never reach 100 even if there is some energy point left
+Another annoying effect is that when the selfishness increase, the number of active agent don't drop
+Now the aim will be to design an experiment where switching to selfishness means reducing the number of active agents
+
+101007-200-200-100
+--------
+gMaxIt = 80000 
+gHighestBoundRespawn = 200
+gMaxEnergyPoints = 200 *
+gEnergyPointRadius = 10.0 
+gEnergyPointValue = 100.0 
+try to reduce the number of energy point. Expect to don't see any run working at all. Next thing will probably to increase their size
+results : Surprisingly some runs have work. It seems that under 150 energy points the task is unfeasible.
+Will try to increase the energy given in order to have more agents in the population and be able to see the number of energy points going closer to zero
+
+101008-200-200-200
+--------
+gMaxIt = 80000 
+gHighestBoundRespawn = 200
+gMaxEnergyPoints = 200 *
+gEnergyPointRadius = 10.0 
+gEnergyPointValue = 200.0 
+#actually what was considered as an altuist measure is the measure of the energy wasted
+#modify and re-run the wastedEnergyScript on 101008-200-200-200
+so if the energyWasted isn't high eneough the population can't develop. However there seems to be no drawback in terms on number of active agents when the the energy Wasted increase relly high.
+
+#Still try to design the setup which will reduce the number of active agent when the energy Wasted is too high
+#If this doesn't work at all, should think about using a variable highesBoundRespawn relative to the number of agents
+
+101008-100-100-100
+--------
+gMaxIt = 80000 
+gHighestBoundRespawn = 100
+gMaxEnergyPoints = 100 *
+gEnergyPointRadius = 10.0 
+gEnergyPointValue = 100.0 
+result : ok still the same variations, just fewer runs which are working
+Will try to design a basic experiment with many energy points : expecting to reduce the noise in the measures
+Then the highestBoundRespawnLag should be modified
+
+101011-800-50-100
+--------
+gMaxIt = 80000 
+gMaxEnergyPoints = 800 *
+gEnergyPointRadius = 10.0 
+gEnergyPointValue = 50.0 * 
+gHighestBoundRespawn = 100
+non-valid runs : 9/30
+result :
+In all the valid runs (around 100 active robots) one can observer the similar facts :
+the number of active robot is rising faster when a selfish behavior is used
+The number of active robot is more stable when a selfish behavior is used after an altuistic one.
+Once the maximum number of active robot has been reached the behavior (selfish or altruistic) can change almost freely
+The cost measure is always high at the beginning of a run because the robots aren't really able to get the energy points
+However the setup seems to be a bit hard. We consider that 9 runs out of 30 aren't valid (too few active robots)
+
+#Will progressively increase the respawn bound to see whtats happening
+
+101011-800-50-200
+--------
+gMaxIt = 80000 
+gMaxEnergyPoints = 800 
+gEnergyPointRadius = 10.0 
+gEnergyPointValue = 50.0  
+gHighestBoundRespawn = 200 *
+non-valid runs : 16/30
+result : hey for once I can see what I want. 
+In this setup the values are restrained around higher cost values. I suggest that this is because it brings a higher benefit to other robots. Therefore allowing more robot to survive.
+So for the moment, the conclusion is : more pressure, more altruism
+Still the runs with more selfish behaviors are the one with higher number of agents
+
+101011-800-50-300
+--------
+gMaxIt = 80000 
+gMaxEnergyPoints = 800 
+gEnergyPointRadius = 10.0 
+gEnergyPointValue = 50.0  
+gHighestBoundRespawn = 300 *
+non-valid runs : 16/30
+result : yay ! confirmation ! Result are even more focus around high cost
+
+#note that with dynamic harvesting there is fewere where there isn't any acitve robot.
+
+101011-800-50-400
+--------
+gMaxIt = 80000 
+gMaxEnergyPoints = 800 
+gEnergyPointRadius = 10.0 
+gEnergyPointValue = 50.0  
+gHighestBoundRespawn = 400 *
+non-valid runs : 22/30
+result : values are also center around the high cost. Some low cost values. More or less the same results as with 300
+The median can reach 150
+
+101012-800-50-500
+--------
+gMaxIt = 80000 
+gMaxEnergyPoints = 800 
+gEnergyPointRadius = 10.0 
+gEnergyPointValue = 50.0  
+gHighestBoundRespawn = 500 *
+non-valid runs : 23/30
+result : again valuse center around the mediam. The median is stuck between 150 and 200. It never goes under 
+
+101012-800-50-600
+--------
+gMaxIt = 80000 
+gMaxEnergyPoints = 800 
+gEnergyPointRadius = 10.0 
+gEnergyPointValue = 50.0  
+gHighestBoundRespawn = 600 *
+non-valid runs : 25/30
+result : ok always the same thing. Value centered around the median and between 150 and 200
+
+#Will continue in higher value when the validExperiment.sh script is ready and when will be able to display one graph for one setup
+
+101013-800-50-50
+--------
+gMaxIt = 80000 
+gMaxEnergyPoints = 800 
+gEnergyPointRadius = 10.0 
+gEnergyPointValue = 50.0  
+gHighestBoundRespawn = 50 *
+non-valid runs : 1/30
+results : surprinsing that there is still one run which isn't working
+show what we want. Diversity of solutions and in some cases, strong convergence towards selifsh solutions
+
+# add extract benefit
+# benefit is computed this way : 1 - ( EP_{Lag_{current}} / EP_{lag_{Max}} )
+# add a script to launch X SUCCESSFUL experiments
+
+##############
+all the deduction were wrong because the wrong level of energy point was used in the altruisticMeasure filter. This error explain the weird stuff seen around the value 150.
+Now the results are really blurry. Try to launch 100 successfull run in order to see if something is happening
+##############
+
+# launch 100 successful runs on tipi
+# stored in 101018-800-50-XX-100 ; where XX is the respawnLag used
+
+101018-800-50-25-100
+--------
+gMaxIt = 80000 
+gMaxEnergyPoints = 800 
+gEnergyPointRadius = 10.0 
+gEnergyPointValue = 50.0  
+gHighestBoundRespawn = 25 *
+non-valid runs : 100/101
+
+101018-800-50-50-100
+--------
+gMaxIt = 80000 
+gMaxEnergyPoints = 800 
+gEnergyPointRadius = 10.0 
+gEnergyPointValue = 50.0  
+gHighestBoundRespawn = 50 *
+non-valid runs : 100/106
+
+101018-800-50-75-100
+--------
+gMaxIt = 80000 
+gMaxEnergyPoints = 800 
+gEnergyPointRadius = 10.0 
+gEnergyPointValue = 50.0  
+gHighestBoundRespawn = 75 *
+non-valid runs : 100/115
+
+101018-800-50-100-100
+--------
+gMaxIt = 80000 
+gMaxEnergyPoints = 800 
+gEnergyPointRadius = 10.0 
+gEnergyPointValue = 50.0  
+gHighestBoundRespawn = 100 *
+non-valid runs : 100/135
+
+##############
+On the four previous runs, I have only take a look at the combine version of the results.
+The only significant differences is in the lower quartile. With more difficult setup it is going up. 
+With our courrent cost measure, this would mean that with more difficult setup the agents tend to take a more altruistic behavior. This has to be confirmed by other experiments.
+It would be nice to draw a graph of the 100 runs at once. This would require a new program to extract the data. Merging 100 logfiles won't work.
+##############
+
+101020-800-50-125-100
+--------
+gMaxIt = 80000 
+gMaxEnergyPoints = 800 
+gEnergyPointRadius = 10.0 
+gEnergyPointValue = 50.0  
+gHighestBoundRespawn = 100 *
+non-valid runs : 100/146
+
+101020-800-50-150-100
+--------
+gMaxIt = 80000 
+gMaxEnergyPoints = 800 
+gEnergyPointRadius = 10.0 
+gEnergyPointValue = 50.0  
+gHighestBoundRespawn = 100 *
+non-valid runs : 100/177
+
+101020-800-50-175-100
+--------
+gMaxIt = 80000 
+gMaxEnergyPoints = 800 
+gEnergyPointRadius = 10.0 
+gEnergyPointValue = 50.0  
+gHighestBoundRespawn = 100 *
+non-valid runs : 100/188
+
+101020-800-50-200-100
+--------
+gMaxIt = 80000 
+gMaxEnergyPoints = 800 
+gEnergyPointRadius = 10.0 
+gEnergyPointValue = 50.0  
+gHighestBoundRespawn = 100 *
+non-valid runs : 100/196
+
+##############
+It seems that indeed with more difficult setup the values (in combine graphs) are fucussing around the median. The interpretation I'm able to draw from that is that with more difficult setup there is fewer strategies available.
+However the thing isn't really smooth. It seems that around lagMax=150, there is a movement to altruism ...
+I'm now also drowing the benefit curves in order to see if something doesn't change there
+I have run 100 valid experiments with lagMax = [225,250,275, .... , 375,400] to see it this focussing around the median continue
+##############
+
+Benefit result of the first 8 set of parameter :
+decreasing of the benefit ? Stay steady ? to confirm with other runs
+Other runs : steady and convergence around the median. Much like the cost
+
+# must find a common unit for cost and benefit
+# them trace the cost/benefit measure
+# formalize the fact that agents choose their own ration cost/benefit, or find cost/benefit in the environement.
+
+101022-800-50-225-100
+--------
+gMaxIt = 80000 
+gMaxEnergyPoints = 800 
+gEnergyPointRadius = 10.0 
+gEnergyPointValue = 50.0  
+gHighestBoundRespawn = 100 *
+non-valid runs : 100/235
+
+101022-800-50-250-100
+--------
+gMaxIt = 80000 
+gMaxEnergyPoints = 800 
+gEnergyPointRadius = 10.0 
+gEnergyPointValue = 50.0  
+gHighestBoundRespawn = 100 *
+non-valid runs : 100/247
+
+101022-800-50-275-100
+--------
+gMaxIt = 80000 
+gMaxEnergyPoints = 800 
+gEnergyPointRadius = 10.0 
+gEnergyPointValue = 50.0  
+gHighestBoundRespawn = 100 *
+non-valid runs : 100/275
+
+101022-800-50-300-100
+--------
+gMaxIt = 80000 
+gMaxEnergyPoints = 800 
+gEnergyPointRadius = 10.0 
+gEnergyPointValue = 50.0  
+gHighestBoundRespawn = 100 *
+non-valid runs : 100/309
+
+101022-800-50-325-100
+--------
+gMaxIt = 80000 
+gMaxEnergyPoints = 800 
+gEnergyPointRadius = 10.0 
+gEnergyPointValue = 50.0  
+gHighestBoundRespawn = 100 *
+non-valid runs : 100/282
+
+101022-800-50-350-100
+--------
+gMaxIt = 80000 
+gMaxEnergyPoints = 800 
+gEnergyPointRadius = 10.0 
+gEnergyPointValue = 50.0  
+gHighestBoundRespawn = 100 *
+non-valid runs : 100/315
+
+101022-800-50-375-100
+--------
+gMaxIt = 80000 
+gMaxEnergyPoints = 800 
+gEnergyPointRadius = 10.0 
+gEnergyPointValue = 50.0  
+gHighestBoundRespawn = 100 *
+non-valid runs : 100/354
+
+101022-800-50-400-100
+--------
+gMaxIt = 80000 
+gMaxEnergyPoints = 800 
+gEnergyPointRadius = 10.0 
+gEnergyPointValue = 50.0  
+gHighestBoundRespawn = 100 *
+non-valid runs : 100/308
+
+combine Cost Measure on every setup
+--------
+-Basically the cost is always noisy and always going towards around the same value. 
+-After lagMax > 50 values tend to stick around the median
+-There is a significant (?) drop in the median beetween lagMax < 200 and lagMax > 200 
+
+##############
+trouver une nouvelle mesure pour le bénéfice de la pop
+vérifier si prise d'énergie varie en fonction de l'énergie dans la batterie
+sinon pourquoi ils ne prennent pas la valeur max ? 
+quelle est la quantité d'énergie prise à chaque point ?
+##############
+
+##############
+add display of the amount of energy taken on one point :
+Later : this actually correspond to the harvested energy, will use this filter
+- if it's variable will try to see the correlation between energy of a robot and energy taken
+- if it goes towards a constant value, then we will now that they just tend to use always the same "safe" value
+##############
+
+Display the energyHarvested on 101020-800-50-125-100 : 
+--------
+on most runs, can see variation around a median. Sometimes the value are really close to the median
+The median isn't always the same
+Have to trace a graph with energy left on one axis and energy taken on the other
+Will still trace a combine version for every setup
+
+##############
+Later : the correlation is already done in MedeaAltruism-movie scripts
+Add a script there to display energyHarvested in fonction of energyLeft for each image of a folder (runRatio.sh). The analysis take place on the last 10000 iteration
+##############
+
+energyHarvested wrt energyLeft graph on 101020-800-50-125-100:
+--------
+bahh ! Have try to take a shortcut by not displaying it for the whole pop instead of one agent, but it doesn,t work.
+Have to extract one agent, replay it, trace what he has done
+
+Combine energy harvested on every setup
+--------
+The energy harvested follow the same path as the cost:
+- all runs of one setup tends towards the median value
+- values are noisy
+- After lagMax > 50 values tend to stick around the median
+- There is a significant (?) increase in the median beetween lagMax < 200 and lagMax > 200 (this should somehow correspond to the drop in the cost value) 
+
+energyHarvested wrt energyLeft graph on one agent of 101020-800-50-125-100:
+--------
+It seems that indeed the value harvested doesn't depend of the energy level of the agent. Will try to replay every agent of the iteration 79599 to see if it's really the case
+
+101027-125-Replay-101018-14h48m35s
+--------
+Something weird when replaying two times the same agent, doesn't obtain two time the same behavior :
+- sometimes turn around itself, sometime explore
+- sometimes take a low level of energy, sometimes take a high level (but then the level is constant during all the replay run)
+
+
+##############
+Have found an error in the perceptron : 
+- the computation of the closest energy point distance and angleTo was taking into account all the energy points ( active and unactive )
+Have found an error in ReplayWorldObserver :
+- was only loading 76 genomes. Therefore, the others were random ...
+Launch again all the experiments because of the perceptron. Don't think it will change the result
+##############
+
+101102-800-50-25-100
+--------
+gMaxIt = 80000 
+gMaxEnergyPoints = 800 
+gEnergyPointRadius = 10.0 
+gEnergyPointValue = 50.0  
+gHighestBoundRespawn = 25 *
+valid runs : 100/101
+
+101102-800-50-50-100
+--------
+gMaxIt = 80000 
+gMaxEnergyPoints = 800 
+gEnergyPointRadius = 10.0 
+gEnergyPointValue = 50.0  
+gHighestBoundRespawn = 50 *
+valid runs : 100/101
+
+101102-800-50-75-100
+--------
+gMaxIt = 80000 
+gMaxEnergyPoints = 800 
+gEnergyPointRadius = 10.0 
+gEnergyPointValue = 50.0  
+gHighestBoundRespawn = 75 *
+valid runs : 100/116
+
+101102-800-50-100-100
+--------
+gMaxIt = 80000 
+gMaxEnergyPoints = 800 
+gEnergyPointRadius = 10.0 
+gEnergyPointValue = 50.0  
+gHighestBoundRespawn = 100 *
+valid runs : 100/118
+
+##############
+correcting the bug seems to make the task easier to solve
+##############
+
+101104-800-50-125-100
+--------
+gMaxIt = 80000 
+gMaxEnergyPoints = 800 
+gEnergyPointRadius = 10.0 
+gEnergyPointValue = 50.0  
+gHighestBoundRespawn = 125 *
+valid runs : 100/130
+
+101104-800-50-150-100
+--------
+gMaxIt = 80000 
+gMaxEnergyPoints = 800 
+gEnergyPointRadius = 10.0 
+gEnergyPointValue = 50.0  
+gHighestBoundRespawn = 150 *
+valid runs : 100/139
+
+101104-800-50-175-100
+--------
+gMaxIt = 80000 
+gMaxEnergyPoints = 800 
+gEnergyPointRadius = 10.0 
+gEnergyPointValue = 50.0  
+gHighestBoundRespawn = 175 *
+valid runs : 100/168
+
+101104-800-50-200-100
+--------
+gMaxIt = 80000 
+gMaxEnergyPoints = 800 
+gEnergyPointRadius = 10.0 
+gEnergyPointValue = 50.0  
+gHighestBoundRespawn = 200 *
+valid runs : 100/163
+
+101108-800-50-225-100
+--------
+gMaxIt = 80000 
+gMaxEnergyPoints = 800 
+gEnergyPointRadius = 10.0 
+gEnergyPointValue = 50.0  
+gHighestBoundRespawn = 225 *
+valid runs : 100/176
+
+101108-800-50-250-100
+--------
+gMaxIt = 80000 
+gMaxEnergyPoints = 800 
+gEnergyPointRadius = 10.0 
+gEnergyPointValue = 50.0  
+gHighestBoundRespawn = 250 *
+valid runs : 100/175
+
+101108-800-50-275-100
+--------
+gMaxIt = 80000 
+gMaxEnergyPoints = 800 
+gEnergyPointRadius = 10.0 
+gEnergyPointValue = 50.0  
+gHighestBoundRespawn = 275 *
+valid runs : 100/200
+
+101108-800-50-300-100
+--------
+gMaxIt = 80000 
+gMaxEnergyPoints = 800 
+gEnergyPointRadius = 10.0 
+gEnergyPointValue = 50.0  
+gHighestBoundRespawn = 300 *
+valid runs : 100/184
+
+101108-800-50-325-100
+--------
+gMaxIt = 80000 
+gMaxEnergyPoints = 800 
+gEnergyPointRadius = 10.0 
+gEnergyPointValue = 50.0  
+gHighestBoundRespawn = 325 *
+valid runs : 100/210
+
+101108-800-50-350-100
+--------
+gMaxIt = 80000 
+gMaxEnergyPoints = 800 
+gEnergyPointRadius = 10.0 
+gEnergyPointValue = 50.0  
+gHighestBoundRespawn = 350 *
+valid runs : 100/215
+
+101108-800-50-375-100
+--------
+gMaxIt = 80000 
+gMaxEnergyPoints = 800 
+gEnergyPointRadius = 10.0 
+gEnergyPointValue = 50.0  
+gHighestBoundRespawn = 375 *
+valid runs : 100/228
+
+101108-800-50-400-100
+--------
+gMaxIt = 80000 
+gMaxEnergyPoints = 800 
+gEnergyPointRadius = 10.0 
+gEnergyPointValue = 50.0  
+gHighestBoundRespawn = 400 *
+valid runs : 100/197
+
+##############
+results are similar. However, all the runs of all the setups start strictly with an altruistic behavior. This should be investigated
+##############
+
+101112-1
+--------
+small test on the speed of robots
+gMaxTranslationalSpeed = 1 *
+gHighestBoundRespawn = 50
+valid runs : 100/193
+result : can see more noise on the value observed. This come from the fact that an advantage is given to small cluster of robots. Therefore strategies can remain local and diverse
+NO !!!
+Once again I haven't pay enough attention. I have compare with a Lag of 200 instead of 50. So by making the right comparison can see it changes few
+
+##############
+small change to the preceptron to have always harvested energy between 0 and 1. Will run a big stuff on 200 experiments to see the "start effect"
+-the validation rate in validExperiment was at 25. I have increase it at 50
+##############
+
+101117-800-50-200-100-NewPerceptron
+--------
+Has change a bit the preceptron, so that the energyHarvestingRate is always between 0 and 1. The length of the simulation is also increased and 200 experiments are run. This doesn't change the conclusions, but it gives cleaner results (less noise, no weird strong altruism effect at the beginning)
+valid runs : 200/238

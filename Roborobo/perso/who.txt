@@ -1,0 +1,8 @@
+In this directory, you may create a sub-directory with your name and put whatever you need.
+Please add your directory name, along with your name/affiliation below.
+
+
+nicolas: nicolas.bredeche@lri.fr (UP11, INRIA)
+jeanmarc: jean-marc.montanier@lri.fr (UP11, INRIA)
+simon: simon.carrignon@gmail.com (UP11, INRIA)(internship 2011)
+leo : leo.cazenille@gmail.com (UP11, INRIA) (intern, 2011)

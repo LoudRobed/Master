@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-HGT/include
+END
+MedeaHGTNNControlArchitecture.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-HGT/include/MedeaHGTNNControlArchitecture.h
+END
+MedeaHGTWorldObserver.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-HGT/include/MedeaHGTWorldObserver.h
+END
+MedeaHGTSharedData.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-HGT/include/MedeaHGTSharedData.h
+END
+MedeaHGTAgentObserver.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-HGT/include/MedeaHGTAgentObserver.h
+END
+MedeaHGTAgentWorldModel.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-HGT/include/MedeaHGTAgentWorldModel.h
+END

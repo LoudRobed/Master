@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/tools/medea-twosuns-scripts/genScriptForExperiments
+END
+config_template.txt
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/tools/medea-twosuns-scripts/genScriptForExperiments/config_template.txt
+END
+genExpMedeaTwoSuns.sh
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/tools/medea-twosuns-scripts/genScriptForExperiments/genExpMedeaTwoSuns.sh
+END
+clean
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/tools/medea-twosuns-scripts/genScriptForExperiments/clean
+END
+compileResults.sh
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/tools/medea-twosuns-scripts/genScriptForExperiments/compileResults.sh
+END
+help.txt
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/tools/medea-twosuns-scripts/genScriptForExperiments/help.txt
+END
+run_exp_two-suns.sh
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/tools/medea-twosuns-scripts/genScriptForExperiments/run_exp_two-suns.sh
+END

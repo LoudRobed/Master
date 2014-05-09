@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/core/Observers
+END
+WorldObserver.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/core/Observers/WorldObserver.h
+END
+AgentObserver.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/core/Observers/AgentObserver.h
+END
+Observer.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/include/core/Observers/Observer.h
+END

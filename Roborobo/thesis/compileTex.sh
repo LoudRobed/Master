@@ -1,0 +1,5 @@
+latex autumn_project_2013.tex
+bibtex autumn_project_2013.aux
+latex autumn_project_2013.tex
+latex autumn_project_2013.tex
+pdflatex autumn_project_2013.tex

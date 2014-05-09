@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA/include
+END
+MedeaPerceptronControlArchitecture.h
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA/include/MedeaPerceptronControlArchitecture.h
+END
+BattleAgentObserver.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA/include/BattleAgentObserver.h
+END
+MedeaAgentObserver.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA/include/MedeaAgentObserver.h
+END
+MedeaAgentWorldModel.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA/include/MedeaAgentWorldModel.h
+END
+ReplayAgentObserver.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA/include/ReplayAgentObserver.h
+END
+BattleWorldObserver.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA/include/BattleWorldObserver.h
+END
+MedeaWorldObserver.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA/include/MedeaWorldObserver.h
+END
+MedeaSharedData.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA/include/MedeaSharedData.h
+END
+ReplayWorldObserver.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA/include/ReplayWorldObserver.h
+END

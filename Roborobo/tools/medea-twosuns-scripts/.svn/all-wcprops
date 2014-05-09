@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/tools/medea-twosuns-scripts
+END
+manyruns_traceDistance.sh
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/tools/medea-twosuns-scripts/manyruns_traceDistance.sh
+END
+manyruns_traceOrientation.sh
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/tools/medea-twosuns-scripts/manyruns_traceOrientation.sh
+END
+monorun_traceDistance_template.gp
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/tools/medea-twosuns-scripts/monorun_traceDistance_template.gp
+END
+monorun_traceOrientation_template.gp
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/tools/medea-twosuns-scripts/monorun_traceOrientation_template.gp
+END
+manyruns_aggregateValues.py
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/tools/medea-twosuns-scripts/manyruns_aggregateValues.py
+END
+manyruns_traceAll.sh
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/tools/medea-twosuns-scripts/manyruns_traceAll.sh
+END
+aggregateValues.py
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/tools/medea-twosuns-scripts/aggregateValues.py
+END
+extractAllTargetDistance.sh
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/tools/medea-twosuns-scripts/extractAllTargetDistance.sh
+END
+monorun_traceDistance.sh
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/tools/medea-twosuns-scripts/monorun_traceDistance.sh
+END
+extractAllTargetOrientation.sh
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/tools/medea-twosuns-scripts/extractAllTargetOrientation.sh
+END
+monorun_traceOrientation.sh
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/tools/medea-twosuns-scripts/monorun_traceOrientation.sh
+END
+manyruns_traceDistance_template.gp
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/tools/medea-twosuns-scripts/manyruns_traceDistance_template.gp
+END
+extractTargetDistance.sh
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/tools/medea-twosuns-scripts/extractTargetDistance.sh
+END
+manyruns_traceOrientation_template.gp
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/tools/medea-twosuns-scripts/manyruns_traceOrientation_template.gp
+END
+help.txt
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/tools/medea-twosuns-scripts/help.txt
+END
+extractTargetOrientation.sh
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/tools/medea-twosuns-scripts/extractTargetOrientation.sh
+END
+monorun_traceAll.sh
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/tools/medea-twosuns-scripts/monorun_traceAll.sh
+END
+allruns_extractData.sh
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/tools/medea-twosuns-scripts/allruns_extractData.sh
+END

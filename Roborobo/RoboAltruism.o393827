@@ -1,0 +1,1969 @@
+compute-0-26
+compute-0-21
+
+ =-= Roborobo! 
+ =-= nicolas.bredeche(at)gmail.com
+ =-= Official version tag    : 20120605
+ =-= Current build name      : Amsterdam build
+ =-= Compilation version tag : Apr 16 2014 - 20:03:55
+
+[info] Properties will be loaded from file "config/MedeaAltruism.properties".
+[info] Current location : /gpfs/home/andhag/Roborobo
+
+
+
+ =-= Roborobo! 
+ =-= nicolas.bredeche(at)gmail.com
+ =-= Official version tag    : 20120605
+ =-= Current build name      : Amsterdam build
+ =-= Compilation version tag : Apr 16 2014 - 20:03:55
+
+[info] Properties will be loaded from file "config/MedeaAltruism.properties".
+[info] Current location : /gpfs/home/andhag/Roborobo
+
+
+[WARNING] gAgentDisplayImageFilename string value is missing (value will be copied from gAgentMaskImageFilename).
+[WARNING] No default gLogFilename string value. Log data will be written in "logs/datalog_20140503-13h14m44s863948us.txt"
+[WARNING] No default gLogFilename string value. Log data will be written in "logs/stats_20140503-13h14m44s863948us.txt"
+[WARNING] gAgentDisplayImageFilename string value is missing (value will be copied from gAgentMaskImageFilename).
+[WARNING] No default gLogFilename string value. Log data will be written in "logs/datalog_20140503-13h14m44s923042us.txt"
+[WARNING] No default gLogFilename string value. Log data will be written in "logs/stats_20140503-13h14m44s923042us.txt"
+ Agent Points: 41
+ Agent Points: 41
+ Agent Points: 66
+ Agent Points: 24
+ Agent Points: 5
+ Agent Points: 7
+ Agent Points: 2
+ Agent Points: 7
+ Agent Points: 4
+ Agent Points: 2
+ Agent Points: 3
+ Agent Points: 5
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 3
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 6
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 4
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 4
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 4
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 3
+ Agent Points: 4
+ Agent Points: 2
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 3
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 5
+ Agent Points: 3
+ Agent Points: 1
+ Agent Points: 8
+ Agent Points: 5
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 3
+ Agent Points: 4
+ Agent Points: 2
+ Agent Points: 3
+ Agent Points: 7
+ Agent Points: 2
+ Agent Points: 2
+ Agent Points: 7
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 4
+ Agent Points: 5
+ Agent Points: 3
+ Agent Points: 4
+ Agent Points: 0
+ Agent Points: 3
+ Agent Points: 3
+ Agent Points: 1
+ Agent Points: 3
+ Agent Points: 2
+ Agent Points: 8
+ Agent Points: 6
+ Agent Points: 1
+ Agent Points: 5
+ Agent Points: 4
+ Agent Points: 1
+ Agent Points: 3
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 8
+ Agent Points: 7
+ Agent Points: 1
+ Agent Points: 3
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 6
+ Agent Points: 2
+ Agent Points: 3
+ Agent Points: 1
+ Agent Points: 3
+ Agent Points: 3
+ Agent Points: 1
+ Agent Points: 5
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 4
+ Agent Points: 4
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 6
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 6
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 5
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 3
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 3
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 3
+ Agent Points: 3
+ Agent Points: 0
+ Agent Points: 6
+ Agent Points: 5
+ Agent Points: 1
+ Agent Points: 5
+ Agent Points: 3
+ Agent Points: 0
+ Agent Points: 10
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 3
+ Agent Points: 6
+ Agent Points: 0
+ Agent Points: 7
+Done : 1/1
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 3
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 4
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 5
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 3
+ Agent Points: 3
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 4
+ Agent Points: 6
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 3
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 3
+ Agent Points: 2
+ Agent Points: 10
+ Agent Points: 1
+ Agent Points: 3
+ Agent Points: 2
+ Agent Points: 3
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 16
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+
+ =-= Roborobo! 
+ =-= nicolas.bredeche(at)gmail.com
+ =-= Official version tag    : 20120605
+ =-= Current build name      : Amsterdam build
+ =-= Compilation version tag : Apr 16 2014 - 20:03:55
+
+[info] Properties will be loaded from file "config/MedeaAltruism.properties".
+[info] Current location : /gpfs/home/andhag/Roborobo
+
+
+[WARNING] gAgentDisplayImageFilename string value is missing (value will be copied from gAgentMaskImageFilename).
+[WARNING] No default gLogFilename string value. Log data will be written in "logs/datalog_20140503-13h22m06s076430us.txt"
+[WARNING] No default gLogFilename string value. Log data will be written in "logs/stats_20140503-13h22m06s076430us.txt"
+ Agent Points: 46
+ Agent Points: 42
+ Agent Points: 9
+ Agent Points: 1
+ Agent Points: 293
+ Agent Points: 191
+ Agent Points: 3
+ Agent Points: 1
+ Agent Points: 4
+ Agent Points: 5
+ Agent Points: 7
+ Agent Points: 3
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 6
+ Agent Points: 4
+ Agent Points: 2
+ Agent Points: 3
+ Agent Points: 3
+ Agent Points: 8
+ Agent Points: 3
+ Agent Points: 4
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 3
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 5
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 3
+ Agent Points: 5
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+
+ =-= Roborobo! 
+ =-= nicolas.bredeche(at)gmail.com
+ =-= Official version tag    : 20120605
+ =-= Current build name      : Amsterdam build
+ =-= Compilation version tag : Apr 16 2014 - 20:03:55
+
+[info] Properties will be loaded from file "config/MedeaAltruism.properties".
+[info] Current location : /gpfs/home/andhag/Roborobo
+
+
+[WARNING] gAgentDisplayImageFilename string value is missing (value will be copied from gAgentMaskImageFilename).
+[WARNING] No default gLogFilename string value. Log data will be written in "logs/datalog_20140503-13h29m27s428517us.txt"
+[WARNING] No default gLogFilename string value. Log data will be written in "logs/stats_20140503-13h29m27s428517us.txt"
+ Agent Points: 41
+ Agent Points: 30
+ Agent Points: 3
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 3
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 3
+ Agent Points: 1
+ Agent Points: 3
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 3
+ Agent Points: 2
+ Agent Points: 4
+ Agent Points: 3
+ Agent Points: 2
+ Agent Points: 2
+ Agent Points: 3
+ Agent Points: 1
+ Agent Points: 3
+ Agent Points: 10
+ Agent Points: 13
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 3
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 4
+ Agent Points: 1
+ Agent Points: 6
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 8
+ Agent Points: 5
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 5
+ Agent Points: 1
+ Agent Points: 5
+ Agent Points: 5
+ Agent Points: 7
+ Agent Points: 3
+ Agent Points: 2
+ Agent Points: 3
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 4
+ Agent Points: 3
+ Agent Points: 4
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 3
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 3
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 3
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 3
+ Agent Points: 2
+ Agent Points: 2
+ Agent Points: 3
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 6
+ Agent Points: 4
+ Agent Points: 4
+ Agent Points: 7
+ Agent Points: 6
+ Agent Points: 3
+ Agent Points: 3
+ Agent Points: 3
+ Agent Points: 7
+ Agent Points: 3
+ Agent Points: 5
+ Agent Points: 4
+ Agent Points: 3
+ Agent Points: 3
+ Agent Points: 3
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 4
+ Agent Points: 4
+ Agent Points: 4
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 6
+ Agent Points: 2
+ Agent Points: 4
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 3
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 4
+
+ =-= Roborobo! 
+ =-= nicolas.bredeche(at)gmail.com
+ =-= Official version tag    : 20120605
+ =-= Current build name      : Amsterdam build
+ =-= Compilation version tag : Apr 16 2014 - 20:03:55
+
+[info] Properties will be loaded from file "config/MedeaAltruism.properties".
+[info] Current location : /gpfs/home/andhag/Roborobo
+
+
+[WARNING] gAgentDisplayImageFilename string value is missing (value will be copied from gAgentMaskImageFilename).
+[WARNING] No default gLogFilename string value. Log data will be written in "logs/datalog_20140503-13h35m48s718144us.txt"
+[WARNING] No default gLogFilename string value. Log data will be written in "logs/stats_20140503-13h35m48s718144us.txt"
+ Agent Points: 49
+ Agent Points: 36
+ Agent Points: 7
+ Agent Points: 4
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+
+ =-= Roborobo! 
+ =-= nicolas.bredeche(at)gmail.com
+ =-= Official version tag    : 20120605
+ =-= Current build name      : Amsterdam build
+ =-= Compilation version tag : Apr 16 2014 - 20:03:55
+
+[info] Properties will be loaded from file "config/MedeaAltruism.properties".
+[info] Current location : /gpfs/home/andhag/Roborobo
+
+
+[WARNING] gAgentDisplayImageFilename string value is missing (value will be copied from gAgentMaskImageFilename).
+[WARNING] No default gLogFilename string value. Log data will be written in "logs/datalog_20140503-13h42m39s990478us.txt"
+[WARNING] No default gLogFilename string value. Log data will be written in "logs/stats_20140503-13h42m39s990478us.txt"
+ Agent Points: 34
+ Agent Points: 21
+ Agent Points: 4
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 3
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 1
+
+ =-= Roborobo! 
+ =-= nicolas.bredeche(at)gmail.com
+ =-= Official version tag    : 20120605
+ =-= Current build name      : Amsterdam build
+ =-= Compilation version tag : Apr 16 2014 - 20:03:55
+
+[info] Properties will be loaded from file "config/MedeaAltruism.properties".
+[info] Current location : /gpfs/home/andhag/Roborobo
+
+
+[WARNING] gAgentDisplayImageFilename string value is missing (value will be copied from gAgentMaskImageFilename).
+[WARNING] No default gLogFilename string value. Log data will be written in "logs/datalog_20140503-13h43m05s994939us.txt"
+[WARNING] No default gLogFilename string value. Log data will be written in "logs/stats_20140503-13h43m05s994939us.txt"
+ Agent Points: 31
+ Agent Points: 16
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+
+ =-= Roborobo! 
+ =-= nicolas.bredeche(at)gmail.com
+ =-= Official version tag    : 20120605
+ =-= Current build name      : Amsterdam build
+ =-= Compilation version tag : Apr 16 2014 - 20:03:55
+
+[info] Properties will be loaded from file "config/MedeaAltruism.properties".
+[info] Current location : /gpfs/home/andhag/Roborobo
+
+
+[WARNING] gAgentDisplayImageFilename string value is missing (value will be copied from gAgentMaskImageFilename).
+[WARNING] No default gLogFilename string value. Log data will be written in "logs/datalog_20140503-13h43m47s034966us.txt"
+[WARNING] No default gLogFilename string value. Log data will be written in "logs/stats_20140503-13h43m47s034966us.txt"
+ Agent Points: 32
+ Agent Points: 16
+ Agent Points: 5
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 0
+
+ =-= Roborobo! 
+ =-= nicolas.bredeche(at)gmail.com
+ =-= Official version tag    : 20120605
+ =-= Current build name      : Amsterdam build
+ =-= Compilation version tag : Apr 16 2014 - 20:03:55
+
+[info] Properties will be loaded from file "config/MedeaAltruism.properties".
+[info] Current location : /gpfs/home/andhag/Roborobo
+
+
+[WARNING] gAgentDisplayImageFilename string value is missing (value will be copied from gAgentMaskImageFilename).
+[WARNING] No default gLogFilename string value. Log data will be written in "logs/datalog_20140503-13h44m03s068001us.txt"
+[WARNING] No default gLogFilename string value. Log data will be written in "logs/stats_20140503-13h44m03s068001us.txt"
+ Agent Points: 25
+ Agent Points: 33
+ Agent Points: 9
+ Agent Points: 1
+ Agent Points: 6
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 4
+ Agent Points: 4
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 5
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 3
+ Agent Points: 0
+ Agent Points: 4
+ Agent Points: 1
+ Agent Points: 3
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 8
+ Agent Points: 9
+ Agent Points: 6
+ Agent Points: 5
+ Agent Points: 6
+ Agent Points: 3
+ Agent Points: 5
+ Agent Points: 16
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 4
+ Agent Points: 5
+ Agent Points: 9
+ Agent Points: 8
+ Agent Points: 4
+ Agent Points: 6
+ Agent Points: 5
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 4
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 4
+ Agent Points: 3
+ Agent Points: 3
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 3
+ Agent Points: 4
+ Agent Points: 3
+ Agent Points: 2
+ Agent Points: 3
+ Agent Points: 4
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 4
+ Agent Points: 3
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 5
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 4
+ Agent Points: 3
+ Agent Points: 6
+ Agent Points: 3
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 3
+ Agent Points: 6
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 3
+ Agent Points: 3
+ Agent Points: 3
+ Agent Points: 6
+ Agent Points: 2
+ Agent Points: 2
+ Agent Points: 2
+ Agent Points: 2
+ Agent Points: 5
+ Agent Points: 1
+ Agent Points: 4
+ Agent Points: 3
+ Agent Points: 6
+ Agent Points: 3
+ Agent Points: 4
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 8
+ Agent Points: 1
+ Agent Points: 13
+ Agent Points: 8
+ Agent Points: 8
+ Agent Points: 4
+ Agent Points: 4
+ Agent Points: 4
+ Agent Points: 4
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 2
+ Agent Points: 3
+ Agent Points: 3
+ Agent Points: 4
+ Agent Points: 2
+ Agent Points: 6
+ Agent Points: 5
+ Agent Points: 7
+ Agent Points: 2
+ Agent Points: 5
+ Agent Points: 2
+ Agent Points: 7
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 3
+ Agent Points: 4
+ Agent Points: 3
+ Agent Points: 1
+ Agent Points: 3
+ Agent Points: 4
+ Agent Points: 7
+ Agent Points: 2
+ Agent Points: 5
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 3
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 3
+ Agent Points: 5
+ Agent Points: 3
+ Agent Points: 5
+ Agent Points: 5
+ Agent Points: 1
+ Agent Points: 3
+ Agent Points: 2
+ Agent Points: 7
+
+ =-= Roborobo! 
+ =-= nicolas.bredeche(at)gmail.com
+ =-= Official version tag    : 20120605
+ =-= Current build name      : Amsterdam build
+ =-= Compilation version tag : Apr 16 2014 - 20:03:55
+
+[info] Properties will be loaded from file "config/MedeaAltruism.properties".
+[info] Current location : /gpfs/home/andhag/Roborobo
+
+
+[WARNING] gAgentDisplayImageFilename string value is missing (value will be copied from gAgentMaskImageFilename).
+[WARNING] No default gLogFilename string value. Log data will be written in "logs/datalog_20140503-13h50m49s344095us.txt"
+[WARNING] No default gLogFilename string value. Log data will be written in "logs/stats_20140503-13h50m49s344095us.txt"
+ Agent Points: 43
+ Agent Points: 30
+ Agent Points: 6
+ Agent Points: 2
+ Agent Points: 2
+ Agent Points: 3
+ Agent Points: 1
+ Agent Points: 4
+ Agent Points: 3
+ Agent Points: 0
+ Agent Points: 7
+ Agent Points: 8
+ Agent Points: 2
+ Agent Points: 7
+ Agent Points: 6
+ Agent Points: 2
+ Agent Points: 6
+ Agent Points: 1
+ Agent Points: 6
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 7
+ Agent Points: 2
+ Agent Points: 3
+ Agent Points: 4
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 6
+ Agent Points: 9
+ Agent Points: 2
+ Agent Points: 4
+ Agent Points: 4
+ Agent Points: 2
+ Agent Points: 6
+ Agent Points: 6
+ Agent Points: 3
+ Agent Points: 8
+ Agent Points: 3
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 7
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 3
+ Agent Points: 2
+ Agent Points: 3
+ Agent Points: 4
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 4
+ Agent Points: 2
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 3
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 5
+ Agent Points: 2
+ Agent Points: 8
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 4
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 7
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 5
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 3
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 7
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 3
+ Agent Points: 2
+
+ =-= Roborobo! 
+ =-= nicolas.bredeche(at)gmail.com
+ =-= Official version tag    : 20120605
+ =-= Current build name      : Amsterdam build
+ =-= Compilation version tag : Apr 16 2014 - 20:03:55
+
+[info] Properties will be loaded from file "config/MedeaAltruism.properties".
+[info] Current location : /gpfs/home/andhag/Roborobo
+
+
+[WARNING] gAgentDisplayImageFilename string value is missing (value will be copied from gAgentMaskImageFilename).
+[WARNING] No default gLogFilename string value. Log data will be written in "logs/datalog_20140503-13h57m15s599384us.txt"
+[WARNING] No default gLogFilename string value. Log data will be written in "logs/stats_20140503-13h57m15s599384us.txt"
+ Agent Points: 35
+ Agent Points: 30
+ Agent Points: 6
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 5
+ Agent Points: 0
+ Agent Points: 6
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 3
+
+ =-= Roborobo! 
+ =-= nicolas.bredeche(at)gmail.com
+ =-= Official version tag    : 20120605
+ =-= Current build name      : Amsterdam build
+ =-= Compilation version tag : Apr 16 2014 - 20:03:55
+
+[info] Properties will be loaded from file "config/MedeaAltruism.properties".
+[info] Current location : /gpfs/home/andhag/Roborobo
+
+
+[WARNING] gAgentDisplayImageFilename string value is missing (value will be copied from gAgentMaskImageFilename).
+[WARNING] No default gLogFilename string value. Log data will be written in "logs/datalog_20140503-13h58m46s682375us.txt"
+[WARNING] No default gLogFilename string value. Log data will be written in "logs/stats_20140503-13h58m46s682375us.txt"
+ Agent Points: 66
+ Agent Points: 16
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 3
+ Agent Points: 6
+ Agent Points: 3
+ Agent Points: 4
+ Agent Points: 4
+ Agent Points: 8
+ Agent Points: 2
+ Agent Points: 5
+ Agent Points: 2
+ Agent Points: 4
+ Agent Points: 7
+ Agent Points: 7
+ Agent Points: 3
+ Agent Points: 3
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 2
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 3
+ Agent Points: 4
+ Agent Points: 6
+ Agent Points: 3
+ Agent Points: 4
+ Agent Points: 5
+ Agent Points: 5
+ Agent Points: 4
+ Agent Points: 1
+ Agent Points: 4
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 3
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 4
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 3
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 8
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 3
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 3
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 3
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 5
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 3
+ Agent Points: 0
+ Agent Points: 6
+ Agent Points: 4
+ Agent Points: 0
+ Agent Points: 3
+ Agent Points: 1
+ Agent Points: 5
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 4
+ Agent Points: 4
+ Agent Points: 4
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 2
+ Agent Points: 2
+ Agent Points: 7
+ Agent Points: 5
+ Agent Points: 4
+ Agent Points: 3
+ Agent Points: 14
+ Agent Points: 4
+ Agent Points: 8
+ Agent Points: 7
+ Agent Points: 6
+ Agent Points: 2
+ Agent Points: 14
+ Agent Points: 8
+ Agent Points: 13
+ Agent Points: 6
+ Agent Points: 8
+ Agent Points: 7
+ Agent Points: 20
+ Agent Points: 6
+ Agent Points: 10
+ Agent Points: 5
+ Agent Points: 17
+ Agent Points: 11
+ Agent Points: 9
+ Agent Points: 5
+ Agent Points: 3
+ Agent Points: 5
+ Agent Points: 3
+ Agent Points: 2
+ Agent Points: 2
+ Agent Points: 2
+
+ =-= Roborobo! 
+ =-= nicolas.bredeche(at)gmail.com
+ =-= Official version tag    : 20120605
+ =-= Current build name      : Amsterdam build
+ =-= Compilation version tag : Apr 16 2014 - 20:03:55
+
+[info] Properties will be loaded from file "config/MedeaAltruism.properties".
+[info] Current location : /gpfs/home/andhag/Roborobo
+
+
+[WARNING] gAgentDisplayImageFilename string value is missing (value will be copied from gAgentMaskImageFilename).
+[WARNING] No default gLogFilename string value. Log data will be written in "logs/datalog_20140503-14h05m48s017476us.txt"
+[WARNING] No default gLogFilename string value. Log data will be written in "logs/stats_20140503-14h05m48s017476us.txt"
+ Agent Points: 44
+ Agent Points: 53
+ Agent Points: 7
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+
+ =-= Roborobo! 
+ =-= nicolas.bredeche(at)gmail.com
+ =-= Official version tag    : 20120605
+ =-= Current build name      : Amsterdam build
+ =-= Compilation version tag : Apr 16 2014 - 20:03:55
+
+[info] Properties will be loaded from file "config/MedeaAltruism.properties".
+[info] Current location : /gpfs/home/andhag/Roborobo
+
+
+[WARNING] gAgentDisplayImageFilename string value is missing (value will be copied from gAgentMaskImageFilename).
+[WARNING] No default gLogFilename string value. Log data will be written in "logs/datalog_20140503-14h06m08s998800us.txt"
+[WARNING] No default gLogFilename string value. Log data will be written in "logs/stats_20140503-14h06m08s998800us.txt"
+ Agent Points: 29
+ Agent Points: 35
+ Agent Points: 13
+ Agent Points: 2
+ Agent Points: 9
+ Agent Points: 2
+ Agent Points: 7
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 10
+ Agent Points: 2
+ Agent Points: 3
+ Agent Points: 4
+ Agent Points: 13
+ Agent Points: 10
+ Agent Points: 10
+ Agent Points: 14
+ Agent Points: 7
+ Agent Points: 13
+ Agent Points: 6
+ Agent Points: 6
+ Agent Points: 5
+ Agent Points: 9
+ Agent Points: 5
+ Agent Points: 8
+ Agent Points: 7
+ Agent Points: 10
+ Agent Points: 6
+ Agent Points: 2
+ Agent Points: 5
+ Agent Points: 6
+ Agent Points: 8
+ Agent Points: 5
+ Agent Points: 8
+ Agent Points: 6
+ Agent Points: 7
+ Agent Points: 10
+ Agent Points: 12
+ Agent Points: 2
+ Agent Points: 12
+ Agent Points: 7
+ Agent Points: 8
+ Agent Points: 7
+ Agent Points: 7
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 0
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 4
+ Agent Points: 2
+ Agent Points: 2
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 5
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 3
+ Agent Points: 0
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 1
+ Agent Points: 2
+ Agent Points: 0
+ Agent Points: 2

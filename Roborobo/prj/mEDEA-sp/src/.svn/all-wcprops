@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-sp/src
+END
+MedeaSpEnergyPoint.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-sp/src/MedeaSpEnergyPoint.cpp
+END
+MedeaSpPerceptronControlArchitecture.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-sp/src/MedeaSpPerceptronControlArchitecture.cpp
+END
+MedeaSpAgentObserver.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-sp/src/MedeaSpAgentObserver.cpp
+END
+MedeaSpAgentWorldModel.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-sp/src/MedeaSpAgentWorldModel.cpp
+END
+MedeaSpWorldObserver.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-sp/src/MedeaSpWorldObserver.cpp
+END
+MedeaSpNetworkGenerator.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-sp/src/MedeaSpNetworkGenerator.cpp
+END
+MedeaSpSharedData.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-sp/src/MedeaSpSharedData.cpp
+END
