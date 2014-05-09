@@ -1,0 +1,1 @@
+/usr/include/SDL/SDL_config_amiga.h

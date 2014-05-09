@@ -1,0 +1,1 @@
+/usr/include/SDL/SDL_config-i386.h
