@@ -218,12 +218,19 @@ void MedeaAltruismAgentObserver::checkGenomeList()
 		
 		if ( _wm->getActiveStatus() == true )
 		{
-			gLogFile << gWorld->getIterations() <<" : "<< _wm->_agentId << " use ";
+			//gLogFile << gWorld->getIterations() <<" : "<< _wm->_agentId << " use ";
+			//for(unsigned int i=0; i<_wm->_currentGenome.size(); i++)
+			//{
+			//	gLogFile << std::fixed << std::showpoint << _wm->_currentGenome[i] << " ";
+			//}
+			//gLogFile << std::endl;
+			
+			gStatFile << gWorld->getIterations() <<" : "<< _wm->_agentId << " use ";
 			for(unsigned int i=0; i<_wm->_currentGenome.size(); i++)
 			{
-				gLogFile << std::fixed << std::showpoint << _wm->_currentGenome[i] << " ";
+				gStatFile << std::fixed << std::showpoint << _wm->_currentGenome[i] << " ";
 			}
-			gLogFile << std::endl;
+			gStatFile << std::endl;
 		}
 	}
 	else
@@ -247,6 +254,7 @@ void MedeaAltruismAgentObserver::checkGenomeList()
 
 void MedeaAltruismAgentObserver::pickRandomGenome()
 {
+
 	if(_wm->_genomesList.size() != 0)
 	{
 		int randomIndex = rand()%_wm->_genomesList.size();
