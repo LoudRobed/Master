@@ -29,7 +29,7 @@ class MedeaAltruismWorldObserver : public WorldObserver
 		double fixedCost;
 		double exponentialFactor;
 		int _agentPointCount;
-		void loadGenomes();
+
 		double penalty();
 
 	protected:

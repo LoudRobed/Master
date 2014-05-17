@@ -97,52 +97,11 @@ MedeaAltruismWorldObserver::MedeaAltruismWorldObserver( World* __world ) : World
 	}
 	
 	// * iteration and generation counters
-	loadGenomes();	
+	
 	_lifeIterationCount = -1;
 	_agentPointCount = -0;
 }
-void MedeaAltruismWorldObserver::loadGenomes()
-{
-    int nbHiddenNeurons;
-    gProperties.checkAndGetPropertyValue("nbHiddenNeurons",&nbHiddenNeurons,true);
-    int nbInput = 8 + 5 ; //sensors + floorSensor + energyDirection + energyLevel + energyDirection + bias
-    int nbOutput = 3 ; // rotation + velocity + energyHarvestingRate
-    int nbGene = ( nbInput * nbHiddenNeurons ) + ( nbHiddenNeurons * nbOutput) + nbOutput ; // from input to hidden layer + from hiddenLayer to output + from bias to output
-    for (int agentId = 0 ; agentId < gNbOfAgents ; agentId ++ )
-    {
-        std::vector<double> tmpGenome;
-        for (int i=0 ; i< nbGene ; i++)
-        {
-            double gene = 0;
-            std::stringstream out;
-            std::string s = "";
-            s += "genomeToReplay[";
-            out<<agentId;
-            s+=out.str();
-            s +="][";
-            std::stringstream out2;
-            out2<<i ;
-            s+=out2.str();
-            s += "]";
 
-
-            if ( gProperties.hasProperty ( s ) )
-                convertFromString<double>(gene, gProperties.getProperty( s ), std::dec);
-            else
-            {
-                //std::cout << "[error] MedeaAltruismReEvoWorldObserver :: " << s << " is missing"<< std::endl;
-                //exit(1);
-                break;
-            }
-            tmpGenome.push_back(gene);
-        }
-        if (tmpGenome.size() == 0)
-        {
-            break; //if there is no gene in the genome that means the last genome has already been described
-        }
-        _genomesToReplay.push_back(tmpGenome);
-    }
-}
 MedeaAltruismWorldObserver::~MedeaAltruismWorldObserver()
 {
 	// nothing to do.
