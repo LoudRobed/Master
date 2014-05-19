@@ -52,7 +52,7 @@ MedeaAltruismAgentObserver::MedeaAltruismAgentObserver( RobotAgentWorldModel *__
 
 MedeaAltruismAgentObserver::~MedeaAltruismAgentObserver()
 {
-	// nothing to do.|
+	// nothing to do.
 }
 
 void MedeaAltruismAgentObserver::reset()
@@ -176,18 +176,6 @@ void MedeaAltruismAgentObserver::step()
 void MedeaAltruismAgentObserver::checkGenomeList()
 {
 
-		if ( _wm->getActiveStatus() == true )
-		{
-			gStatFile << gWorld->getIterations() <<" : "<< _wm->_agentId << " use ";
-			for(unsigned int i=0; i<_wm->_currentGenome.size(); i++)
-			{
-				gStatFile << std::fixed << std::showpoint << _wm->_currentGenome[i] << " ";
-		
-			}
-			gStatFile << std::endl;
-	}
-
-
 	if (_wm->_agentId == gAgentIndexFocus && gVerbose) // debug
 	{
 		std::cout << "agent #" << gAgentIndexFocus << " is renewed" << std::endl;
@@ -227,16 +215,23 @@ void MedeaAltruismAgentObserver::checkGenomeList()
 		_wm->setActiveStatus(true);
 
 		//log the genome
-	/*	
+		
 		if ( _wm->getActiveStatus() == true )
 		{
+			//gLogFile << gWorld->getIterations() <<" : "<< _wm->_agentId << " use ";
+			//for(unsigned int i=0; i<_wm->_currentGenome.size(); i++)
+			//{
+			//	gLogFile << std::fixed << std::showpoint << _wm->_currentGenome[i] << " ";
+			//}
+			//gLogFile << std::endl;
+			
 			gStatFile << gWorld->getIterations() <<" : "<< _wm->_agentId << " use ";
 			for(unsigned int i=0; i<_wm->_currentGenome.size(); i++)
 			{
 				gStatFile << std::fixed << std::showpoint << _wm->_currentGenome[i] << " ";
 			}
 			gStatFile << std::endl;
-		}*/
+		}
 	}
 	else
 	{
@@ -255,16 +250,7 @@ void MedeaAltruismAgentObserver::checkGenomeList()
 
 }
 
-void MedeaAltruismAgentObserver::loadGenome(std::vector<double> inGenome)
-{
-    std::cout << std::flush ;
-    _wm->_currentGenome.clear();
-    for ( unsigned int i = 0 ; i != inGenome.size() ; i++ )
-    {
-            _wm->_currentGenome.push_back(inGenome[i]);
-    }
-    _wm->setNewGenomeStatus(true);
-}
+
 
 void MedeaAltruismAgentObserver::pickRandomGenome()
 {
@@ -304,7 +290,7 @@ void MedeaAltruismAgentObserver::pickRandomGenome()
 
 void MedeaAltruismAgentObserver::randomElitismGenomeSelection()
 {
-/*	if(_wm->_genomesList.size() != 0)
+	if(_wm->_genomesList.size() != 0)
 	{
 		std::map<int, double> genotypicRelatedness;
 		//compute the genotypic relatedness with the current genome for each genome in the list
@@ -344,14 +330,6 @@ void MedeaAltruismAgentObserver::randomElitismGenomeSelection()
 		//random selection
 		int randomIndex = rand()%genotypicRelatedness.size();
 		std::map<int, double>::iterator itRandom = genotypicRelatedness.begin();
-					genotypicRelatedness[it->first] = distance;
-				}
-			}
-		}
-
-		//random selection
-		int randomIndex = rand()%genotypicRelatedness.size();
-		std::map<int, double>::iterator itRandom = genotypicRelatedness.begin();
 		while (randomIndex !=0 )
 		{
 			itRandom ++;
@@ -377,7 +355,7 @@ void MedeaAltruismAgentObserver::randomElitismGenomeSelection()
 		
 		_wm->_genomesList.clear();
 		_wm->_sigmaList.clear();
-	}*/
+	}
 }
 
 void MedeaAltruismAgentObserver::tournamentGenomeSelection()
@@ -471,6 +449,14 @@ void MedeaAltruismAgentObserver::mutateWithBouncingBounds( float sigma)
 	{
 		float randValue = float(rand() %100) / 100.0;
 		if ( ( randValue >= 0.0 ) && ( randValue < MedeaAltruismSharedData::gProbRef) )
+		{
+			_wm->_currentSigma = MedeaAltruismSharedData::gSigmaRef;
+		}
+		else if ( ( randValue >= MedeaAltruismSharedData::gProbRef ) && ( randValue < MedeaAltruismSharedData::gProbMax+MedeaAltruismSharedData::gProbRef) )
+		{
+			_wm->_currentSigma = MedeaAltruismSharedData::gSigmaMax;
+		}
+		else
 		{
 			std::cerr << "Error : In SwarmOnlineObserver, the rand value is out of bound. The sum of MedeaAltruismSharedData::gProbRef and MedeaAltruismSharedData::gProbMax is probably not equal to one" << std::endl;
 			exit(1);

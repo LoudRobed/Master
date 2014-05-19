@@ -10,19 +10,18 @@
 
 #include "Observers/AgentObserver.h"
 #include "Observers/WorldObserver.h"
-#include "mEDEA-altruism/include/MedeaAltruismAgentObserver.h"
+
 #include "mEDEA-altruism/include/MedeaAltruismWorldObserver.h"
 
 #include "World/World.h"
 #include <algorithm>
-//bool _firstStep = true;
-//std::vector< std::vector<double> > _genomesToReplay;
+
 MedeaAltruismWorldObserver::MedeaAltruismWorldObserver( World* __world ) : WorldObserver( __world )
 {
 	_world = __world;
-	_firstStep = true;
+
 	// ==== loading project-specific properties 
-	std::cout << "Loading properties" << std::endl;
+
 	gProperties.checkAndGetPropertyValue("gSwarmOnlineObsUsed",&MedeaAltruismSharedData::gSwarmOnlineObsUsed,true);
 	gProperties.checkAndGetPropertyValue("gDynamicSigma",&MedeaAltruismSharedData::gDynamicSigma,true);
 	gProperties.checkAndGetPropertyValue("gSigmaMin",&MedeaAltruismSharedData::gSigmaMin,true);
@@ -96,58 +95,13 @@ MedeaAltruismWorldObserver::MedeaAltruismWorldObserver( World* __world ) : World
 		std::cout << "Error : gEnergyMode should be true to use SwarmOnlineObserver" << std::endl;
 		exit(1);
 	}
-	std::cout << "Donation threshold: " << MedeaAltruismSharedData::gDonationThreshold << std::endl;
+	
 	// * iteration and generation counters
-	loadGenomes();	
+	
 	_lifeIterationCount = -1;
 	_agentPointCount = -0;
 }
-void MedeaAltruismWorldObserver::loadGenomes()
-{
-	std::cout << "Loading genomes from properties file" << std::endl;
-    int nbHiddenNeurons;
-    gProperties.checkAndGetPropertyValue("nbHiddenNeurons",&nbHiddenNeurons,true);
-    int nbInput = 8 + 5 ; //sensors + floorSensor + energyDirection + energyLevel + energyDirection + bias
-    int nbOutput = 3 ; // rotation + velocity + energyHarvestingRate
-    int nbGene = ( nbInput * nbHiddenNeurons ) + ( nbHiddenNeurons * nbOutput) + nbOutput ; // from input to hidden layer + from hiddenLayer to output + from bias to output
-    for (int agentId = 0 ; agentId < gNbOfAgents ; agentId ++ )
-    {
-        std::vector<double> tmpGenome;
-        for (int i=0 ; i< nbGene ; i++)
-        {
-            double gene = 0;
-            std::stringstream out;
-            std::string s = "";
-            s += "listOfGenomes[";
-            out<<agentId;
-            s+=out.str();
-            s +="][";
-            std::stringstream out2;
-            out2<<i ;
-            s+=out2.str();
-            s += "]";
 
-	//	std::cout << "Checking if property exists: " << s << std::endl;
-            if ( gProperties.hasProperty ( s ) ){
-	//	std::cout << "gProperties has propertiy" << std::endl;
-                convertFromString<double>(gene, gProperties.getProperty( s ), std::dec);
-}
-            else
-            {
-	//	std::cout << "Property not found" << std::endl;
-                //std::cout << "[error] MedeaAltruismReEvoWorldObserver :: " << s << " is missing"<< std::endl;
-                //exit(1);
-                break;
-            }
-            tmpGenome.push_back(gene);
-        }
-        if (tmpGenome.size() == 0)
-        {
-            break; //if there is no gene in the genome that means the last genome has already been described
-        }
-        _genomesToReplay.push_back(tmpGenome);
-    }
-}
 MedeaAltruismWorldObserver::~MedeaAltruismWorldObserver()
 {
 	// nothing to do.
@@ -164,35 +118,7 @@ void MedeaAltruismWorldObserver::step()
 	// ***
 	// * update iteration and generation counters + switch btw experimental setups if required
 	// ***
-if (_firstStep)
-    {
-        //give genomes to agents as long as there is genomes available
-        for (unsigned int i = 0 ; i < _genomesToReplay.size() ; i++)
-        {
-            MedeaAltruismAgentObserver* agentObserver = dynamic_cast<MedeaAltruismAgentObserver*>(gWorld->getAgent(i)->getObserver());
-            if ( ! agentObserver)
-            {
-                std::cerr << " Error from MedeaAltruismReEvoWorldObserver : the observer of robot " << i << " isn't a MedeaAltruismReEvoAgentObserver " << std ::endl;
-                exit(1);
-            }
-            agentObserver->loadGenome(_genomesToReplay[i]);
-        }
-
-        //The remaining agents aren't active, and are listening for new genomes
-        for (int i =_genomesToReplay.size() ; i < gNbOfAgents ; i++ )
-        {
-            MedeaAltruismAgentWorldModel* agentWorldModel = dynamic_cast<MedeaAltruismAgentWorldModel*>(gWorld->getAgent(i)->getWorldModel());
-            if ( ! agentWorldModel)
-            {
-                std::cerr << " Error from MedeaAltruismReEvoWorldObserver : the worldModel of robot " << i << " isn't a MedeaAltruismAgentWorldModel " << std ::endl;
-                exit(1);
-            }
-            agentWorldModel->setActiveStatus(false);
-            agentWorldModel->resetActiveGenome();
-            agentWorldModel->setWaitingAfterLifeSynchronization(false);
-        }
-        _firstStep = false ;
-    }	
+	
 	_lifeIterationCount++;
 
 	if( _lifeIterationCount >= MedeaAltruismSharedData::gEvaluationTime ) // print mEDEA state
