@@ -31,7 +31,8 @@ class MedeaAltruismWorldObserver : public WorldObserver
 		int _agentPointCount;
 		void loadGenomes();
 		double penalty();
-
+		std::vector< std::vector<double> > _genomesToReplay; 	
+		bool _firstStep;
 	protected:
 		int _lifeIterationCount;
 	public:

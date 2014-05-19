@@ -30,7 +30,6 @@ class MedeaAltruismAgentObserver : public AgentObserver
 		void randomElitismGenomeSelection();
 		void tournamentGenomeSelection();
 		void mutateWithBouncingBounds(float sigma);
-		void loadGenome(std::vector<double> inGenome);
 		int nbMaxGenomeSelection ;
 
 	public:
@@ -39,7 +38,7 @@ class MedeaAltruismAgentObserver : public AgentObserver
 				
 		void reset();
 		void step();
-
+		void loadGenome(std::vector<double> inGenome);
 		void writeGenome(std::vector<double> genome, int senderId, float sigma);
 
 };

@@ -52,7 +52,7 @@ MedeaAltruismAgentObserver::MedeaAltruismAgentObserver( RobotAgentWorldModel *__
 
 MedeaAltruismAgentObserver::~MedeaAltruismAgentObserver()
 {
-	// nothing to do.
+	// nothing to do.|
 }
 
 void MedeaAltruismAgentObserver::reset()
@@ -176,6 +176,18 @@ void MedeaAltruismAgentObserver::step()
 void MedeaAltruismAgentObserver::checkGenomeList()
 {
 
+		if ( _wm->getActiveStatus() == true )
+		{
+			gStatFile << gWorld->getIterations() <<" : "<< _wm->_agentId << " use ";
+			for(unsigned int i=0; i<_wm->_currentGenome.size(); i++)
+			{
+				gStatFile << std::fixed << std::showpoint << _wm->_currentGenome[i] << " ";
+		
+			}
+			gStatFile << std::endl;
+	}
+
+
 	if (_wm->_agentId == gAgentIndexFocus && gVerbose) // debug
 	{
 		std::cout << "agent #" << gAgentIndexFocus << " is renewed" << std::endl;
@@ -215,16 +227,16 @@ void MedeaAltruismAgentObserver::checkGenomeList()
 		_wm->setActiveStatus(true);
 
 		//log the genome
-		
+	/*	
 		if ( _wm->getActiveStatus() == true )
 		{
-			gLogFile << gWorld->getIterations() <<" : "<< _wm->_agentId << " use ";
+			gStatFile << gWorld->getIterations() <<" : "<< _wm->_agentId << " use ";
 			for(unsigned int i=0; i<_wm->_currentGenome.size(); i++)
 			{
-				gLogFile << std::fixed << std::showpoint << _wm->_currentGenome[i] << " ";
+				gStatFile << std::fixed << std::showpoint << _wm->_currentGenome[i] << " ";
 			}
-			gLogFile << std::endl;
-		}
+			gStatFile << std::endl;
+		}*/
 	}
 	else
 	{
@@ -292,7 +304,7 @@ void MedeaAltruismAgentObserver::pickRandomGenome()
 
 void MedeaAltruismAgentObserver::randomElitismGenomeSelection()
 {
-	if(_wm->_genomesList.size() != 0)
+/*	if(_wm->_genomesList.size() != 0)
 	{
 		std::map<int, double> genotypicRelatedness;
 		//compute the genotypic relatedness with the current genome for each genome in the list
@@ -365,7 +377,7 @@ void MedeaAltruismAgentObserver::randomElitismGenomeSelection()
 		
 		_wm->_genomesList.clear();
 		_wm->_sigmaList.clear();
-	}
+	}*/
 }
 
 void MedeaAltruismAgentObserver::tournamentGenomeSelection()
