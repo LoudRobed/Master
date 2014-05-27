@@ -29,6 +29,9 @@ class MedeaAltruismWorldObserver : public WorldObserver
 		double fixedCost;
 		double exponentialFactor;
 		int _agentPointCount;
+		int pointsCreated;
+		int pointsConsumed;
+		int generation;
 		void loadGenomes();
 		double penalty();
 		std::vector< std::vector<double> > _genomesToReplay; 	
