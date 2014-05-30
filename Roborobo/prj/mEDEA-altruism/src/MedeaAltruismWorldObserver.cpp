@@ -386,7 +386,7 @@ void MedeaAltruismWorldObserver::updateAllAgentsEnergyLevel()
 				activeCount++;
 			}
 		}
-		//		gStatFile << gWorld->getIterations()  << "," << currentAgentWorldModel->_agentId << "," << currentAgentWorldModel->getEnergyLevel()+donation << "," << donation << "," << activeCount << std::endl; 
+				std::cout << gWorld->getIterations()  << "," << currentAgentWorldModel->_agentId << "," << currentAgentWorldModel->getEnergyLevel()+donation << "," << donation << "," << activeCount << std::endl; 
 //TODO: Log genetic relatedness to other agents close by.
 		}
 }

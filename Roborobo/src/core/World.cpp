@@ -112,13 +112,13 @@ void World::initWorld()
 		{
 			if (gEnergyPointRespawnLagMaxValue > 0)
 			{
-				EnergyPoint ep(i);
-				addEnergyPoint(ep);
+			//	EnergyPoint ep(i);
+			//	addEnergyPoint(ep);
 			}
 			else
 			{
-				EnergyPoint ep;
-				addEnergyPoint(ep);
+			//	EnergyPoint ep;
+			//	addEnergyPoint(ep);
 			}
 		}
 	}
