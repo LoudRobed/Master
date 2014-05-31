@@ -1,0 +1,693 @@
+-----------------------------------
+-----------------------------------
+===================================
+====== DEVELOPPER'S NOTEBOOK ======
+===================================
+-----------------------------------
+-----------------------------------
+
+//>> This is nicolas personal developper's notes
+//>> ''personal notes'' as in ''not supposed to be readable'' (e.g. mix of french/english)
+//>> PLEASE DO NOT MODIFY ANYTHING
+
+=-=-=-=-=-= =-=-=-=-=-= =-=-=-=-=-= 
+= ** TRACKER : CURRENT CHANGES ** =
+=-=-=-=-=-= =-=-=-=-=-= =-=-=-=-=-= 
+=  "="  means open entry          =
+=  "=!" means important todo      =
+=  "-." means closed entry        =
+=  "-~" means controversial entry =
+=  "-?" means optional entry      =
+=  "-#" means comment             =
+=-=-=-=-=-= =-=-=-=-=-= =-=-=-=-=-= 
+
+
+
+BP je1550: 
+  - en train d'implémenter les méthodes globales de kilobot.
+  - pas résolu: la classe interface gere a la fois les kilobots seuls et le tout
+  - pas résolu: on va avoir besoin de l'acces a la localisation, donc un lien avec les robotAgent
+  - indication: on peut utiliser le network (avec parametre approprié) pour ne pas avoir a calculer qui voit qui (deja fait)
+
+[20120801]
+- implementing Kilobot
+  -.clone project
+  - robot
+    - locomotion: 
+      - two actuators: left, right
+      - dynamics: 
+        - rotate = setRotation(-left+right) => check CW vs. CCW
+        - translate = setTranslation
+    - IR communication
+      - sensor (buffer, maximum length)
+      - emitter (send)
+      - LED (visible, only used for human monitoring)
+  - environment
+    - IR conflict
+    - ambiant light (directional?)
+    - additional IR emitter …? (emulate walls, dont forget to manage conflicts)
+  
+
+[20120616]
+-.duplicate medea
+- implement gBlackboard1, gBlackboard2, gBlackboardIndex
+  -.decision: should be made *local* to a project
+  - how to dump image with pheromones…? through keyboard command?
+    - (build and dump?)
+    - cannot be local
+-.implement a generic saveImageToDisk method
+
+[20120607]
+-.New functionality: trace agent(s) trajectories and save it to disk
+  -.add gTrajectoryMonitorImage to roborobo.cpp/h
+  -.SDL_gfxRoborobo.cpp: add method "saveTrajectoriesImage()"
+  -.refer to _FAQ.TXT for details.
+
+[20120604]
+-.Optimisation speed: new collision management (exact pixels + edges only) [done]
+  -.DETAILS
+    - create agent-maskCountour.png and miniagent-maskCountour.png
+    - Agent::move()
+      => replace double for loop by a single loop with x/y coordinates to check.
+    - SDL_gfxRoborobo.cpp: register_surface(…) 
+      => implement new register_surface function with a list of pixels to write
+    - SDL_gfxRoborobo.cpp: clean_surface(…)
+      => implement new clean_surface function with a list of pixels to clear
+    - RobotAgent::isCollision()
+    - Add new data in roborobo.h  (list of points gAgentMaskDefinition…?)
+    - Add transformation into array in roborobo.c, below line with text ''// set reference dimensions''
+    - note: all register data are common to all agents
+  -.Results: speed is slightly better for ''miniagents'', but twice better for ''agent''
+
+[20110512] 
+=> 2012-05: check also how-to-code-organism.txt (which is more recent... and complete)
+=> Note that no modular version have been implemented yet.
+- Moving an assembly of agents (multi-cellular organisms)
+  - Algo
+    - STEP 1
+	  - find referent for one assembly (dynamic, depends on location and displacement vectors)
+	  - apply sum-of-vectors at this referent to compute reference *agent* new position
+	  - update all position/orientation wrt. reference *agent*
+	- STEP 2
+	  - detach/attach on-the-fly
+      - (solving alignement problems)
+  - Required
+    - test if agent is colliding or not (for backtracking)
+    - update position (cf. algo 1)
+  - Possible issues
+    - user-control? (only allow master? switch to master, if slave?)
+    - sum-of-norm: problem as may be >1.0 (multiply? no. ex.: opposite vectors)
+    - friction (ie. if no mvt, then omnidirectional penalization through friction)
+    - alignement issues (should be able to generalize)
+    - current update order may favors organisms first (>1 representation in the list)
+      - temp remove from gAgent lists? => no.
+      - set master/slave agents (default: all masters ; setting at random)
+    - collision manager: backtracking ok, if for whole organism
+    - maintining shape: use one referent, update all wrt. referent.
+  - about algo::step1
+    - example: 
+       OOO
+         O  
+    - methodology
+      - case: no friction
+      - case: parameterized friction
+        - friction as a residual penalization
+    - method
+      - sum-of-vector => direction and norm
+      - sum-of-rotation => rotation
+      - this is applied at barycenter
+      => OO - with two opposite orientation and norm -> should rotate around barycenter
+        - note: conversion from norm to rotation (applying two forces)o
+      => OOO - with 2 <- and 1 -> : sum of norm
+      ---> first step: summing vectors 
+        - case OO: barycenter unchanged (correct), but: no rotation
+      ---> second step: rotation?
+  =-=-=
+  - RobotAgent::isMaster()
+    - if attach to master, dice who becomes master (robust)
+    - what if? two organisms attach? must choose one master.
+      - dedicated routine once every generations? (checkMasterConsistency)
+  - RobotAgent.move
+    - the master checks if single or master of multi-organism
+    - if multi-org: 
+      - update pos (with collision management)
+
+[20110429]
+-.added InanimateObject.cpp/h
+  - a super class for all inanimate objects (ball, sun, energypoints, etc.)
+  - update World.cpp/h (InanimateObjects step() method is called every timesteps)
+  - Remark: EnergyPoints inherits from InanimateObject
+    => backward compatibility issue: in World.cpp/h, storage and management vector remains unchanged (gEnergyPoints)
+    => gEnergyPoints is considered deprecated from now on, gInanimateObjects should be preferred (cf. World.[add|delete]Object)
+-.EnergyPerceptronControlArchitecture.cpp/h deleted (unused)
+-.modular makefile added (from Leo)
+-.Added 
+  -.perso directory
+  -._INSTALL.TXT, _FAQ.TXT
+  -.rename changelog.txt to _CHANGELOG.TXT
+
+[20110314-15]
+- Roborobo changes suggestion
+  -.src/contrib: considers sub-directory
+    -.modify makefile (add "src/contrib/**/*.c" in SRC_C and SRC_CC) + update xcodeproject.
+    -.create zsu subdirectory + move current files
+    -.motivation: prepare room for including independant libs (e.g. neuralnet, reservoircomp, etc.)
+  -.EnergyPoint et hiérarchie des objets inanimés ==> Done. check [20110429] for details
+    - besoin: EnergyPoint est un cas particulier d'un cas plus général: les objets inanimés (ex. obstacle, lumière, balle, etc.)
+    - motivation: (a) energypoint, ball, sun, etc. partage les mêmes propriétés (b) il doit être possible de dériver cet objet dans un prj. (c) ptés communes aux objets ''inanimés''
+    - remarques: il s'agit d'un objet inanimé (InanimateObject), c'est à dire ''non doué de vie'' (cf. definition). != statique car la position peut changer (ie. force ext. non nulle)
+      - nouvelle classe parente: InanimateObject
+      - sous-classes directes: TangibleObject ( = existence physique ), IntangibleObject ( = pas d'existence physique )
+      - Quelques sous classes possibles:  "BREAKPOINT Mardi23h59"
+        - Héritant de TangibleObject: DynamicObject ( = susceptible de bouger) => Ball
+        - Héritant de IntangibleObject: 
+          - DancingFlare (une lumière qui bouge)
+          - EnergyPoint [copie directe de ce qui existe déjà]
+    - Quel propriété?
+      - static vs. dynamic
+      - immateriel vs. physique => si physique, parametre l'id senseur.
+      - perceptible ou non (automatiquement oui si physique, puisque inscrite dans l'envt)
+      - radius, shape? (dépend du type d'objet)
+      - EnergyPoint: reservoir d'energie
+      - ...
+      - shape (rond ou carré, pour un pavage/mur/etc.)
+      - couleur actif, inactif (?)
+      - dynamique...?
+    - Implementation
+      - EnergyPoint reste EnergyPoint, s'insere dans la hiérarchie
+      - probleme: EnergyPoint, c'est un vrai bazar.  ==> pas grave, on laisse comme ca. n'influe pas le reste de la hiérarchie. 
+        - respawnlag, set/getKey, _fixedLocation(? - new location after respawn, or not), etc.
+        - manque setLocation
+        - constructeur fixe location au hasard
+        - clean et rename a faire TODO
+        - éventuellement
+          - définir LockedEnergyPoint héritant de EnergyPoint spécifique dans selfrep (permet de dégager set/getKey)
+  -?Possibly misplaced source files (should be in ./prj? elsewhere?)
+    - EnergyPerceptronControlArchitecture
+    - RobotAgentWorldInterfaceDangerWorld
+    - EvolvingRobotAgentWorldModelDangerWorld.cpp
+
+[20110119]
+-.[RobotAgent.cpp]: random initialization for initial agent coordinate did not take into account obstacles (ending up with agent stuck into walls)
+  -.corrected: random pick is performed until a valid position is found 
+    -.check if agent image mask fits in an empty arena.
+    -.agent collision/superposition is also checked. squared bounding boxes are used (width/height).
+    -.the number of tries is limited (100 tries, at this time) to avoid infinite search (display a message + quit program).
+    -.note: this should not change previous roborobo compatibility (ie. if positions are specified in properties file, it works as before).
+- *WARNING* : SpikeAnts project requires Gnu Scientific Library -- force to include or implement project disable ?
+  - MacOSX: 
+    sudo port install gsl
+    In the project window, select name of project (root ot the tree) then click on info (blue icon on the right) => go to the ''build'' tab item => look for Header Search Path (in Search Paths group)
+    add ''/opt/local/include'' (+ dont check recursive button)
+    also: add existing file to project: libgsl.a (but not sure this step is mandatory -- stopped testing here as it seems there are also missing file issue in spikeants)   
+-.added new project 'medea-optim' (simplified clone of medea (original ppsn)) -- objective: mix btw medea and user-defined task (optimization)
+
+[20101207]
+-.log files automatic naming: changed to include microseconds instead of milliseconds. [suggested by JM]
+
+[20101122]
+- 'make clean' do not delete orphan .o file (e.g. user deleted cpp before) 
+
+[20101120]
+-.Misc.cpp: add new method getAngleToTarget, returns angle from reference to target, taking into account current reference orientation wrt. envt
+  -.double getAngleToTarget( Point2d refPt , double orientation, Point2d targetPt );
+  -.return angle in degree btw -180° and +180°
+  -.useful for getting target orientation wrt. a robotic agent
+-.InspectorMode: enhance visibility of display (cross+square)
+-.added new hotkey "f": toggle on/off focus on currently focused agent. (display a square around it). default is false.
+ -.added loading in properties (not critical if missing)
+
+[20100922]
+-.[core] EnergyPoint: add local management method for energy value and respawn lag:
+		bool getEnergyPointValueIsLocal();
+		void setEnergyPointValueIsLocal( bool __value );
+		int getEnergyPointValue();
+		void setEnergyPointValue( int __value );
+		void setRespawnLagMaxValue( int __lagMaxValue );
+		int getRespawnLagMaxValue();		
+		void setRespawnLagMethodIsLocal( bool __value );
+		bool getRespawnLagMethodIsLocal();
+	By default: all flags are false (to ensure same behavior as before)
+	also modified config files
+
+[20100915]
+-#roborobo is moved to evorob/dev
+-.added new project 'medea-specialize' (clone of twosuns) -- objective: specialization/speciation in envt with more than one resource.
+
+[20100914]
+-.robot light for user monitoring (e.g. different species)
+  -.3x3 square, setLightStatus(on/off), setLightColor(color)
+  -.comments: by default is false - while it may be used for communication, the LED was initialy used to 'tag' the robot for user-purpose.
+-.inspector mode for user-control, agent can be very difficult to spot. 
+  -.solution: Show flashing square around user-controller robot
+-.possible conflict in naming files when launching many run in parallel: resolution at the second timescale is not enough (same names occur)
+  -.solution: added ms resolution in file numbering (note that random seed is still second-based)
+  -.note: added include <sys/time.h> for using gettimeofday under linux (no need in macosx)
+-.max translational speed should be limited wrt. agent size (add a safe-check)
+  -.display a warning on console if gMaxTranslationalSpeed is larger than agent image width and/or height. (ie. considered not critical)
+-.user-controlled robot provokes segmentation fault if collision
+  -.cause: desired translation value was not re-initialized if collision (ie. desired value always far beyond reach, provokes infinite recursive call)
+  -.note: problem occurs if max speed >= 2.0 is allowed (e.g. medea-twosuns autonomous has no problem while user-controlled has)
+  -.implem: added '_wm->_desiredTranslationalValue = 0;' in RobotAgent::move(...)
+
+[20100627]
+-.added saveScreenshot(...) global method : take a screenshot and save BMP in log directory. Automatic numbering.
+  -.automatic numbering
+  -.optional parameter for user comment (saveScreenshot("blabla"))
+  -.added hotkey related ("o")
+
+[20100625]
+-.medea-twosuns: monitoring distance et orientation. Nord en haut.
+
+[20100622]
+-.added hotkey ("j") and properties variable name ("gDisplaySensors") for sensor raycasting display on/off
+
+[20100618]
+- medea: l'image background et foreground ne correspondent pas
+- check PPSN-ni-submitted.properties (deprecated)
+-.RobotAgent: minor bug detected (by Pierre) [corrected]
+  -.in applyDynamics(): abs is used instead of fabs, implying truncating subpixel translation values
+  -.correction reveals two bugs (infinite recursive calls of move())
+    -.in move(...): if ( isCollision() ) block content is not consistent and was shadowed by prior truncation. This was not a problem before, but becomes a major bug [corrected]
+    -.in move(...): if statement for recursive call deals only with positive translation. Minor bug as not recursive solving of collision was replaced by abrupt solving (ie. if collision, cancel move). [corrected]
+
+[20100603]
+-?une option restartActif pour medea (qui lors d'un restart met un genome au hasard et passe en actif)
+- EnergyPoints: rendre indépendant de World
+-.creation de MedeaSharedData
+-.creation du projet Medea-TwoSuns
+- tutorial PRJ: 
+  - changer le configurationLoader dans le properties
+- affichage quel configurationLoader lors du lancement.
+- bug lors du remote control en collision (dans medea*)
+-?actuellement, l'appel hide() des energypoints doit être fait par l'utilisateur. Ce n'est pas forcément clair. Clarifier? (mais comment?) (utile lorsqu'on change la position)
+  - dans la fonction setPosition, forcer un hide+show sous condition? ==> bonne idée. todo.
+- difference entre background x-ray et affichage (medea*)
+- l'agent remote control est difficile a voir
+- option pour supprimmer l'affichage des IR
+- les energy points ne sont pas centrée, les coordonnées donne le haut-gauche -- c'est grave? en general non, mais genant a l'utilisation.
+- corriger la generation des positions aléatoires des agents pour un retirage si obstacle.
+- verifier/corriger specification explicite des coodonnées des points d'energie.
+
+[20100525->27]
+-.ajout d'une cible ''snapshot'' dans le Makefile qui permet de generer une archive tgz rapidement, sans les .svn et les fichiers datalog_* et properties_*
+-.mise a jour du code, historique des modifications:
+  -.Refactoring Medea:
+    -.renommage PPSN* -> Medea*
+    -.deplacement dans PRJ, regroupement avec battles et replay
+    -.deplacement des variables d'état de l'agent depuis Controller vers WorldModel (+accessing)
+    -.PPSNWorldObserver:
+      -.Ajout PPSNWorldObserver
+      -.refactoring repartition du code entre les observers (lourd)
+      -.deplacement des données dans WorldModel
+	-~externaliser MLP / controleur => cas par cas? a voir...
+  - modifications diverses
+    -.suppression de EnergyWorldObserver (code inutile)
+    -.multiple définition de euclidianDistance(...) => une seule methode, dans Misc.
+    -.déplacement de Point2d depuis common.h (qui sert aux includes communs a roborobo) vers Misc.h (utilitaires divers)
+    -.déplacement de modulus (et renommage en applyModulo) dans Misc.h
+	-.gRespawnLag => gEnergyPointRespawnLag (dans le code, et dans les fichiers .properties)
+    -.gStory* renommé en gZone* avec quelques variations. fichiers properties mis a jour.
+    -.WorldModel et classes ''friend'': mécanismes supprimés et remplacés soit par des get/set, soit par un passage en public (pour RobotAgentWorldModel)
+    	- a faire éventuellement: passage get/set pour RobotAgentWorldModel (prévoir un loooong week-end)
+    -.mise a jour du _readme.txt
+    -.renommage OnePlusOne...Observer et StrongCausality...Observer
+    -.LockedEnergyPoint devient EnergyPoint. Refactoring léger (renommage surtout).
+    	-#Libre a l'utilisateur d'utiliser ou non la clé (l'interprétation n'est pas faite dans EnergyPoint).
+    	- pas setLocation pour l'instant
+    -.gEnergyPointSize: renommer en gEnergyPointRadius (+ *.properties mise a jour)
+    -.make_EnergyPoints...?() -- a ecrire? => non, on considere que c'est une particularité du code, donc a gerer entierement dans un worldobserver
+	-.repertoire logs, fichier de dump du properties file courant créé au lancement: entete explicite dans le fichier, nommage en fonction de l'heure de lancement
+		-#exemple de nommage: ''properties_20100526-15h10m11s.txt''
+	-.repertoire logs, idem fichier log.txt (lorsque gLogFilename n'est pas donné dans le fichier .properties)
+		-#si le parametre gLogFilename n'existe pas, alors le nom de fichier est créé selon la même approche. Ex.: ''datalog_20100526-15h10m11s.txt''
+		-#macosx: signifie que certains scripts sont a modifier (ie. fait un renommage de log.txt en fonction de l'exp courante)
+	-.legere retouche sur le format des infos affichées (entre autre correction d'un bug de synchro sur l'affichage du compile time lors de la demande de version)
+	-.repertoire tools:
+	  -.deplacement des scripts de la racine dans python-scripts/BattlesAndReplay
+	  -.mise a jour de la structure du repertoire
+    -.ancien PPSNAgentObserver::step->broadcast: usage de current[Observer|genome|sigma] pour des sens differents => resolu, y compris dans Battles et Replay.
+    -.Makefile unix mis a jour.
+  - repertoire PRJ
+    -.deplacement de fichiers venant de ext/ vers prj/
+    -.mise a jour du projet Xcode
+    - mise a jour du Makefile "TODO"
+    -.mise a jour des chemins dans les sources
+    -.regroupement:
+      -.medea: Battle, Replay et mEDEA: un seul projet? non factorisable (donc pas dans ext/)
+      -.nommage: suivant l'algorithme et la version (pas de nom de conf, sauf a posteriori eventuellement - redondant avec archivage de toutes facons) 
+    -.tutorial nouveau projet
+      -.mettre a jour quick start
+    - probleme séparation des projets
+      -#info: ConfigurationLoader doit quand même être initialisé... mmh. probleme.
+      -#configurationLoader doit être toujours accessible, configurationLoader contient une ref vers tous les projets
+      -#il peut y avoir plus d'un configurationLoader par projet, donc un configurationLoader global est nécessaire
+        -#option: forcer un projet = un ConfigurationLoader ?
+      -#en l'état:
+        -#le point d'include doit être à partir de PRJ/ (e.g. ''nomdeprojet/include/blabla.h'')
+        -#tout doit compiler (pas d'indépendance de développement)
+    -.ajout de BasicProject dans le repertoire prj/ (braitenberg evitement d'obstacle, le point d'entree du tutorial)
+
+[20100402.1459]
+- PPSN
+  - I/O
+    -.closest point. cf. ctlarc.searchClosestEnergyPoint
+    -.detecteur de zone -floorsensor
+    - rdn
+  - zone recharge
+    - implem monde
+    - implem fct
+  - scenarisation
+    - extraire 3 fonctions dans le step observer
+  - MLP
+  -.virer key
+  -.refill implique pas de controleur
+    -.ajout d'un flag dans l'agent (controleur? WM?)
+    -.pas de broadcast du genome
+    -.actionneur a zero dans ctl.step
+    -.energy inchangée (ctl.step) tant que pas actif == ah? non.
+  -.modif: deltaEnergy = 0 apres un revive (sinon peut transmettre n'importe quoi).
+  -.bug: broadcast meme si pas d'energie (jusqu'a la prochaine synchro) [corrected]
+  - refactor: PPSNAgentObserver::step -> broadcast: usage de current[Observer|genome|sigma] pour des sens differents -> a renommer.
+  -.choix: lors d'une interv. humain, on redonne de l'energie et on choisis un genome dans la liste des importes si possible, sinon, reste immobile en attente d'insemination.
+    -.combien d'energie? (moins qu'une vie) -> avant: 2*gEvaluationTime*0.1 - maintenant: gEvaluationTime*0.1 / 2 (moitie d'une vie)
+    - eventuellement: seuil max sur Energy. (une vie?)
+  - plusieurs changements dans les valeurs de parametre (energy--, energypoint.internlag = respawnlag, etc.) pour comprendre ce qui se passe.
+- gStoryZonesImage to rename
+-.distance: changer pour que distance relle dans le fichier properties, et distance^2 dans le code (conversion). [done]
+-.PPSNPerceptronControlArchitecture:
+  -.random walk se base du wm->_age, qui n'est jamais incremente...
+  -.solution: commente cette partie (pas forcement utile de toutes facons.
+- integration sesam dans branche principale roborobo (vient d'un fork de jm)
+  - EnergyPoint vs. LockedEnergyPoint
+  - bug: gRespawningEnergyPoints not declare in header file - never used.
+	- todo: relevance to evaluate
+  -.roborobo.h/cpp:
+	-.orthographe gMoveStepWidth (inversion deux dernieres lettres)
+		=> propagation partout.
+	-.note: gMaxIt doit etre explicitement defini dans le fichier config, alors qu'il existe une valeur par défaut dans le code...?
+		=> ajout commentaire, valeur = 0, conseil -1.
+- refactor: dans PPSN.AgentObserver: variables globales
+-.refactor: nommage de EnergyPoint
+  -.initLock, iterationMax (???), size (?!!), etc.
+  -.faire la part entre ce qui peut etre global et ce qui correspond a un point particulier.
+  -.le mecanisme de cle... dans energypoint? ou dans un derive (qui devrait etre dans ext)
+- refactor: dans roborobo.h, nommage de qqs var globales (gEnergyPoint vs. gEnergyrespawning..etc.)
+- refactor: raisonner nommmage PPSN/SESAM/etc.
+- implementation energyPoints
+ -.actuellement: placement random
+ -.prevision: 
+    - cas 1 : placement explicite + random
+      - la présence d'obstacles ne permet pas de prévoir un placement garanti correct.
+      => non.
+    - cas 2 : placement explicite
+      - maitrise, mais potentiellement fastidieux.
+      => ok.
+ 	- cas 3 : placement random avec prevision obstacle
+      - pas de maitrise, cas impossible non gere.
+      => non.
+    - cas 4 : placement explicite ou random, avec optim random
+      - hyp: 
+        - le centre d'un point d'energie doit etre place sur une partie definie vide de l'envt. (cf. background)
+        - 2 pts peuvent partager le meme centre.
+        - a charge de l'utilisateur de bien definir les parties vides dans l'image background.
+      - implementations possibles
+        - a la volee #1
+          - choisi un point au hasard, test si possible, recommence sinon.
+          - probleme: la densite de l'environnement impact le nombre de retirage.
+          - param nb_tirage: mettre une borne sur max d'essai -- ca peut etre regle automatiquement.
+            - calcul densite
+            - Q: quelle est la valeur de la proba de succes de tirage aleatoire d'une position tel qu'il est plus interessant de passe en methode "a la volee #2" ? 
+              - si P < 1 / ( dx*dy - #position_possible )
+              - ie.: sur un grand nombre de tirages, on regarde le nombre de lecture de l'image.
+        - a la volee #2
+          - calcul le nombre de points possibles, fait un random a chaque fois, puis recalcul tant que
+          - probleme: couteux a chaque essai.
+        - stockage memoire (mais 2*dx*dy -> 1go pour du 1000x1000!)
+        - optimisation PCX n&b
+        - approximation: stockage memoire carre de N*N (1000x1000 -> 100x100 -> 10mo au lieu de 1go)
+          - problematique pour des labyrinthes denses + sensible a l'alignement du pavage
+        ==> solution retenue: combiner a la volee #1 et #2 en fonction de nb_tirage.
+ - plan d'implementaiton:
+   - suppression gMaxEnergyPoints
+   - chargement p/r properties
+   - raisonner EneryPoints vs. LockedEnergyPoints (factoring nommage)
+   - deplacer dans ext
+   - appel dans XXXWorldObserver
+     - strategie: derivation de WorldObserver liee a projet --> enlever de World.cpp
+     - init dans XXXWorldObserver.reset()
+     - eventuellement, un heritage intermediaire EnergyWorldObserver (facilite adaptation du code existant)
+       - note: ceci justifie une distinction ext/ (ext ordre general, toolbox) et prj/ (prj-oriente)
+     - y compris gerer affichage (.step())
+   - parametre: x, y, radius (impact calcul distance), actif/inactif (pour affichage)
+   - gestion agent
+    - actuellement: calcul si agent prend energy dans (SelfRep)PerceptrionControlArchitecture.step()
+      - distance euclidienne brutale dans le step
+      - todo: externaliser.
+        - ne doit pas etre fait dans le ctlarc, 
+        	- opt.1: agent.step (mais generalement non derive)
+        	- opt.2: agentObserver (todo: l'info point d'energie trouvee doit etre connu de l'agent)
+				- agentObserver accede au WM de l'agent
+				  -> dans WM, ajouter un attribut pour cette info? meme si la plupart du temps pas utilisee.
+- TODO: rajouter dans extendedproperties la possibilite de definir un texte libre qui sera affichee
+-.EnergyPoint step [corrected]
+  -.void EnergyWorldObserver::step(): appel energypoint.step() que si actif
+    -.probleme 1: le test d'actif ou non doit etre fait dans le enerypoint.step, puisque celui ci gere l'affichage.
+    -.probleme 2: la gestion des energypoints doit etre faite dans le world, pas dans un observer.
+- EnergyWorldObserver ne sert a rien. a effacer. (et remplacer les appels par WorldObserver)
+- gEnergyPointValue dans roborobo.cpp semble etre obligatoire... pourquoi?
+-.probleme de coherence d'affichage des energypoints lors d'un harvest + overlap.
+  -.diag: l'overlapped apparait partiellement mange (pas d'impact sur la precision)
+  -.solution: re-affichage systematique
+    -.probleme: cout du reaffichage
+    =>.reaffichage que si displayMode=0 ET gEnergyPoints_alwaysRender existe (et valeur ''true'')
+
+
+[20091124.0002]
+- basic setup: environment, robot, random behavior
+-.debug danger code (and 1+1, strongcausality code) => problem diagnosis:
+  - personal note: C++ class hierarchy does not imply that most derived class shadow hierarchy! If cast at level N, method at level N will be called (!= java).
+- RobotAgentWorldModel: sensor count with fixed size to translate with std::vector -- currently: 8 sensors max.
+- python interface (later) => cf. Boost.python (http://www.boost.org/doc/libs/1_41_0/libs/python/doc/index.html)
+-.refactoring
+ -.analyse relevance of worldAgent vs. robotAgent / revise genetics. => simply rename genetics? GeneticsControlArchitecture => Observers
+-.upgrading options
+ -.write config#0 (default obstacle avoidance)
+ -.write basic start-up reference object => already written (wander behavior)
+ -.check manual control agent signalling
+ -.inspector should work on solo agent (check with coordinates)
+ - radio signalling (array that monitor who's who ranging table) 
+   -.implement scanning in World.cpp, line95
+     -.use std::vector for 2D radiocom array
+     -.implement loading from properties
+   - note: sending and receiving cone may differ (receiving cone is larger)
+   -.how to access neighbors from agent? => RobotAgent.getNeighbors() returns a list of reachable neighbors.
+
+[before 200911]
+-.Locomotion mode
+ -.danger zone locomotion
+  -.move danger zone locomotion parameters into properties file
+  -.derive RobotAgentWorldInterface
+  -.implement danger zone
+  -.robot counter / neighbor influence
+    -.(1) prepare proximity (N! calls) => fastest. but: implementation not easy within current structural choice (trade-off btw clarity and efficiency)
+     -.implies: (a) pre-processing of proximity prior to turn (b) RobotAgentWorldInterface based on pre-processed information (c) memory structure for pre-process information
+ -.velocity impacted dep. on counter
+ -.locomotion specific dynamics - internal proprioceptive-perceived modification vs. envt external modification 
+  -.RobotAgentWorldInterface::applyInternalDynamics - external method updates trans/rot wrt. world dynamics model.
+   -.assume: (a) desired* *should not* be modified. (b) actual* *may* (dep. if the robot actually "sense" back modification, ie. proprioception), (c) internal absolute coord and orientation *are* updated
+  -.Question: impact user-control mode? no. (assume: user control is for positionning, not for robot experience)
+  -.rename updateDeltaPosition en applyDynamics
+ -.(_wm->_maxTranslationalDeltaValue = gMaxTranslationalSpeed) => favorise bang-bang... à changer, mettre dans properties
+  -.en pratique: non, favorise pas bang-bang (note: dans evo1+1, le robot n.0 est le best-so-far)
+= collision mode: always on (avec un message d'avertissement pour le cote sous optimale, uniquement pour inspector)
+= noise interface (a = __NoiseModel__.applyNoise(value,range=0,type=0))
+= symbrion scenario
+ - danger zone et influence moteur.
+  -.zone? un index particulier dans storyzones (donc: floor sensor utilise)
+  -.implementation dans ...? R: le moins invasif: dans la classe derivee de BehaviorControlArchitecture
+    - cloner la classe PerceptronBehaviorControlArchitecture (prise en compte danger zone est un cas particulier)
+  - prise en compte proximite?
+    - chaque robot parcours tous les voisins? (max. N*(N-1) tests si aucun contact) => ... pour 200 robots, 200*199=~40K appels - optimisable? certainement, mais bon.
+    - balayage zone? (couteux, incertains, probablement tres eleve selon diametre, prise en compte rayon) => non
+ - aspects techniques
+  - genome migration: detecter autre robot
+  - batterie
+  - calcul fitness (??? ben non - il n'y en a pas)
+ - controleur
+  - formalisme (recurrent ou non, jordan ou esn?)
+  - in/out (en particulier: moteur re-entrant? niveau batterie? capteur de zone?)
+ - algorithme evoswarm+bootstrap
+-.motor control (2) - desired vs. actual values
+ -.note: rotation value is an angular velocity ; translation is a desired absolute velocity value (ie. feedback ctl)
+ -.check if actual [Rotational|Translational] values are correctly updated
+ -.refactoring (semantic-oriented). Details:
+    _translationalDesiredValue=>_desiredTranslationalValue
+    _rotationalDeltaValue=>_desiredRotationalVelocity
+    _desiredRotationalVelocitySensor=>_actualRotationalVelocity
+    _translationalActualValue=>_actualTranslationalValue
+-.motor control is assumed through delta value, ie. the output of the controller gives a desired delta, not an absolute value.
+ -.revise? oui. Car dans l'etat actuel, sans rebouclage, aucun moyen de savoir la vitesse, donc la strategie la plus simple est saturation.
+ -.revision: 
+   -.asservissement a une vitesse de translation (translationalDeltaValueSensor)
+   -.pour l'angle: asservissement delta (ie. vitesse angulaire) -- comme avant, ne change pas!
+-.floorsensor: repositionnement au milieu (xReal,yReal sont *deja* au milieu)
+-.command line: 
+ -.properties file -l <filename> ; h(elp) ; v(ersion) - batch mode is specified in the properties file.
+-.inspector mode: display gps coordinate
+-.debug
+ -.probleme affichage sur les castRay et god mode...? 400/800x400/800 ok mais le reste, non. (400x400, 200x200, et les autres)
+ -.SDL_Rect gCamera et gCameraParallax dimensionne en dur ==> resole
+ -.gScreenWidth pas pris en compte
+-.god mode is too fast in fast render mode => might behave faster/slower depending on the load.
+-.Parameterization
+ -.convention couleur dans les images
+  -.agentXstart devient inspectorAgentXstart
+  -.emplacement de depart des robots
+  -.probleme du robot 0 vs. pas d'obstacle. (pb: reserve pour "rien") --> pas un probleme puisque register avec Id+1000
+  -.numerotation robot+100 -- alors qu'objet jusqu'a 255? (e verifier) --> corrige: +1000.
+  -.visibilite sur storyzones...? --> blue component
+ -."SDL_Surface *specsImage = load_image( "data/agent-specs.png" );" dans RobotAgent.cpp
+ -.#define pour les noms des objets
+ -.Properties java-like implementation. (cf. Evert's code)
+-.evolution (off-line, 1+1ES) => cf. previous fork.
+ -.Perceptron (load param, step)
+ -.Eval
+ -.fitness: needs actual velocity. (velocity/rotation is updated with real values)
+ -.note: not a problem, but bug NN parameters may result in NaN output values... (e.g. if sigma update never gets smaller with 1+1ES)
+ 	- solution: bound sigma?
+ - todo: sigma: minimal bound. (e.g. 10e-12)
+ -.fitness is integer... ==> PROBLEM WITH RANGE SENSOR (CORRECTED 20090125.0953 -- VERSION FORK1)
+ - agent.updateFitness => friend with World
+-.structure pour evolution
+	-.controller.step distinct
+	-.calcul de fitness (renvoi un objet?)   ==> depend si on/off-line evolution
+	-.point d'entree (cf. launchBatchmode)   ==> depend si on/off-line evolution
+-.refactoring
+	-.OrientedAgent: RobotAgent
+	-.NonOrientedAgent: InspectorAgent
+	-.fichiers graphique, roborobo, World
+-.interface
+	-.deplacement sur robot ou global
+-.multi-bot 
+	-.switch entre agents, initialisation, etc.
+	-.analyser la positionCamera dans le cas plusieurs robots...
+	-?point de depart
+	- collision entre agent
+		-?sampling suffisamment eleve pour pas de probleme, ie. longueur mouvement << taille robot
+		- collision entre agents
+			- externaliser le test de collision (evite de le faire N*(N-1))
+				- sol1: detecter collision, backtracker [TROP LOURD]
+					(+) rapide si pas de collision
+					(-) backtracking peut etre couteux si dependance en cascade
+					(--) backtracking recursif sans arret possible (dependance en cercle) (petite probabilite)
+				- sol2: pas de simulation (robot) et pas de resolution (monde)
+					(+) rapide possible
+					(-) pas de solution pour la collision avec 1 pixel de commun => implique blocage
+					(-) si collision, alors robot definitivement immobile (mort)
+					(=) code: tour de tous, test collision apres coup, desactive les morts en une passe.
+					(=) contrainte: pas de simulation doit etre multiple entier de pas de resolution ; resol <= simu
+				- sol3: collision implique arret immediat [IRREALISTE]
+					(+) rapide dans tous les cas
+					(+) (facile a faire - sauve ancienne position, valide apres que tous les agents aient bouges)
+					(-) pas de contact, position sauvee depend de la vitesse instantannee avant choc
+					(--) moins realiste 
+				- (!) solution retenue: 
+					- sol2
+					- ajout: resolution collision
+						etat mort tant que collision superposee
+						routine de-collision: 
+							apres tous les agents.move
+							avant les tests de collision robot-robot
+							tente une execution vecteur arriere si libre (nombre max d'essai?)
+							enleve *eventuellement* le flag mort
+				- TODO: **DEPRECATED 0111.1208**
+					-.ajouter senseursRobot (idrobot et distance)
+					- senseurs mis a jour avec proximite autre robot
+						- quelle methode?
+					-.etat mort/vivant
+					- detection de collision, etat mort si collision.
+					- memorisation vecteur inverse, pas de 1 pixel.
+					- verification si nouvel localisation sans conflit (???)
+	ETAT ACTUEL [BP20090111.1208]:
+		- td: collision entre robot, lance de rayon, pas d'etat mort ou vivant car collision resolue (biais synchrone permet pas superposition).
+		- todo 1: implanter la reconnaissance du no_id de l'autre robot (deux images? la 2nde etant un z-buffer?) 
+			-.ajouter senseur type objet -> pourquoi quand rien on a 1.67772e+07?
+			-.include zones (sur storyzones)
+			-.ajouter senseur zone
+		- todo 2: optimisation de la vitesse. faire une seconde methode basee sur un seul calcul, (gerer probleme des senseurs)
+			-Xoption 1: pour chaque agent, parcours boite englobante, si inclus dans zone perceptible, alors test precision
+				(+) pas de lecture/ecriture image
+				(-) nombre d'iterations de lancer de rayon conditionne test
+			-.option 2: pour chaque agent, parcours boite englobante, enregistre les agents proches dans l'image.
+				(+) simple a mettre en place
+				(-) pire cas: tout doit etre ecrit (cas actuel)
+		-?todo 3: seconde passe optimisation
+			-?reecrire la partie interne pour ne stocker qu'un seul octet...? 
+				(?) optim? On ne stocke de toutes facons qu'on int, meme pour rgb. le seul gain serait l'extraction des composants couleurs...
+-.off-line on-line
+	-.lie a gCamera et gScreen
+	-.enlever CastSensorRay de la methode "show" -- a ceci pret, c'est tout je crois.
+	-.batch mode
+-.compteur fps.
+-.un "bot" evitement obstacle (eventuellement, refactorer la classe dot et faire un heritage)
+-.lancer de rayon - renvoyer la valeur
+-.charger depuis le fichier agent-specs les positions et orientation de senseurs (constructeur).
+-.affichage orientation -- deriver agent::show(), afficher un point
+-.dynamique orientation -- asservissement a un angle, ensuite le code fait du PID.
+-.l'integrateur de controleur (on donne un asservissement, il le gere)
+
+
+=-=-=-=-=-= =-=-=-=-=-= =-=-=-=-=-= 
+
+
+**MEMO**
+
+- In C++, class hierarchy does not imply that most derived class shadow hierarchy! If cast at level N, method at level N will be called, not N_max (!= java).
+- dont forget semi-colon at the end of "class bla {...};"
+  => typical if error is: ''multiple types in one declaration''
+- "class  ExtendedProperties : public Properties {...};" - public kword, otw public field from parent class become protected
+- use extern keyword in include files. and dont forget to *actually* declare the variable (ie. extern gives prototype).
+- abstract defini par: virtual void move() = 0;
+- SVN IGNORE: 
+ - créer ".svn/svnignore" dans le repertoire concerne + "svn propset svn:ignore -F .svn/svnignore ."
+ - "svn status --no-ignore" pour verifier
+
+- conventions:
+ - "_gDataName" : static class variable (ie. global scope)
+ - une variable de classe statique doit etre déclarée dans le .C : int MyClass::_gDataName;
+
+- declare 2D array with std::vector
+	std::vector<std::vector<int> > my2DArray
+	my2DArray.resize(maxLength);
+	for ( int i = 0 ; i != maxWidth ; i++)
+	  (my2DArray.at(i)).reserve(gAgentCounter);
+
+- inheritance and shadowing methods: C++ class hierarchy does not imply that most derived class shadow hierarchy! If cast at level N, method at level N will be called (!= java).
+
+- inheritance and default constructor:
+	by default, the empty constructor of the super class is called. To declare that a non empyt super-class constructor should be called, follow this example:
+		MyNewClass::MyNewClass( MyParam *myParam ) : MySuperClass( *myParam )
+		{
+			blabla;
+		}
+
+- static vs. dynamic casts
+	static_cast => C-style typecasting in C++
+	dynamic_cast => to cast objects across the inheritance hierarchies
+	check: http://www.cplusplus.com/doc/tutorial/typecasting/
+
+=-=-=-=-=-= =-=-=-=-=-= =-=-=-=-=-= 
+	
+
+**HOWTO**
+
+Installation of a specific path in Xcode: 
+ Select 'Edit active target 'x' from the Project menu.
+ Choose the Build tab.
+ Choose "All Configurations" from the Configuration popup button.
+ Choose "Search Paths" from the Collection popup button. 
+ Double click on the entry marked 'Header Search Paths'
+ Add the path to the top level include folder. You should not select 'recursive'.
+
+=-=-=-=-=-= =-=-=-=-=-= =-=-=-=-=-= 

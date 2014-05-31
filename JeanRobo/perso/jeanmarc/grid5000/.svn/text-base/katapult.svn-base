@@ -1,0 +1,395 @@
+#!/usr/bin/ruby -w
+#
+# Katapult: a simple, not ambitious tool to bootstrap your experiments
+# Contact: Lucas Nussbaum <lucas.nussbaum@imag.fr>
+#
+# See the README file
+#
+# $Id: katapult 1777 2009-03-03 12:07:09Z nussbaum $
+# $HeadURL: svn+ssh://nussbaum@scm.gforge.inria.fr/svn/grid5000/tools/katapult/trunk/katapult $
+
+# optparse and ostruct are part of the ruby stdlib.
+require 'optparse'
+require 'ostruct'
+require 'thread'
+require 'pty'
+
+#########################################################################
+# Copy/paste from the expect ruby lib, so katapult can be standalone
+$expect_verbose = false
+class IO
+  def expect(pat,timeout=9999999)
+    buf = ''
+    case pat
+    when String
+      e_pat = Regexp.new(Regexp.quote(pat))
+    when Regexp
+      e_pat = pat
+    end
+    while true
+      if IO.select([self],nil,nil,timeout).nil? then
+        result = nil
+        break
+      end
+      c = getc.chr
+      buf << c
+      if $expect_verbose
+        STDOUT.print c
+        STDOUT.flush
+      end
+      if mat=e_pat.match(buf) then
+        result = [buf,*mat.to_a[1..-1]]
+        break
+      end
+    end
+    if block_given? then
+      yield result
+    else
+      return result
+    end
+    nil
+  end
+end
+########################### END of copy/paste from expect
+
+# default values
+$cfg = OpenStruct::new
+$cfg.deploy_env = nil
+$cfg.deploy_custom_env = nil
+$cfg.deploy_user = nil
+$cfg.deploy_part = nil
+$cfg.deploy_dev = nil
+$cfg.sleep = false
+$cfg.copy_ssh_key = false
+$cfg.specifnodes = []
+$cfg.run = nil
+$cfg.min_nodes = nil
+$cfg.max_deploy_runs = 1
+$cfg.min_deployed_nodes = 1
+$cfg.ssh_user = ENV['SSH_USER'] || 'root'
+$cfg.ssh_password = ENV['SSH_PASSWORD'] || 'grid5000'
+$cfg.ssh_keyfile = "#{ENV['HOME']}/.ssh/id_rsa.pub"
+$cfg.filesToAdd = nil
+
+# Use SSH's ConnectTimeout option ? If you don't, performance could be bad in
+# case of unreachable hosts. Some SSH versions don't have this (the one on
+# Sophia, for example)
+CONNECTTIMEOUT="-o ConnectTimeout=2"
+#CONNECTTIMEOUT="" # for sophia
+
+$tstart = Time::now
+
+# read the nodes list from a file
+def readnodes(f)
+  begin
+    return IO::read(f).split("\n").sort.uniq
+  rescue
+    return []
+  end
+end
+
+if defined?($PROGRAM_NAME)
+	progname = File::basename($PROGRAM_NAME)
+else
+	progname = "katapult"
+end
+
+opts = OptionParser::new do |opts|
+  opts.version = '$Id: katapult 1777 2009-03-03 12:07:09Z nussbaum $'
+  opts.release = nil
+  opts.summary_indent = "  "
+  opts.summary_width = 28
+  opts.program_name = progname
+  opts.banner = "Usage: #{progname} [options] [script to run with its parameters (optional)]"
+  opts.separator 'Contact: Lucas Nussbaum <lucas.nussbaum@imag.fr>'
+  opts.separator ''
+  opts.separator 'General options:'
+  opts.on('-m', '--machine MACHINE', 'Node to run on') { |n| $cfg.specifnodes << n }
+  opts.on('-f', '--file MACHINELIST', 'Files containing list of nodes')  { |f| $cfg.specifnodes = readnodes(f) }
+  opts.on('-s', '--sleep', 'do not exit ASAP. Katapult sleeps for a very long time at the end of the job, to allow the user to take over.') { $cfg.sleep = true }
+  opts.on('-n', '--min-nodes NB', 'Minimum number of nodes needed to carry out job. We exit if we can\'t get enough nodes') { |n| $cfg.min_nodes = n.to_i }
+  opts.separator ''
+  opts.separator 'Options about deployment:'
+  opts.on('-e', '--deploy-env ENV', 'Deployment environnement') { |s| $cfg.deploy_env = s }
+  opts.on('-o', '--deploy-custom-env ENV', 'Deployment custom environnement') { |s| $cfg.deploy_custom_env = s }
+  opts.on('-l', '--deploy-user USER', 'User owning the deployment environment') { |u| $cfg.deploy_user = u }
+  opts.on('-p', '--deploy-part NUM', 'Partition number where to deploy the environment') { |p| $cfg.deploy_part = p }
+  opts.on('-d', '--deploy-device DEV', 'Device where to deploy the environment') { |d| $cfg.deploy_dev = d }
+  opts.on('-a', '--add-file FILES', 'Files to add in the home folder') { |s| $cfg.filesToAdd = s}
+  opts.on('', '--min-deployed-nodes NB', 'Minimum number of nodes that must be correctly deployed before continuing') { |n| $cfg.min_deployed_nodes = n.to_i }
+  opts.on('', '--max-deploy-runs NB', 'Maximum number of kadeploy runs before we admit we cannot get enough nodes deployed') { |n| $cfg.max_deploy_runs = n.to_i }
+  opts.separator ''
+  opts.separator 'Options about the copy of SSH keys:'
+  opts.on('-c', '--copy-ssh-key', 'Copy SSH_keys to nodes') { $cfg.copy_ssh_key = true }
+  opts.on('-u', '--ssh-user USER', 'Username to use when copying keys (default: root ; can also be set using $SSH_USER)') { |u| $cfg.ssh_user = u }
+  opts.on('', '--ssh-password PASSWORD', 'Password to use when copying keys (default: grid5000 ; can also be set using $SSH_PASSWORD)') { |p| $cfg.ssh_password = p }
+  opts.on('-i', '--ssh-key-file FILE', 'File containing keys to copy (defaults to ~/.ssh/authorized_keys)') { |f| $cfg.ssh_keyfile = f }
+  opts.separator ''
+  opts.separator 'If neither --machine nor --file are specified, the nodes list is read from the $OAR_NODEFILE environment variable.'
+  opts.separator ''
+  opts.separator 'Example runs:'
+  opts.separator '  oarsub -t deploy -l nodes=2,walltime=2 \'./katapult --deploy-env sid-x64-base-1.0 --copy-ssh-key --sleep\''
+  opts.separator '  oarsub -t deploy -l nodes=10,walltime=1 \'./katapult --min-nodes 8 --deploy-env sid-x64-base-1.0 --copy-ssh-key /home/grenoble/lnussbaum/todowithgoodnodes\''
+  opts.separator '  oarsub -t deploy -l nodes=1,walltime=1 -r \'2006-12-01 09:00:00\' \'./katapult --min-nodes 2 --deploy-env sid-x64-base-1.0 --copy-ssh-key /home/grenoble/lnussbaum/todowithgoodnodes\''
+end
+begin
+  opts.parse!(ARGV)
+rescue OptionParser::ParseError => pe
+  opts.warn pe
+  puts opts
+  exit 1
+end
+
+if ARGV.length > 0
+  run = ARGV.join(' ')
+end
+
+#### Nodes checking
+require 'socket'
+
+def showtime
+  return (Time::now - $tstart).to_i
+end
+
+def checkping(host)
+  cmd="ping -c 1 -q -W 1 #{host} &>/dev/null ; echo $?"
+  return `#{cmd}`.chomp == '0'
+end
+
+def checkport(host, port)
+  begin
+    s = TCPSocket::new(host,port)
+    return true
+  rescue
+    return false
+  end
+end
+
+def checksshexec(login, host)
+  begin
+    return system("ssh -l #{login} -o BatchMode=yes -o PasswordAuthentication=no -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null #{CONNECTTIMEOUT} #{host} true &>/dev/null")
+  rescue
+    return false
+  end
+end
+
+def testnodes(nodes, tests)
+  # FIXME parallelize
+  badnodes = []
+  oknodes = []
+  nodes.each do |node|
+    if tests.include?(:ping) and not checkping(node)
+      puts "### Excluding #{node} because PING test failed."
+      badnodes << node
+    elsif tests.include?(:sshport) and not checkport(node, 22)
+      puts "### Excluding #{node} because SSHPORT test failed."
+      badnodes << node
+    elsif tests.include?(:sshexec) and not checksshexec('root', node)
+      puts "### Excluding #{node} because SSHEXEC test failed."
+      badnodes << node
+    else
+      oknodes << node
+    end
+  end
+  return [ oknodes, badnodes ]
+end
+
+def enoughnodes?
+  if $cfg.min_nodes and $nodes.length < $cfg.min_nodes
+    puts "### [#{showtime}] ERROR: not enough nodes remaining (only #{$nodes.length}, needed #{$cfg.min_nodes}). Exiting."
+    exit 1
+  elsif $nodes.empty?
+    puts "### [#{showtime}] ERROR: not any node remaining. Exiting."
+    exit 1
+  else
+  end
+end
+
+######
+
+### Start of job
+STDOUT.sync = true
+if $cfg.specifnodes.empty?
+  if ENV['OAR_NODEFILE'].nil?
+    puts "No nodes specified, and no OAR_NODEFILE variable, exiting."
+    puts "Run #{progname} --help if you need help."
+    exit(1)
+  else
+    $nodes = readnodes(ENV['OAR_NODEFILE'])
+  end
+else
+  $nodes = $cfg.specifnodes
+end
+if $nodes.empty?
+  puts "No nodes found. exiting."
+  puts "Use #{progname} --help if you need help."
+  exit(1)
+end
+
+puts "### [#{showtime}] Katapult starting at #{$tstart}. Version: $Rev: 1777 $ $Date: 2009-03-03 13:07:09 +0100 (Tue, 03 Mar 2009) $"
+
+# split nodes into clusters
+def split_clusters(nodes)
+  clusters = {}
+  nodes.each do |n|
+    c = n.gsub(/-.*/,'')
+    if clusters[c].nil?
+       clusters[c] = [n]
+    else
+       clusters[c] << n
+    end
+  end
+  return clusters
+end
+
+### Deployment
+if $cfg.deploy_env or $cfg.deploy_custom_env
+  puser = ($cfg.deploy_user.nil? ? '' : ", user=#{$cfg.deploy_user}")
+  puts "### [#{showtime}] Deploying nodes: " + ($cfg.deploy_custom_env ? "custom env=#{$cfg.deploy_custom_env}#{puser}" : "env=#{$cfg.deploy_env}#{puser}")
+  runs = 0
+  needdeploy = $nodes
+  $nodes = []
+  while runs < $cfg.max_deploy_runs and $nodes.length < $cfg.min_deployed_nodes
+    runs += 1
+    puts "### [#{showtime}] Kadeploy run #{runs} with #{needdeploy.length} nodes (#{$nodes.length} already deployed, need #{$cfg.min_deployed_nodes - $nodes.length} more)"
+    kauser = ($cfg.deploy_user.nil? ? '' : " -l #{$cfg.deploy_user} ")
+    kapart = ($cfg.deploy_part.nil? ? '' : " -p #{$cfg.deploy_part} ")
+    kadev = ($cfg.deploy_dev.nil? ? '' : " -d #{$cfg.deploy_dev} ")
+    clusters = split_clusters(needdeploy)
+    ths = []
+    mutex = Mutex::new
+    clusters.each_pair do |cluster, nodes|
+      ths << Thread::new(cluster, nodes) do |mycluster, mynodes|
+        mutex.synchronize do
+          puts "[#{showtime}] Kadeploy on #{mycluster} started with #{mynodes.length} nodes."
+        end
+        if $cfg.deploy_env
+          cmd = "sh -c \"kadeploy3 -k" + ($cfg.copy_ssh_key ? " #{$cfg.ssh_keyfile}" : '') + " -e #{$cfg.deploy_env} #{kapart} #{kadev} #{kauser} -m #{mynodes.join(' -m ')}\""
+        end
+        if $cfg.deploy_custom_env
+          cmd = "sh -c \"kadeploy3 -k" + ($cfg.copy_ssh_key ? " #{$cfg.ssh_keyfile}" : '') + " -a #{$cfg.deploy_custom_env} #{kapart} #{kadev} #{kauser} -m #{mynodes.join(' -m ')}\""
+        end
+	puts "### #{cmd}"
+	PTY::spawn(cmd) do |r_f, w_f, pid|
+	  w_f.sync = true # avoid buffering
+	  begin
+            while l = r_f.gets
+              puts l
+            end
+          rescue
+          end
+        end
+
+        mutex.synchronize do
+          puts "[#{showtime}] Kadeploy on #{mycluster} finished."
+        end
+      end
+    end
+    ths.each { |t| t.join }
+    puts "[#{showtime}] All concurrent kadeploys completed, testing nodes."
+    oknodes, badnodes = testnodes(needdeploy, [:ping, :sshport])
+    puts "### Nodes deployed: #{oknodes.join(' ')}"
+    puts "### Nodes which failed: #{badnodes.join(' ')}"
+    needdeploy = badnodes
+    $nodes += oknodes
+  end
+  puts "### [#{showtime}] Had to run #{runs} kadeploy runs, deployed #{$nodes.length} nodes."
+end
+
+enoughnodes?
+
+### Copy of SSH keys
+#if $cfg.copy_ssh_key
+#  puts "### [#{showtime}] Copying SSH key to nodes."
+  # FIXME parallelize
+#  $nodes.each do |node|
+#    puts "## #{node}:"
+    # need to use sh -c since PTY::spawn is exec()ing the command.
+    # need to use -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null
+    # because some sites use paranoid ssh configs (Lyon/capricorne)
+#    if checksshexec($cfg.ssh_user, node)
+#       puts "#### Can already connect to #{node}, skipping."
+#       next
+#    end
+#    cmd = "sh -c \"cat #{$cfg.ssh_keyfile} | ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -l #{$cfg.ssh_user} #{node}  \\\"[ -d ~/.ssh ] || mkdir ~/.ssh ; cat >> ~/.ssh/authorized_keys\\\"\""
+#    PTY::spawn(cmd) do |r_f, w_f, pid|
+#      w_f.sync = true # avoid buffering
+#      begin
+#        while true
+#          s = r_f.expect(/Password:|Permission denied/i)
+#          s = s[0]
+#          if s =~ /Password:/i
+#            w_f.puts $cfg.ssh_password
+#            w_f.flush
+#          elsif s =~ /Permission denied/
+#            break
+#          end
+#        end
+#      rescue
+#      end
+#    end
+#  end
+#  $nodes, badnodes = testnodes($nodes,[:ping, :sshport, :sshexec])
+#  enoughnodes?
+#end
+
+### Add files in home folder
+if $cfg.filesToAdd
+  fileList = $cfg.filesToAdd.split(' ')
+  puts "### [#{showtime}] Copying folowing files in the home folder of deployed nodes"
+  fileList.each do |file|
+    puts "- #{file}"
+  end
+  # FIXME parallelize
+  $nodes.each do |node|
+    puts "## #{node}:"
+    fileList.each do |file|
+      puts "# #{file}:"
+      cmd = "sh -c \"scp #{file} #{$cfg.ssh_user}@#{node}:\""
+      PTY::spawn(cmd) do |r_f, w_f, pid|
+	w_f.sync = true # avoid buffering
+	begin
+          while l = r_f.gets
+            puts l
+          end
+        rescue
+        end
+      end
+    end
+  end
+end
+
+### Finishing
+
+# Write good nodes file
+goodname = `mktemp /tmp/katapult.good.XXXXXX`.chomp
+File::open(goodname, 'w') { |f| f.puts $nodes.join("\n") }
+badname = `mktemp /tmp/katapult.bad.XXXXXX`.chomp
+bn = $cfg.specifnodes - $nodes
+File::open(badname, 'w') { |f| f.puts bn.join("\n") }
+if $nodes.length > 3
+  firstnodes = $nodes[0...3]
+else
+  firstnodes = $nodes
+end
+
+puts "### Good nodes (#{$nodes.length}) are in $GOOD_NODES (=#{goodname})."
+puts "### Bad nodes (#{bn.length}) are in $BAD_NODES (=#{badname})."
+
+# Running script
+if run
+  puts "### [#{showtime}] Running script #{run}."
+  ENV['GOOD_NODES'] = goodname
+  ENV['BAD_NODES'] = badname
+  system(run)
+end
+
+### Sleeping
+if $cfg.sleep
+  sleeptime = 86400 * 366 # one year
+  puts "### First 3 good nodes: #{firstnodes.join(' ')}"
+  puts "### [#{showtime}] Sleeping until the end of the job."
+  system("sleep #{sleeptime}")
+end
+
+puts "### [#{showtime}] Job finished."

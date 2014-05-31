@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/edearob/!svn/ver/26/dev/simu/Roborobo/prj/mEDEA-aggregation/src
+END
+MedeaAggregationWorldObserver.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/edearob/!svn/ver/28/dev/simu/Roborobo/prj/mEDEA-aggregation/src/MedeaAggregationWorldObserver.cpp
+END
+MedeaAggregationSharedData.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/edearob/!svn/ver/20/dev/simu/Roborobo/prj/mEDEA-aggregation/src/MedeaAggregationSharedData.cpp
+END
+MedeaAggregationPerceptronControlArchitecture.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/edearob/!svn/ver/26/dev/simu/Roborobo/prj/mEDEA-aggregation/src/MedeaAggregationPerceptronControlArchitecture.cpp
+END
+MedeaAggregationAgentObserver.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/edearob/!svn/ver/26/dev/simu/Roborobo/prj/mEDEA-aggregation/src/MedeaAggregationAgentObserver.cpp
+END
+MedeaAggregationAgentWorldModel.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/edearob/!svn/ver/26/dev/simu/Roborobo/prj/mEDEA-aggregation/src/MedeaAggregationAgentWorldModel.cpp
+END

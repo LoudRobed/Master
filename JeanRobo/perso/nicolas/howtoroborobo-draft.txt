@@ -1,0 +1,35 @@
+Roborobo
+
+PRESENTATION:
+
+(…)
+
+DOWNLOAD:
+
+RATIONALE:
+
+The suggested method to start up a new project is to copy the content of an old one. This can be done using the _HOWTO-clone-projects.txt file and createProjectFrom.sh script. Then, you can start modifying the classes. Everything you need can be done in your project sub-directory and it is *highly* advised that you do not modify anything outside (if you want to maintaing compatibility with future update of roborobo or if you are several developpers working on different projects).
+
+1. creating your own project
+
+…
+At this point, you have a working project that can be compiler, run… and modified (see below).
+
+2. starting to code
+
+The rationale behind roborobo project structure is the following. 
+- One or several agents will be running in the simulation, each of this agent  is controlled by a #Control Architecture#, which computes decisions out of sensory information and (possibly) internal states. 
+- Internal states are stored in the #Agent World Model# - For example, data stored can be directly related to the agent status (e.g. energy level, alive status) or temporary stored data (results from computing the closest battery charger).
+- An *Agent Observer* is attached to each robot. This observer is used to compute all information that concerns the agent global management but do not directly concern agent's decisions. This is usually where you will implement all functions that are either computed elsewhere on a real robot (e.g. transmitting/receiving information from other robots) or that would be executed in a seperated thread (e.g. learning/adapting the behavior wrt. to data acquired so far). Technically, all agent observers are called once before the agent control architectures are called.
+- A single *World Observer* object is attached to the World/environment, it is usually used for high level management of a running experiment, and may be left empty. It is called once per World update. Typical things you would do there is log some statistics or change the experiment parameter settings.
+- Finally, a single *Shared Data* object contains all data that must be shared within the project. This contains only data+values. This is typically where you would put data such as the filename for log purpose, or environment description values (e.g. where is the recharge area).
+
+Hence, a typical project usually include five classes, organized in five header+source files, which mimic the previous description. The last part of the name usually designate the type of objects. Here is a brief description:
+
+- {nameofproject}ControlArchitecture{.h/cpp} - where agent decision are computed
+- {nameofproject}AgentWorldModel{.h/cpp} - where agent internal states are computed/stored
+- {nameofproject}AgentObserver{.h/cpp} - where agent management is performed
+- {nameofproject}WorldObserver{.h/cpp} - where statistics, logging and managing experiment parameter are done
+- {nameofproject}SharedData{.h/cpp} - where all general-purpose data is declared and stored
+
+Note that it is possible to use this implementation with a various approach, for example, WorldModel could be included in ControlArchiterure (while it would be less easy to write the Observers). However, the above description matches a methodological guideline and it is suggested you follow it.

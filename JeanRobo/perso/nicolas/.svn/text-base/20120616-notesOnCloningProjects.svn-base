@@ -1,0 +1,88 @@
+BUGS sur createProjectFrom.sh
+=-=-=-=-=-=-=-=-=-=-=-=-=
+
+Commande: ./createProjectFrom.sh BasicProject-mEDEA mEDEA-ecology
+
+=-=-=-=
+=-=-=-=
+
+## 1: plante lors de la création des configuration loader
+
+cp: src/ext/BasicProject-mEDEAConfigurationLoader.cpp: No such file or directory
+Can't open src/ext/mEDEA-ecologyConfigurationLoader.cpp: No such file or directory.
+Can't open src/ext/mEDEA-ecologyConfigurationLoader.cpp: No such file or directory.
+Can't open src/ext/mEDEA-ecologyConfigurationLoader.cpp: No such file or directory.
+Can't open src/ext/mEDEA-ecologyConfigurationLoader.cpp: No such file or directory.
+cp: include/ext/Config/BasicProject-mEDEAConfigurationLoader.h: No such file or directory
+Can't open include/ext/Config/mEDEA-ecologyConfigurationLoader.h: No such file or directory.
+Can't open include/ext/Config/mEDEA-ecologyConfigurationLoader.h: No such file or directory.
+Can't open include/ext/Config/mEDEA-ecologyConfigurationLoader.h: No such file or directory.
+Can't open include/ext/Config/mEDEA-ecologyConfigurationLoader.h: No such file or directory.
+Can't open include/ext/Config/mEDEA-ecologyConfigurationLoader.h: No such file or directory.
+Can't open include/ext/Config/mEDEA-ecologyConfigurationLoader.h: No such file or directory.
+
+=-=-=-=
+=-=-=-=
+
+## 2: les commandes pre-processeurs pour éviter de faire plusieurs includes ne sont pas mise a jour - ceci touchent tous les fichiers .H
+
+exemple:
+
+dans mEDEA-ecologyBasicProjectMedeaAgentObserver.h, on lit:
+
+#ifndef BASICPROJECTMEDEAAGENTOBSERVER_H
+#define BASICPROJECTMEDEAAGENTOBSERVER_H
+
+alors qu'on devrait lire (avec ce nom là):
+
+#ifndef ECOLOGYBASICPROJECTMEDEAAGENTOBSERVER_H
+#define ECOLOGYBASICPROJECTMEDEAAGENTOBSERVER_H
+
+=-=-=-=
+=-=-=-=
+
+## 3: les classes ne sont pas renommées.
+
+Elles sont censées avoir le même nom que les fichiers.
+
+=-=-=-=
+=-=-=-=
+
+## 4: Nommage incorrect (ce n'est pas un bug, mais c'est important)
+
+mEDEA-BasicProjectMedeaAgentObserver devient mEDEA-ecologyBasicProjectMedeaAgentObserver
+
+Pour être cohérent, ça devrait devenir: mEDEA-ecologyAgentObserver 
+=> on détecte le prefixe en fonction du nom de répertoire, et on le remplace par le nouveau nom de projet. 
+
+Remarque: 
+- en pratique, je suis d'accord que ca ne marche que si le développeur du projet source a respecté le nommage. Donc deux cas: soit on trouve le préfixe et on renomme, soit on ajoute un nouveau préfixe et on met un warning explicite.
+
+
+
+
+-------
+
+- vérifier si le prefixe est commun a toutes les sources
+- renommer (a) les fichiers (b) les noms de classes (c) les #define 
+
+voir si:
+- c'est utile d'uniformiser le nom du rep avec le prefixe (probablement oui) 
+  => modifier les trois basics. le dire de l'aide en ligne.
+
+
+
+
+=-=-=-=-=-=-=-=-=-=
+
+HOW TO
+
+- Commande: ./createProjectFrom.sh BasicProject-mEDEA mEDEA-ecology
+  => clone a directory
+  => create a new configuration loader file
+- edit all files in the new prj sub-dir
+  => change the pragma command #define to set up a new name for each header file
+  => change the name of all class (to make it unique throughout the project)
+- edit (myproject)ConfigurationLoader
+  => change the #define name, check the name of the method called
+- edit ConfigurationLoader.cpp/h to add a new entry wrt. new (myproject)ConfigurationLoader files

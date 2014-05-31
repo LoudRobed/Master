@@ -1,0 +1,10 @@
+#! /bin/bash
+
+SSH_OPTS=' -o StrictHostKeyChecking=no -o BatchMode=yes '
+
+for file in "./lastRunDone*" 
+do
+	node=${file#lastRunDone}
+	echo $node
+	ssh $SSH_OPTS jeanmarm@$node "pkill -u" &
+done

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/edearob/!svn/ver/20/dev/simu/Roborobo/include/contrib/connectionMechanism
+END
+GripperConnectionMechanism.h
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/edearob/!svn/ver/20/dev/simu/Roborobo/include/contrib/connectionMechanism/GripperConnectionMechanism.h
+END
+GripperWorldInterface.h
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/edearob/!svn/ver/20/dev/simu/Roborobo/include/contrib/connectionMechanism/GripperWorldInterface.h
+END

@@ -33,7 +33,7 @@ for node in `cat nodes-s`
 do
 	echo $node
 #	./helloworld/helloworld
-	ssh $SSH_OPTS andhag@$node "cd Roborobo ; ./runParallal.sh 10 config/MedeaAltruism.properties 10" &
+	ssh $SSH_OPTS andhag@$node "cd Roborobo ; ./runParallal.sh 20 config/MedeaAltruism.properties 10" &
 	#ssh $SSH_OPTS jeanmarm@$node  #echo "pouf" &
 done
 

@@ -1,0 +1,240 @@
+//bloc-notes de nicolas sur PPSN2010//
+
+
+HISTORY: (changements du week end pour JM)
+
+- le ConfigurationLoader::make_RobotAgentWorldInterface renvoie un pointeur vers une seul et unique interface qui est créée lors du premier appel
+	=> c'était une source du segfault (creation/destruction abusive d'objets, probleme d'allocation au bout d'un moment)
+	- en pratique, le configurationLoader a maintenant deux nouveaux champs (un bool pour savoir si a été créé + un pointeur vers l'interface qu'on renvoie)
+- remarque: j'ai testé avec une vitesse de translation plus grande, c'est problématique puisque si elle est sup au diametre de l'agent, on peut avoir des collisions impossibles (hors champs). (segfault parfois).
+- j'ai fait des modifs sur l'energie donnée au début, après un revive, et l'energie max (gEnergyInit, gEnergyMax, gEnergyRevive) - il faut verifier si battle fonctionne (je n'ai rien vérifié même si j'ai mis a jour le code).
+- les senseurs n'étaient pas pris en compte dans le reseau de neurones (!!!). Ca change radicalement les resultats: ca marche :-)
+  - j'ai laissé la description du bug dans le code. En gros, tu chargés le nombre de senseurs (=8) dans chaque entrée attendant une distance.
+  - j'en ai profité pour finir les normalisations -- attention a ne pas abuser du tanh si tu peux normaliser linéairement.
+- mercredi12h40 :: "ATTENTION" :: le respawnlag est maintenant dynamique
+	- interpretation: varie entre 400 (active<=50, cas experimentalement connu pour etre correct) et 4000 (active=100, cas pression totale)
+	- la valeur de respawn est continuellement mise a jour et utilisée -- ie. dans LockedEnergyPoint, la variable globale est utilisée (ie. pas de valeur respawnLag local)
+	- lorsque le nombre de robots croit, il y a temporairement plus de pts d'energie que la formule le donne (nb de points d'energie actuellement actifs pas pris en compte)
+	- WARNING: pour accelerer, le recompte d'actif est fait une fois par generation -- en revanche, ca donne des choses un peu violente, synchro sur la gen - a voir..
+	- NOTE: il s'agit d'un code TRES PEU modulaire: hypothese que max 100 robots, et que valeur d'un point d'energie = 100...
+	- pour revenir a l'ancien code: mettre la variable gDynamicRespawn dans le properties a false (sa présence obligatoire).
+	- formules:
+		- RespawnLag = argmin ( 400, 72*activeCount - 7200 ) 
+			=> de 400 a 4000
+			=> oscille, trop violent.
+		- RespawnLag = argmin ( 400, 8*activeCount ) 
+			=> de 400 a 800
+			=> ...
+
+
+----
+
+TODO list:
+
+- verifier explicitement que la vitesse max de translation est inférieure au diametre de l'agent
+  - OU faire un test 'hors champs' lors de la collision (ie. backtrack jusqu'au dimension correcte avant de faire un getpixel)
+  - lié a gMaxTranslationalSpeed, l'appel recursif semble infini. et quand bien meme, l'agent peut se retrouver bloquer entre deux murs, ou mur-bord
+- Project->edit active executable
+- option ligne de commande '-o' pour specifier le nom du fichier log.
+- tester explicitement translationMax p/r taille agent.
+- dans l'aide affichée a l'ecran: 'shift+o for previous agent' non, c'est shift+tab
+- RobotAgentWorldInterfaceDangerWorld pas appellé -- manque un virtual ? (pas grave ici)
+- exp: mettre les entrees liées a l'info energie a zero sur le setup 'free'
+
+----
+
+
+RECHERCHE DE LA TRANSiTiON:
+- setup "libre"
+  - le parametre gMaxRadioDistance est crucial (resultat avec valeur = 16!)
+  - un petit radius de mettre une pression au deplacement
+- setup "PtE"
+  - le nombre de points d'énergie (grand), et leur diametre (petit) permet de garantir la profusion de nourriture.
+  - un petit diametre permet de maximiser le nombre de points actifs
+  - le grand nombre permet de maximiser l'energie dispo
+  - cf.bpci-dessous
+
+----
+
+REDAC: 
+- un mot sur le fait qu'on fait des restarts et qu'on garde que les bons, et que le succes dépend de la chance, pondéré par sampling pseudo-uniforme a la gen 0 
+  - d'ailleurs: improvement possible en introduisant la diversité
+
+----
+
+me1522:
+- etude du dynamic respawn
+  - dynRespawn global - probleme: effet de synchronicité, stagne a 50 atifs (parceque effet de seuil)
+  - dynRespawn local, calcule sur la fertilité globale (ie. compte nb robot actifs au moment ou le point d'energie est pris pour fixer le temps de respawn)
+		[100][100][73][74][74][80][82][83][84][85][87][88][92][93][91][92][96][95][95][95][96][94][95][96][97][95][96][98][98][98][98][97][95][97][96][95][96][97][99][97][97][94][96][96][96][97][96][97][98][98][95][98][98][99][100][99][97][96][97][95][98][100][99][98][98][100][99][100][99][99][98][97][98][99][100]
+		 #### Experiment no.1 starts now. ####
+		[93][77][63][43][23][12][4][8][15][30][50][57][61][57][46][39][50][54][63][58][48][40][31][44][60][67][58][42][45][54][69][69][60][49][25][24][33][49][71][78][60][34][7][6][33][51][61][71][51][31][40][54][55][54][61][46][55][66]
+	=> prometteur, a voir. oscillation
+
+lu1200
+- probleme: ne decolle pas vraiment sur setup 2.
+- normalisation/saturation shortestDistance
+- modif radiorange (24 -> 28)
+- test: radiorange=28, 1000/10, 500gen 
+	[100][100][73][66][65][65][65][65][55][59][64][71][73][75][79][83][85][86][88][91][92][90][92][92][92][91][92][91][95][95][98][94][97][96][96][95][92][99][97][99][99][96][99][98][98][95][96][97][96][98][95][98][98][97][95][96][94][94][96][96][97][97][96][98][98][94][97][96][97][96][97][99][96][95][95]
+	 #### Experiment no.1 starts now. ####
+	[63][47][52][45][46][45][44][39][45][53][54][48][44][45][50][51][51][49][44][37][36][44][39][42][42][36][42][44][47][44][37][36][38][40][42][46][45][47][51][51][54][50][50][52][51][47][46][52][55][57][61][66][54][49][55][54][54][63][61][54][51][54][49][53][58][53][52][61][59][47][51][51][54][57][51][54][56][50][50][55][52][52][48][48][52][49][43][49][49][50][52][50][45][50][54][50][52][53][45][43][54][50][48][51][53][54][53][51][51][53][50][48][44][42][44][36][37][36][36][32][35][41][40][45][38][32][32][33][38][38][37][40][43][38][44][44][48][51][50][51][44][45][49][45][45][42][44][45][53][52][49][49][46][49][48][52][57][52][51][51][50][49][44][42][42][38][38][43][45][45][46][43][43][42][46][44][46][46][41][44][43][46][45][42][47][49][52][52][52][50][47][51][51][46][48][48][47][47][47][48][47][54][57][54][49][49][46][44][45][42][45][40][45][43][39][41][41][38][32][33][31][33][38][34][31][34][40][38][36][39][42][35][37][33][35][31][31][36][39][39][37][39][38][35][32][30][25][20][27][26]...
+	=> ca tient, mais ca descend. Hyp: altruiste pas pertinent + famine diminue puissance d'adapt.
+- test: radiorange=24, 2000/10, 500gen
+	[100][100][59][44][49][52][53][55][57][60][76][74][78][79][81][83][86][87][86][86][85][83][86][91][92][93][93][91][91][87][90][94][91][93][92][92][93][92][92][94][94][95][94][95][96][96][94][93][90][93][90][97][95][97][98][97][96][96][97][96][98][98][98][99][95][94][97][96][91][91][96][96][96][94][96]
+	 #### Experiment no.1 starts now. ####
+	[72][61][55][46][46][45][53][49][42][37][41][39][40][47][46][42][41][50][44][43][42][36][29][27][27][25][24][21][18][19][16][16][14][15][12][14][11][10][4][6][3][5][1][5][1][4][0][4][0][4][0][4][0][4][0][4][0][4][0][4][0][4][0][4][0][4][0][4][0][4][0][4][0][4][0][4][0][4][0][4][0][4][0][4][0][4][0][4][0][4][0][4][0][4][0][4][0][4][0][4][0][4][0][4][0][4][0][4][0][4][0][4][0][4][1][5][1]
+	=> extinction, alors que plus de points! diagnostic: difficile de (a) diffuser? ou (b) prendre l'energie? -- a priori plutot (a).
+- test: radiorange=28, 2000/10, 500gen
+	[100][100][73][66][66][66][68][68][74][84][88][89][91][98][97][94][95][99][98][97][99][100][100][100][100][100][100][100][100][100][100][100][100][100][100][100][99][100][100][98][99][99][100][98][100][100][98][100][100][99][99][100][99][99][98][98][97][97][97][97][98][97][98][99][99][98][98][98][98][98][99][99][100][100][100]
+	 #### Experiment no.1 starts now. ####
+	[96][94][97][97][92][89][89][92][91][83][84][83][85][86][85][91][90][85][89][94][89][87][87][87][89][85][84][87][92][87][83][89][85][83][85][82][83][86][85][81][84][85][88][90][89][89][88][87][90][93][96][95][89][86][84][86][87][85][85][87][88][89][90][88][88][91][92][92][90][92][92][91][90][89][87][87][86][86][87][89][85][81][78][82][87][88][88][87][92][91][90][90][88][88][87][90][91][89][86][87][91][89][90][90][89][90][89][90][88][90][90][87][91][92][93][92][94][91][90][93][90][90][91][90][90][92][91][92][93][92][93][94][92][88][79][81][86][84][84][87][92][87][84][84][86][87][87][91][91][93][91][89][89][87][84][82][82][86][83][77][80][86][89][87][89][92][93][93][92][87][84][87][86][85][89][91][91][89][86][87][89][89][87][88][90][88][87][88][86][86][86][87][88][88][92][91][89][91][87][85][89][87][89][89][88][86][88][92][90][87][86][83][81][81][86][89][89][91][94][95][91][89][93][97][97][92][88][90][93][93][92][90][93][94][93][92][93][90][90][92][92][93][93][88][85][88][89][89]...
+	=> pas trop de pression sur 2 - mais quid genomelistsize?
+- test: 1000_24_r28_s01 et 1000_20_r28_s01
+	r28 tres bien. genomeList augmente, mais nb d'actif reste stable.
+- test en cours: 1000_16_s01 + r64|r32 -- hyp: dans les anciens tests (pub symbrion review), on avait des rencontres bien plus nbses.
+	-- interp: diffusion facile, energie difficile -- hyp: j'ai une courbe augmentation diffusion sur setup 2, je veux celle aug. energie.
+	...
+- prochain test: 1000_[12|14]_s01 + r16 -- meme hyp que precedemment. pression sur la taille des points - deja fait: 10 (rien) et 16 (ok mais trop bruité)
+	...
+- prochain test: 1000_16_s01 + r16|r32 + vie1000 
+	-- hyp: dans les anciens tests (pub symbrion review), on avait des rencontres bien plus nbses.
+- test en cours: 2000_08_r16_s01 et 2000_08_r32_s01 + chq point d'energie vaut 50/400 
+   - objectif: forcer capacite d'harvesting
+   - 2000_08_r16_s01: abandon, extinction systematique
+
+=> bilan actuel:
+  - exp-1000-16(_r16_s01)-tout: energie pas evident (delta augmente jusqu'a 0), augmente diffusion, et nombre actif (conseq. de delta résolu)
+  - exp-1000_16_r32_s01-tout  : proche de exp-1000-24_r28_s01-tout -- mieux car un seul parametre change + permet de mettre l'argument: si radiocom change, als facile/dur.
+  - exp-1000-24_r28_s01-tout  : energie facile (delta>0 stable), augmente diffusion
+  - manque: energie pas evident, diffusion facile. -- objectif: une courbe nette d'augmentation de l'energie en relachant la pression sur la diffusion.
+  	- 1000_10_r16: deja fait, rien a voir.
+
+lu0252
+- plutot expe sur sigma min
+
+di11h07-22h45
+- essai: gene d'exp: 0..75..150 ; radiorange: 24
+	[100][99][64][63][59][52][53][51][56][57][57][47][49][58][61][62][63][65][61][65][68][69][70][62][71][73][77][87][88][84][89][87][84][84][84][86][92][85][85][90][88][94][95][98][98][97][97][96][97][97][96][97][97][97][96][99][98][96][97][96][99][100][99][98][94][97][98][99][93][93][93][97][96][99][97]
+	 #### Experiment no.1 starts now. ####
+	[89][71][65][68][74][69][61][62][70][69][63][57][56][59][59][61][62][67][63][69][63][68][70][70][74][68][64][61][61][64][65][65][64][57][55][59][64][67][69][69][71][72][70][70][63][62][66][63][65][64][65][70][67][64][72][67][59][63][63][64][69][64][68][69][65][64][63][71][73][76][80][74][73][71][72]
+- essai: gene d'exp: 0..75..150 ; radiorange: 28
+	[100][100][72][76][75][74][78][80][86][74][77][79][74][81][88][91][90][91][87][87][88][96][97][97][99][98][97][96][95][97][96][97][96][99][97][96][96][97][96][97][98][98][99][99][97][96][98][97][100][99][98][99][99][100][98][98][95][94][99][99][99][97][98][98][99][98][100][100][99][99][100][99][99][98][100]
+	 #### Experiment no.1 starts now. ####
+	[85][65][63][67][70][59][62][63][61][62][57][65][70][63][66][67][70][65][63][61][64][64][65][74][67][70][66][64][60][59][61][53][58][60][60][63][60][58][58][60][65][71][70][75][76][70][66][69][70][66][68][65][60][69][69][66][63][61][67][65][62][63][67][58][61][54][55][62][60][61][63][61][61][66][72]
+- essai, idem radiorange=24, mais 200 gens (100+100)
+	- run 1: setup libre ok, setup PtE extinction
+	- run 2: ok
+- essai, radiorange=24, 150 gen, test setup PdE
+	- test 1: 800 pts, diametre 16
+		[100][99][61][57][49][49][40][40][43][51][45][48][51][54][47][51][62][70][83][85][84][86][86][85][89][94][92][97][96][95][94][97][94][91][94][95][96][96][94][91][90][92][89][87][93][92][94][90][91][89][92][92][91][91][90][93][91][91][90][94][94][91][92][94][92][90][89][89][95][95][91][93][93][92][87]
+		 #### Experiment no.1 starts now. ####
+		[61][43][44][42][48][37][42][44][44][46][43][43][46][51][53][59][55][47][56][56][53][52][50][48][46][39][40][40][47][55][51][49][47][43][48][43][40][44][50][56][53][52][54][50][55][63][57][57][58][59][54][57][51][53][52][54][52][54][55][55][56][47][51][51][50][57][59][50][50][51][48][49][60][57][62]
+	- test 2: 1000 pts, diametre 10
+		[100][99][55][54][56][50][60][68][64][68][66][63][61][57][60][64][71][75][81][84][85][81][83][83][84][87][90][91][94][95][92][95][95][92][96][94][97][96][97][93][91][95][91][92][94][97][95][94][95][93][92][90][91][89][82][87][87][90][92][85][88][91][89][94][94][94][93][93][95][92][88][92][90][90][91]
+		 #### Experiment no.1 starts now. ####
+		[56][30][32][28][29][19][20][23][22][22][29][24][24][20][27][23][18][22][16][16][20][17][13][18][20][26][22][24][22][25][31][28][29][24][22][27][30][24][21][20][25][26][28][18][23][24][24][18][19][21][19][21][19][14][11][15][16][15][13][17][16][15][15][14][17][12][12][14][9][3][3][6][9][9][8]	
+	- test 3: 1000 pts, diametre 12 -- GARDE
+	[100][100][65][52][46][41][35][30][31][25][27][30][37][33][41][47][47][48][54][64][65][68][73][72][74][78][80][85][82][87][87][88][89][96][94][94][98][98][97][99][97][95][97][98][98][94][97][95][94][98][96][95][98][98][99][100][99][99][97][98][100][97][96][98][100][99][99][97][98][98][96][97][95][97][95]
+	 #### Experiment no.1 starts now. ####
+	[77][63][63][61][60][55][64][64][68][63][66][69][62][52][56][59][55][57][57][59][52][45][35][37][45][44][40][46][49][45][47][48][40][40][44][47][39][34][35][40][40][40][50][50][40][49][56][67][64][61][56][54][58][55][50][54][55][57][55][53][55][65][68][66][63][63][61][61][56][53][49][44][48][51][49]
+	- test 3-02 : ok
+	- test 3-03 : ok, mais pas top sur setup 2 ([30] au max.)
+	- test 3-04 : ok, mais pas top sur setup 2 ([30] au max.)
+	- test 3-05 : ok
+	- 
+
+
+BP di00h33
+- normalisé l'energie mise au debut, lors d'un revive et l'energie max -- meme valeur de 1.5 vie afin que:
+  - un inactif survie et laisse l'actif de la generation d'aprés avec un peu de temps (contrainte: 1<x<2)
+  - un actif mauvais peut survivre :-( (si l'actif precedent etait excellent et max energie)
+  - un actif moyen/excellent n'a aucun mal a survivre
+ - BP0102: RESPAWNLAG a ZErO (avant: 200, et avant 400...) -- je test l'hypothese que c'est le deltaE qui pose probleme (seul changement avec avant)
+ 		respawnLag=1 ; pas de deltaE
+ 		[100][100][39][35][28][25][22][21][29][33][38][36][40][46][47][43][49][52][52][54]
+		 #### Experiment no.1 starts now. ####
+		[50][42][43][40][38][26][23][21][23][17][21][21][22][21][19][19][16][13][10][10][4][5][10][14][18][20][29][27][22][16][16][9][8][8][3][4][4][5][8][8][8][3][1][0]
+ - BP0131: tentative pas de contrainte sur deltaEnergy pour le broadcast
+ 		respawnLag=1 ; pas d'energie
+		[100][100][36][27][25][23][24][23][22][23][28][29][32][45][54][57][65][72][75][72]
+		 #### Experiment no.1 starts now. ####
+		[70][56][49][43][39][37][41][45][41][34][33][26][25][25][16][15][16][14][17][17][18][21][22][19][17][19][20][17][18][22][24][26][25][23][24][26][31][28][22][23][22][18][19][19][18][12][8][13][8][9][8][2][2][3][3][1][1][0][0][0][0][0][0][0]
+- HYPOTHESE BREAKPOINT DI 01h46
+	- le fait que les agents n'aillent pas ite en translation compte t il?
+	- verifier les entrees du MLP
+		- la direction/distance est elle dans le setup 0 ? si oui, ca peut perturber le setup 2.
+	- pourquoi les agents evitent pas les murs? (pas trop penalisant, et murs trop rares)
+	- pourquoi les agents vont pas sur les pts d'E? (trivial: trop de PtE, envt facile)
+	- pourquoi ca marche pas? l'ajout d'energie semble quand meme avoir un effet...? ou alors
+	- petit doute sur le transfert de genome : ordre conservé? à vérifier (mais peu problable que pb)
+- gMaxRadioDistance = 	 32 AU LIEU DE 16 -- relache la pression.
+	=> setup libre un peu trop facile (on ne voit plus la remontée), setup ptE succès
+	- params:
+		ATTENTION: "pas de prise en compte de deltaE"
+		config/PPSN-ni-setup2ok.properties:
+			gEvaluationTime = 400 
+			gEnergyInit = 100
+			gEnergyMax = 400 
+			gEnergyRevive = 500
+			gEnergyMode = true
+			gMaxEnergyPoints = 6000 # vd1638:800
+			gEnergyPointSize = 8.0 # vd1638:10.0
+			gEnergyPointValue = 400 # vd1638:100.0   # CEC: 50.0 -- 300, depends also on agent lifetime and respawnlag.
+			gRespawnLag = 400 # je23h27=100 # CEC: 10 et aussi delai dans energypoint
+	[100][100][71][65][62][56][53][56][59][51][54][57][57][60][66][61][64][65][67][69]
+	 #### Experiment no.1 starts now. ####
+	[76][70][72][66][74][77][79][80][82][83][81][81][83][81][76][76][80][77][78][82][80][77][82][80][75][79]...
+	=> confirmer par un autre run identique.
+-avant d'aller dormir (di3h00):
+	setup idtq sauf:
+		gMaxEnergyPoints = 1000 # vd1638:800
+		gEnergyPointSize = 16.0 # di0254: 8.0 # vd1638:10.0
+		gEnergyPointValue = 300 # vd1638:100.0   # CEC: 50.0 -- 300, depends also on agent lifetime and respawnlag.
+		gRespawnLag = 400 # je23h27=100 # CEC: 10 et aussi delai dans energypoint
+	résultats:		
+		[100][100][64][56][55][51][48][47][50][51][52][55][61][66][68][71][69][69][68][72]
+		 #### Experiment no.1 starts now. ####
+		[63][40][50][42][45][48][43][42][50][46][53][54][54][53][55][54][61][58][54][57][55][57][50][52][53][49][45][45][44][35][34][34][31][30][26][27][31][29][36][41][46][51][46][44][47][49][56][62][65][55][54][55][53][53][53][58][63][60][54][49][50][45][49][51][49][52][48][47][55][51][51][44][41][46][49][49][45][43][47][52][52][51][51][52][51][56][52][53][55][53][55][53][54][48][49][52][46][42][40][44]
+		#### Experiment no.2 starts now. ####
+		[27][34][32][26][25][25][25][25][25][25][25][25][25][25][25][25][25][26][26][26][26][26][26][26][26][26][26][26][26][26][26][26][26][26][26][26][26][26][26][26][26][26][26][26][26][26][26][26][26][26][26][26][28][25][25][25][25][25][25][25][25][25]
+	=> pas d'extinction, mais pas une serie hyper expressive non plus. Mettre un peu plus de pression? (radius moindre?)
+	=> j'ai laissé le setup zone pour infos, mais c'est pas tres intéressant (des tourneurs seulement)
+- avant d'aller *vraiment* dormir (di03h40)
+	- Bug de chargement de l'ANN corrigé (prise en compte des senseurs de distance)
+	- comportements: les robots évitent enfin les murs! certains semblent tracker les points d'energie (a confirmer - mais changement de traj observé apres prise) - wouhou!
+	- résultats courants avec le dernier setup
+		[100][100][69][64][65][67][61][56][52][65][60][66][69][78][88][89][94][91][90][94]
+		 #### Experiment no.1 starts now. ####
+		[88][72][68][63][69][67][57][60][62][67][66][65][65][66][71][67][67][73][69][67][73][64][62][68][73][72][72][73][70][71][78][75][69][66][64][66][72][72][75][79][74][80][81][80][75][71][74][76][75][75][73][67][75][74][68][68][66][69][75][78][81][77][72][79][78][78][73][69][73][70][69][71][66][64][65][64][65][61][57][65][64][64][66][61][68][67][61][61][59][63][68][74][73][67][67][68][68][62][60][54]
+		#### Experiment no.2 starts now. ####
+[38][49][38][38][40][39][39][39][39][37][37][37][39][37][36][35][35][36][34][32][31][30][29][26][20][13][10][11][6][4][2][2][3][3][3][2][2][2][1][0][0][1][0][0][0][0][0][0][0][0][0][0][0][0][0][0][0][0][0][0][0][0][0][0][3][2][1][0][0][0][0][1][3][3][2][3][5][5][3][6][5][4][3][3][3][3][4][3][1][2][0][0][0][0][1][2][2][2][2][0][0][0][1][1][1][2][1][1][1][2][4][7][5][7][8][9][11][5][5][6][4][2][3][1][1][2][1][2][0][0][3][2][2][1][3][2][4][3][6][9][9][6][7][4][8][6][7][3][3][5][4][3][6][6][9][8][8][8][8][6][8][7][8][7][9][8][9][11][13][13][15][15][17][12][14][9][13][13][15][11][13][16][19][15][14][11][6][6][7][7][9][8][10][13][16][15][13][10][15][15][17][13][17][19][19][15][13][11][14][12][20][19][18][23][23][19][17][12][8][9][8][9][10][9][7][7][6][5][5][5][5][5][5][5][6][6][7][6][10][11][11][10][14][16][19][13][13][13][12][8][8][6][6][3][4][2][3][1][1][1][3][1][4][2][4][6][7][6][9][7][7][6][7][7][8][7][8][7][8][7][9][8][8][8][8]...
+	=> excellent sur les deux premiers setups - a confirmer avec une analyse plus poussées.
+	=> pas de miracle sur le setup zone, mais quand meme interessant.
+
+
+BP vd2158
+- mutation peut etre un peu trop violente...? (en gros j'ai vu un bon comportement dans le setup PtE et ensuite j'ai eu un tourneur en rond)
+- note:  MODIF: dans le setup PtE, seul les robots actifs recuperes les points d'energie. ie, d'autant plus facile que peu de robots.
+- ["!!!"] PROBLEME MEMOIRE (segfault) : RobotAgent::applyDynamics -> 	gConfigurationLoader->make_RobotAgentWorldInterface()->applyInternalDynamics(_wm); //applyInternalDynamics is a static function --- creation a la volée autant de fois qu'on applique la dynamique...! ==> A CORRIGER
+
+BP vd12h52
+- mutation min assez haute pour etre destabilisante
+- plus petite arene
+
+BP vd0030 :: on peut regarder setup=2 et 3 et voir que la pression a etre original est pas suffisante. (tourne en rond c'est mieux)
+ - soit on met une pression forte qui force les indivs a assurer d'abord leur survie energétique
+ - soit on met facilite enormement le transfert de genome (p.ex. gros rayon de broadcast), pour ne laisser qu'une pression sur la survie energetique
+ - modif sur les niveaux d'energie
+
+---
+
+
+piste actuelle:
+- energy respawn plus grand qu'une generation sinon tourne en rond c'est une bonne strategie
+- energy point moins que necessaire, pour mettre la pression vers les recuperer
+
+quelques decisions:
+- vitesse angulaire max plus aggressive
+- nombre de points d'energie tq pile ce qu'il faut pour que tout le monde survive (400 points, 100 PV / points, vie agents: 400, consomme 1PV par pas de temps)
+- respawn points d'energie tq on en voit qu'un pendant la vie

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-twosuns/include
+END
+MedeaTwoSunsWorldObserver.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-twosuns/include/MedeaTwoSunsWorldObserver.h
+END
+MedeaTwoSunsSharedData.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-twosuns/include/MedeaTwoSunsSharedData.h
+END
+MedeaTwoSunsPerceptronControlArchitecture.h
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-twosuns/include/MedeaTwoSunsPerceptronControlArchitecture.h
+END
+MedeaTwoSunsAgentObserver.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-twosuns/include/MedeaTwoSunsAgentObserver.h
+END
+MedeaTwoSunsAgentWorldModel.h
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/mEDEA-twosuns/include/MedeaTwoSunsAgentWorldModel.h
+END

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/BasicProject-Kilobot/src
+END
+KilobotBasicProjectControlArchitecture.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/BasicProject-Kilobot/src/KilobotBasicProjectControlArchitecture.cpp
+END
+KilobotBasicProjectAgentObserver.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/BasicProject-Kilobot/src/KilobotBasicProjectAgentObserver.cpp
+END
+KilobotBasicProjectAgentWorldModel.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/BasicProject-Kilobot/src/KilobotBasicProjectAgentWorldModel.cpp
+END
+KilobotBasicProjectWorldObserver.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/BasicProject-Kilobot/src/KilobotBasicProjectWorldObserver.cpp
+END
+KilobotInterfaceEmulator.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/edearob/!svn/ver/12/dev/simu/Roborobo/prj/BasicProject-Kilobot/src/KilobotInterfaceEmulator.cpp
+END
