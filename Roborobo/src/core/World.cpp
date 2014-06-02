@@ -108,17 +108,18 @@ void World::initWorld()
 	
 	if (gEnergyMode)
 	{
-		for ( int i = 0 ; i != gMaxEnergyPoints ; i++)
+		//for ( int i = 0 ; i != gMaxEnergyPoints ; i++)
+		for ( int i = 0 ; i != 1 ; i++)
 		{
 			if (gEnergyPointRespawnLagMaxValue > 0)
 			{
-			//	EnergyPoint ep(i);
-			//	addEnergyPoint(ep);
+				EnergyPoint ep(i);
+				addEnergyPoint(ep);
 			}
 			else
 			{
-			//	EnergyPoint ep;
-			//	addEnergyPoint(ep);
+				EnergyPoint ep;
+				addEnergyPoint(ep);
 			}
 		}
 	}

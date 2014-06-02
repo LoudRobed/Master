@@ -365,7 +365,7 @@ void MedeaAltruismWorldObserver::updateAllAgentsEnergyLevel()
 			//	ep.setAgentGenerated(true);
 			
 		//		double donation = ((1.0-donationRate)/(1.0-thresh))*MedeaAltruismSharedData::gEnergyMax;
-				double donation = 20;		
+				double donation = 0;		
 				if(currentAgentWorldModel->getEnergyLevel() < donation){
 					ep.setEnergyPointValue( currentAgentWorldModel->getEnergyLevel());
 					 }
@@ -386,7 +386,7 @@ void MedeaAltruismWorldObserver::updateAllAgentsEnergyLevel()
 				activeCount++;
 			}
 		}
-				std::cout << gWorld->getIterations()  << "," << currentAgentWorldModel->_agentId << "," << currentAgentWorldModel->getEnergyLevel()+donation << "," << donation << "," << activeCount << std::endl; 
+				//std::cout << gWorld->getIterations()  << "," << currentAgentWorldModel->_agentId << "," << currentAgentWorldModel->getEnergyLevel()+donation << "," << donation << "," << activeCount << std::endl; 
 //TODO: Log genetic relatedness to other agents close by.
 		}
 }
@@ -401,7 +401,7 @@ void MedeaAltruismWorldObserver::updateAllAgentsEnergyLevel()
 		
 			if ( currentAgentWorldModel->getEnergyLevel() > 0.0 ) 
 			{
-				currentAgentWorldModel->setEnergyLevel(currentAgentWorldModel->getEnergyLevel()-0.005); 
+				currentAgentWorldModel->setEnergyLevel(currentAgentWorldModel->getEnergyLevel()-0.05); 
 			}
 			currentAgentWorldModel->setDeltaEnergy(currentAgentWorldModel->getDeltaEnergy()-1); 
 		}

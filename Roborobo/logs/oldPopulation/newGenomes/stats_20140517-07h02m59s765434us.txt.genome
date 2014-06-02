@@ -28,7 +28,7 @@ gZoneCaptionPrefixFilename =	data/zonecaption
 gRandomSeed = 						-1
 
 gVerbose = 					false #		true     # debug. otw: false
-gBatchMode = true				
+gBatchMode = 	false		
 
 gFramesPerSecond = 					60
 

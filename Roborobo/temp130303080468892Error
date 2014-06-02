@@ -1,0 +1,5 @@
+[WARNING] gAgentDisplayFocus is missing or corrupt (default is "false").
+[WARNING] gVideoRecording is missing or corrupt (default is "false").
+[WARNING] gDisplaySensors is missing (default is "true").
+[MISSING] gEnergyPoints_alwaysRender is missing. Value "false" is assumed.
+[CORRUPT] gUseOrganisms should be boolean ("true" or "false"). Using default ("false").
