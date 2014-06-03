@@ -236,18 +236,17 @@ if (_firstStep)
 		}
 		//Sum active energy from EPs
 		int energyPointActiveCount = 0;
+		int epEnergy = 0;
 		for(std::vector<EnergyPoint>::iterator it = gEnergyPoints.begin(); it != gEnergyPoints.end(); it++)
 		{
 			if (it->getActiveStatus() == true)
 			{
 				energyPointActiveCount ++;
 				totalEnergy += it->getEnergyPointValue(); 
+				epEnergy += it->getEnergyPointValue();
 			}
 		
 		}
-	
-		int epEnergy =  totalEnergy-robotEnergy;
-			
 
 		gLogFile << gWorld->getIterations() << " : EP activeCount " << energyPointActiveCount << std::endl;
 		gLogFile << gWorld->getIterations() << " : Entropy " << totalEnergy << std::endl;	
@@ -353,7 +352,7 @@ void MedeaAltruismWorldObserver::updateAllAgentsEnergyLevel()
 				}
 			}
 			double thresh = MedeaAltruismSharedData::gDonationThreshold;
-			//double thresh = 0.99;
+		//	double thresh = 0.99;
 			double donationRate = currentAgentWorldModel->getEnergyDonation();
 			double donationPenalty = penalty();
 			
@@ -365,7 +364,7 @@ void MedeaAltruismWorldObserver::updateAllAgentsEnergyLevel()
 			//	ep.setAgentGenerated(true);
 			
 		//		double donation = ((1.0-donationRate)/(1.0-thresh))*MedeaAltruismSharedData::gEnergyMax;
-				double donation = 0;		
+				double donation = 50;		
 				if(currentAgentWorldModel->getEnergyLevel() < donation){
 					ep.setEnergyPointValue( currentAgentWorldModel->getEnergyLevel());
 					 }

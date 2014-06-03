@@ -195,23 +195,14 @@ where $ T > R > P > S$ \\
 
 The central idea is that the dominant strategy for a one-shot game is defection, but in repeated games collaboration can maximize the utility of both.
 
-\subsection{Motivation}
-%Is the crevasse-example necessary?
-In evolutionary computation there is sometimes the need to evolve an optimal population of individuals so that they in unison solve a problem. 
-Having various degrees of altruism can be necessary to maximize the sum of the endeavours of the individual solutions. 
-One main area of interest in altruism in evolutionary computation is within the field of multi agent systems, especially within embodied evolution where agents are continuously adapting to the environment. One of the long-term goals in this field is to create agile populations of robots that are able to create new solutions to previously unseen problems that  arise and have the necessary mechanisms for ensuring the survival of already functioning genotypes in situations where the temporal changes in the environment could lead to the extinction of desired traits.  
-To achieve this it is important to understand how to design and facilitate the evolutionary process in such a way that not only behavior that can be predicted to be desired in advance is evolved, but also the behavior that is needed, even when it is counter-productive for the individual phenotype.
-Understanding the mechanisms that allow self sacrifice is a step towards understanding the mechanisms that can allow evolutionary computation to be truly adaptive through developing generalized algorithms for evolving behavior that favors solutions that benefit the entire population, or even sub-groups of the population.
-%Creating the mechanisms for the evolution of altruistic behavior or self-sacrifice is beneficial when this increases the overall fitness of the population with regards to the task to be solved. 
-%Self-sacrifice is of interest when there are elements in the environment that require some of the robots to 
-A specific instance where the most acute form of altruism could be of use is a group of autonomous robots working on a  glacier trapped on a sheet of ice where further exploration is only possible if one of the robots drives into a crevasse to form a bridge that the others can run over.    
-\chapter{A review of the literature}
-\label{cha:review}
 
-In this chapter follows a review of the literature on the research on mechanisms behind the evolution of altruism and cooperation.
-The goal is to give  an overview of the research that has been done on evolving altruism in simulated environments and identify the mechanisms that seem the most promising when considering the possibility of evolving self-sacrifice.
+%\chapter{A review of the literature}
+%\label{cha:review}
 
-\section{Research on Altruism and Cooperation}
+%In this chapter follows a review of the literature on the research on mechanisms behind the evolution of altruism and cooperation.
+%The goal is to give  an overview of the research that has been done on evolving altruism in simulated environments and identify the mechanisms that seem the most promising when considering the possibility of evolving self-sacrifice.
+
+\section{Research on Altruism and Cooperation in Computer Science}
 \label{sec:cs}
 
 \cite{floreano_evolution_2008} presents four different algorithms that may lead to altruistic cooperation. Both selection at the level of the individual and team selection is tested. The experiments simulate ants foraging for food items where two ants can bring back more food by cooperating than the two separately can by bringing a food item each. The associated cost is that each ant gets less food in return than when cooperating. Higher levels of altruism was observed when using team-level selection and more homogeneous teams had higher overall fitness. 
@@ -228,15 +219,17 @@ Cooperation among non-kin in organisms that lack the capacity to distinguish oth
 On the other end of the spectrum, \cite{dessalles_coalition_1999} explains this behavior through complex political constructs and sub-group competition. Cooperation in situations where individuals have the capacity to assess the intentions of others are described in \cite{han_role_2011} where the results support the conclusion that intention recognition promotes cooperation.
 
 
-\chapter{Discussion}
+
+\section{Research question}
 \label{cha:discussion}
 
-In this section the implications of the findings in the review are discussed and a research question is posed.
+%In this section the implications of the findings in the review are discussed and a research question is posed.
 
-\section{Kin-Recognition}
+%\section{Kin-Recognition}
 
 Exploring the research on the artificial evolution of altruistic behavior and in particular the relationship between the evolution of altruism and the recognition of related individuals leads to the question of whether or not kin-recognition is a precondition for the evolution of self sacrifice. At this point, it is important to keep in mind that recreating the conditions for self-sacrifice in nature is but a mean to achieve the desired results in evolutionary computing and not goal in itself. This means that the research question and the proposed research is not geared towards explaining the observations from nature, it is directed towards finding mechanisms that can be used to solve a problem.
 The research question that arose is presented here:
+
 \begin{description}
 \item[Research question] {\it Will the evolution of self-sacrifice be possible without having any form of recognition of
     kin between recipients and benefactors?}
@@ -249,18 +242,40 @@ In this case, the null hypothesis is that it is impossible to evolve self-sacrif
 The most promising of the simulations in the reviewed literature is that of \cite{barta_cooperation_2010} where cooperation between individuals is evolved using the concept of generalized reciprocality.  
 
 %\cite{agrawal_kin_2001} define "the conditions for the evolution of kin-directed altruism  when recognizers are permitted to make acceptance (type I) and rejection (type II) errors in the identification of social partners with respect to kinship."
-\section{Further Work}
-To explore the research question further an experimental set up implementing the concept of generalized reciprocality, where the possibility of increasing the reciprocation by investing more in the transaction exists, could be used. 
-This environment could facilitate the evolution of generous altruism when a group of altruists interact in viscous environment creating a positive feedback-loop. 
-This could potentially lead to the emergence of individuals prone to give up benefit to such a degree that it is debilitating for further reproduction of the focal individual, but helps out the collective. 
-If this gives positive results, mechanisms for detrimenting the feedback-loop could be implemented. 
-The first experiment could be conducted using a very simple model with few obstacles, and given successful results, the model could be expanded by adding more and more realistic features giving the individuals less reason to sacrifice benefit. The model would use an indirect fitness function to ensure that the altruistic trait would be evolved as a consequence of it being an optimal strategy for the survival of a family of genes, rather than a trait that is specifically rewarded. Alternatively, the individuals could be given a global goal where the whole population is rewarded according to the fulfilment of that goal rather than individual performance. 
-The results presented in \cite{han_role_2011} suggest that it could be worthwhile to ensure a way of intention recognition in the model, although not strong enough to produce self-sacrifice in itself, it could be an auxiliary technique to improve the level of altruism.
 
-\chapter{Model}
+%\section{Further Work}
+%To explore the research question further an experimental set up implementing the concept of generalized reciprocality, where the possibility of increasing the reciprocation by investing more in the transaction exists, could be used. 
+%This environment could facilitate the evolution of generous altruism when a group of altruists interact in viscous environment creating a positive feedback-loop. 
+%This could potentially lead to the emergence of individuals prone to give up benefit to such a degree that it is debilitating for further reproduction of the focal individual, but helps out the collective. 
+%If this gives positive results, mechanisms for detrimenting the feedback-loop could be implemented. 
+%The first experiment could be conducted using a very simple model with few obstacles, and given successful results, the model could be expanded by adding more and more realistic features giving the individuals less reason to sacrifice benefit. The model would use an indirect fitness function to ensure that the altruistic trait would be evolved as a consequence of it being an optimal strategy for the survival of a family of genes, rather than a trait that is specifically rewarded. Alternatively, the individuals could be given a global goal where the whole population is rewarded according to the fulfilment of that goal rather than individual performance. 
+%The results presented in \cite{han_role_2011} suggest that it could be worthwhile to ensure a way of intention recognition in the model, although not strong enough to produce self-sacrifice in itself, it could be an auxiliary technique to improve the level of altruism.
+
+\subsection{Motivation}
+%Is the crevasse-example necessary?
+In evolutionary computation there is sometimes the need to evolve an optimal population of individuals so that they in unison solve a problem. 
+Having various degrees of altruism can be necessary to maximize the sum of the endeavours of the individual solutions. 
+One main area of interest in altruism in evolutionary computation is within the field of multi agent systems, especially within embodied evolution where agents are continuously adapting to the environment. One of the long-term goals in this field is to create agile populations of robots that are able to create new solutions to previously unseen problems that  arise and have the necessary mechanisms for ensuring the survival of already functioning genotypes in situations where the temporal changes in the environment could lead to the extinction of desired traits.  
+To achieve this it is important to understand how to design and facilitate the evolutionary process in such a way that not only behavior that can be predicted to be desired in advance is evolved, but also the behavior that is needed, even when it is counter-productive for the individual phenotype.
+Understanding the mechanisms that allow self sacrifice is a step towards understanding the mechanisms that can allow evolutionary computation to be truly adaptive through developing generalized algorithms for evolving behavior that favors solutions that benefit the entire population, or even sub-groups of the population.
+%Creating the mechanisms for the evolution of altruistic behavior or self-sacrifice is beneficial when this increases the overall fitness of the population with regards to the task to be solved. 
+%Self-sacrifice is of interest when there are elements in the environment that require some of the robots to 
+A specific instance where the most acute form of altruism could be of use is a group of autonomous robots working on a  glacier trapped on a sheet of ice where further exploration is only possible if one of the robots drives into a crevasse to form a bridge that the others can run over.    
+
+
+\chapter{Method}
 \label{cha:model}
 
-In this chapter, a model for emulating an evolutionary process is presented along with the reasoning behind choosing this model for the experiments.
+In this chapter, a model for emulating an evolutionary process where altruism is possible is presented.
+
+\section{Concept}
+
+%The model will be an extension of the one presented in \cite{montanier_surviving_2011-1}. 
+
+In the experimental setup a population of autonomous agents in a two dimensional environment will first be evolved over 200 generations. In the preliminary period, the agents will consume energy points that are distributed in the environment. Each agent has the ability to store a given amount of energy and expends a given amount of energy each time step. The agents consume energy from energy points that are randomly distributed in the environment. When an energy point is harvested by an agent it becomes inactive so that no agents can benefit from it. After a delay, they energy point is re-activated and can again be used. An agent that runs out of energy becomes inactive. An evolutionary algorithm is used to evolve the agents behaviour over time. The agents are not aware of the other agents as anything but objects in the environment so there is no kinship-recognition. In this period the agents are evolved without being capable of altruism. This is to separate the evolution of movement and harvesting patterns from the evolution of altrusim. After 200 generations the agents are capable of moving about and collecting energy.
+For the next part of the experiment all the energy points in the environment are removed to simulate a period of food shortage. The agents are given the ability to give away some of their energy by creating energy points that other agents can consume. This situation will be used to see if patterns of consistent energy donations are evolved and if there are agents who will donate all their energy.
+
+
 
 \section{Swarm Robotics}
 \label{sec:swarm}
@@ -277,27 +292,10 @@ For instance, japanese honey bees when discovery lone hornets that are scouting 
 The compact ball that is created raises the internal temperature of the hornet to lethal levels, only 2-3 degrees lower than what is lethal for the bees.
 This shows how intelligent behavior emerges from simple behavioral patterns evolved in relatively simple creatures. %Macroscopic pattenrs.
 
-The key advantege of swarm intelligence in relations to robotics is that the relative simplicity of each individual makes them much easier to design. 
-
-
-
-
-\chapter{Experimental Model}
-
-This chapter explains the experimental model that was used to explore relevant areas of interest regarding the research question.
-
-\section{The agents and their environment}
-
-The model will be an extension of the one presented in \cite{montanier_surviving_2011-1}. 
-A population of autonomous agents in a two dimensional environment will consume energy (food) from energy points (food sources) that are distributed in the environment.
-The agents consume the energy at a given rate and if they run out of energy they become inactive.
-An energy point that is harvested is replenished, but only after a given time period.
-This is a model of a situation where the tragedy of commons might occur. To provide the 
+The key advantege of swarm intelligence in relations to robotics is that the relative simplicity of each individual makes them much easier to design. In this experimental set up a swarm is used because it 
 
 
 \section{Artificial Neural Networks}
-
-The control mechanism in the agents is a neural network that ensures mimnimal cognitive capabilities.
 
 ANNs are computational entities that are inspired by how the brain does computation. 
 In the brain, a network of neurons acquire knowledge through the body's receptors and maps the perceptions it receives to a given action. 
@@ -308,25 +306,47 @@ All the neurons in the network are affected by what is happening on a global lev
 In this case, the choice of relinquishing energy should be affected by whether or not there are other robots nearby and perhaps also how closely they are related.
 
 Artificial neurons have a series of inputs that are altered according to the weight of the input. This weight is analogous to the strength of the synaptic connection.
-There is also often an extra input that is constant and is known as a bias-weight. The summation of this is fed to an activation function that determines the output of the neuron. The output of one neuron can be fed as part of the input to another neuron and this is how the network is built. A neuron can also use its own output as an input, effectively fiving the neuron memory. 
+There is also often an extra input that is constant and is known as a bias-weight. The summation of this is fed to an activation function that determines the output of the neuron. The output of one neuron can be fed as part of the input to another neuron and this is how the network is built. A neuron can also use its own output as an input, effectively giving the neuron memory. 
 
 %Something about single layer and multi-layer.
+%Randall Beer
 
-keywords: agents can spawn energy points where they give away energy, mEDEA, control viscosity with speed of robots or environment,
+%keywords: agents can spawn energy points where they give away energy, mEDEA, control viscosity with speed of robots or environment,
 
-\section{Donating Energy}
+\section{The Evolutionary algorithm - mEDEA}
+
+The evolutionary algorithm to be used needed to bot
+
+In the mEDEA algorithm each agent has a list of genomes. Every time an agent encounters another agent they add that agent's genome to their list of genomes and when an agent is reactivated it choses a genome from it's list of genomes that will serve as the basis for the new genome of the agent. The genomes are mutated as in regular evolutionary algorithms and the selection scheme can also vary. The fact that survival and dissemination of genes is an imlicit demand of the mEDEA algorithm makes it a great fit for the experiment. The mEDEA-algorithm has an implicit fitness function. The better the individuals are at spreading their genes, the greater are their chances to pass on their genes. This closely mimics the way evolution works in real life.  Having an implicit fitness function that partially rewards for the trait we are after is having traits appear by design rather than by necessity. An agent is deactivated when it runs out of energy and reactivated when another agent passes nearby.
+
+\section{Roborobo}
+
+To implement the experimental environment described an existing system that fulfilled many of the requirements was modified.
+The system that was used was Roborobo which is a 2D robot simulator based on the epuck/kephra model written mainly by Nicolas Bredeche with assitance from Jean-Marc Montanier and Leo Cazenille. Roborobo is written in C++.
+This system was chosen because it was available in open source and because it provieded a lot of the functionality that was needed for the experiment:
+
+\begin{itemize}
+  \item Ready made environment for simulating small robots
+  \item	Integrated code for neural networks
+  \item Built-in evolutionary algorithm functionality  \ldots
+\end{itemize}
+
+
+\subsection{The agents}
+The agents that are simulated in the environment are basd on the epuck model and is thought to be compact differential wheeled robots with sensors that sense distance in eight directions as shown in figure [INSERT FIGURE]. The agents also have a sensor that can sense if they are directly on top of an energy point. The sensory input the agents get are fed into the neural network that controls the actuators of the robots. There are four actuators: The two wheels, the "mouth" that absorbs food and the output that creates energy points. 
+
+
+\subsection{Donating Energy}
 The agents each have an output neuron that outputs a floating point value. If the value is above a predetermined threshold the agent creates an energy point in the environment that 
-it cannot utilize for itself. As interesting as seeing hoarding behaviour would be, it is not the purpose of this experiment. The energy points that are created are never replenished 
-unlike the energy points that are intrinsic to the environment, they are only availble until harvested. The amount of energy donated follows a linear relationship to how much the 
-value exceeds the threshold by the formula:
+it cannot utilize for itself. As interesting as seeing hoarding behaviour would be, it is not the purpose of this experiment. The energy points that are created are never replenished unlike the energy points that are intrinsic to the environment. The amount of energy donated is set to be a predetermined number. This was chosen to simplify the experiments, but ideally the amount of energy donated should be determined by the output value of the neuron.
 
-INSERT FORMULA
-
-A drawback to using a predetermined set value for the threshold is that it relieves the model of biological accuracy, but it allows for greater control and understanding of the parameters 
-that are needed for the wanted behaviour to occur, which is the object of the experiment. Early initial tests showed that linking the amount of energy donated in each timested unsurprisingly 
+Using a predetermined value value for relieves the model of biological accuracy, but it allows for greater control and understanding of the parameters 
+that are needed for the wanted behaviour to occur, which is the object of the experiment. Early initial tests showed that linking the amount of energy donated in each timestep unsurprisingly 
 led to the first generation of agents commiting mass suicide in the first few timesteps since the output value from the beginning is random. It is a reasonable to assume that the insects or
 animals the robots model already have evolved an inclination towards not dropping food and that this should only happen when a certain sensory input is provided.   
- 
+
+
+
 \section{Experimental setup}
 
 All the experiments were run on Kongull, a Linux Cluster on NTNU. For each setting, each experiment was run 200 times and the results computed as an average over those runs. 
@@ -337,10 +357,12 @@ is deemed to be a greater sacrifice as per (CITATION NEEDED)
 
 \chapter{Results}
 
-\section{Light threshold - Light pressure - generous energy points}
+Graphs and stuff.
 
 
+\chapter{Discussion}
 
+Write about what the results mean, probably write a lot about what can be done beyond what I have done since I've accomplished nothing.
 
 
 \chapter{Systematic Literature Review Protocol}\label{T-B}
