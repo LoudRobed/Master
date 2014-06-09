@@ -32,9 +32,10 @@ class EnergyPoint : public InanimateObject
 
 		bool _active; // active points can be harvested, inactive points do not exist.
 		bool _agentGenerated;
+		std::string genome;
 //		double _key;
 //		double _initLock;
-
+		int _id;
 		int _iterationMax;
 
 	public :
@@ -42,8 +43,11 @@ class EnergyPoint : public InanimateObject
 		EnergyPoint();
 		EnergyPoint(int id);
 		EnergyPoint(int id, double x, double y);
+		EnergyPoint(int id, std::string arg, double x, double y);
 		~EnergyPoint();
-
+	
+		int getId();	
+		std::string getGenome();
 		void setPosition(double x, double y);		
 		////void setPosition();
 		//Point2d getPosition();
