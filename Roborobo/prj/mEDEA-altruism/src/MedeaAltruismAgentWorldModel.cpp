@@ -205,6 +205,18 @@ void MedeaAltruismAgentWorldModel::resetActiveGenome()
 	_genomesList.clear();
 }
 
+std::string MedeaAltruismAgentWorldModel::getGenomeString(){
+	std::string returnval ="";
+	
+	for (std::vector<double>::iterator it = _currentGenome.begin() ; it != _currentGenome.end(); ++it){
+		std::ostringstream sstream;
+		sstream << *it;
+		std::string str = sstream.str();
+		returnval = returnval+str;
+		}	
+	
+	return returnval;
+}
 
 //TODO : recode ReEvo
 //for compatibility issue with ReEvo

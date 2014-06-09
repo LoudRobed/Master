@@ -15,6 +15,9 @@
 
 #include "World/World.h"
 #include <algorithm>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 //bool _firstStep = true;
 //std::vector< std::vector<double> > _genomesToReplay;
 MedeaAltruismWorldObserver::MedeaAltruismWorldObserver( World* __world ) : WorldObserver( __world )
@@ -204,7 +207,6 @@ if (_firstStep)
 		generation++;
 		int totalEnergy = 0;
 		double activeCount = 0;
-		int totalGenomes = 0;
 		gLogFile << gWorld->getIterations() << " : active " ;
 		gStatFile << "Genomes:";
 
@@ -220,7 +222,7 @@ if (_firstStep)
 		}
 		gStatFile << std::endl;
 		int robotEnergy = totalEnergy;
-		
+		std::cout << "Agents alive: " << activeCount << std::endl;	
 		gLogFile << "\n" ;
 		//gStatFile << activeCount << std::endl;
 		if ( !gVerbose )
@@ -228,10 +230,13 @@ if (_firstStep)
 //			std::cout << "[" << activeCount << "]";
 		}
 		gLogFile << gWorld->getIterations() << " : activeCount " << activeCount << std::endl;
-
+		
 		if(activeCount<=0)
 		{
+			gStatFile << "AGENTS DIED" << std::endl;
 			gLogFile.close();
+			gLogFile.close();
+
 			exit(0);
 		}
 		//Sum active energy from EPs
@@ -296,18 +301,28 @@ void MedeaAltruismWorldObserver::updateAllAgentsEnergyLevel()
 			if ( gEnergyMode && currentAgentWorldModel->getActiveStatus())
 			{
 				for(std::vector<EnergyPoint>::iterator it = gEnergyPoints.begin(); it != gEnergyPoints.end(); it++)
-				{
-					if( (getEuclidianDistance (posRobot,it->getPosition()) < gEnergyPointRadius) && (it->getActiveStatus())  && it->getId() != currentAgentWorldModel->_agentId+gMaxEnergyPoints)
+				{	
+					if(!it->isAgentGenerated())
+						{
+						//	std::cout << "Non-Agent generated: " << it->getEnergyPointValue() << std::endl;
+						}
+					if( 	((getEuclidianDistance (posRobot,it->getPosition()) < gEnergyPointRadius) 						
+					
+					//||	(getEuclidianDistance (posRobot,it->getPosition()) < gEnergyPointRadius*4 && currentAgentWorldModel->getLifeTime() < 4))
+					)&&	(it->getActiveStatus())  && it->getId() != currentAgentWorldModel->_agentId  						&&
+						!(it->getGenome() == currentAgentWorldModel->getGenomeString()))
 					{
 						float loadingEnergy = 0.0;
 						pointsConsumed++;
 						if ( MedeaAltruismSharedData::harvestingScheme.compare("dynCost") == 0)
 						{
-							loadingEnergy = currentAgentWorldModel->getEnergyHarvestingRate() * gEnergyPointValue;
+						//	loadingEnergy = currentAgentWorldModel->getEnergyHarvestingRate() * gEnergyPointValue;
+							loadingEnergy = it->getEnergyPointValue();
 						}
 						else if ( MedeaAltruismSharedData::harvestingScheme.compare("fixedCost") == 0)
 						{
-							loadingEnergy = std::max( 0.0 , std::min( double(gEnergyPointValue), MedeaAltruismSharedData::gEnergyMax - currentAgentWorldModel->getEnergyLevel() ) - fixedCost);
+						//	loadingEnergy = std::max( 0.0 , std::min( double(gEnergyPointValue), MedeaAltruismSharedData::gEnergyMax - currentAgentWorldModel->getEnergyLevel() ) - fixedCost);
+							loadingEnergy = it->getEnergyPointValue();
 						}
 						else
 						{
@@ -316,7 +331,6 @@ void MedeaAltruismWorldObserver::updateAllAgentsEnergyLevel()
 						}
 						//float loadingEnergy = 5*(1.0/(2.0*sqrt(2.0*M_PI)))*gEnergyPointValue; // test?
 						//float loadingEnergy = 5*(1.0/(2.0*sqrt(2.0*M_PI)))*exp(-(pow((_key - it->getKey()),2.0)/(pow(2.0,2.0))))*gEnergyPointValue;
-
 						double energyMissing = MedeaAltruismSharedData::gEnergyMax-currentAgentWorldModel->getEnergyLevel();
 						double costMeasure = 0.0;
 
@@ -330,13 +344,23 @@ void MedeaAltruismWorldObserver::updateAllAgentsEnergyLevel()
 							{
 								costMeasure = gEnergyPointValue - loadingEnergy;
 							}
+						
+
+							
+						it->setRespawnLag((loadingEnergy/gEnergyPointValue)*MedeaAltruismSharedData::gHighestBoundRespawn);
+						it->setActiveStatus(false);
+						currentAgentWorldModel->setEnergyLevel(currentAgentWorldModel->getEnergyLevel() + loadingEnergy);
+						currentAgentWorldModel->setDeltaEnergy(currentAgentWorldModel->getDeltaEnergy() + loadingEnergy);
 						}
-	
+						else{
+						
+						it->setEnergyPointValue(it->getEnergyPointValue()-energyMissing);
+						currentAgentWorldModel->setEnergyLevel(MedeaAltruismSharedData::gEnergyMax);
+						currentAgentWorldModel->setDeltaEnergy(currentAgentWorldModel->getDeltaEnergy() + loadingEnergy);
+						}
 						gLogFile << gWorld->getIterations() << " : " << currentAgentWorldModel->_agentId << " c "  << costMeasure << std::endl;
 
 						// update energy level
-						currentAgentWorldModel->setEnergyLevel(currentAgentWorldModel->getEnergyLevel() + loadingEnergy);
-						currentAgentWorldModel->setDeltaEnergy(currentAgentWorldModel->getDeltaEnergy() + loadingEnergy);
 	
 						//saturate
 						if ( currentAgentWorldModel->getEnergyLevel() > MedeaAltruismSharedData::gEnergyMax ) // assume: need MedeaAltruismSharedData::gEvaluationTime to live full life
@@ -345,8 +369,6 @@ void MedeaAltruismWorldObserver::updateAllAgentsEnergyLevel()
 						//double loadingRatio = loadingEnergy/gEnergyPointValue;
 						//double exponentialRespawn = exp(loadingRatio*exponentialFactor)*(MedeaAltruismSharedData::gHighestBoundRespawn/exp(exponentialFactor));
 						//it->setRespawnLag(exponentialRespawn);
-						it->setRespawnLag((loadingEnergy/gEnergyPointValue)*MedeaAltruismSharedData::gHighestBoundRespawn);
-						it->setActiveStatus(false);
 						//std::cout << "Agent " << currentAgentWorldModel->_agentId << " ate an enrgypoint made by " << it->getId()-gMaxEnergyPoints << " In iteration " << gWorld->getIterations() << std::endl;
 					}
 				}
@@ -354,11 +376,12 @@ void MedeaAltruismWorldObserver::updateAllAgentsEnergyLevel()
 			double thresh = MedeaAltruismSharedData::gDonationThreshold;
 		//	double thresh = 0.99;
 			double donationRate = currentAgentWorldModel->getEnergyDonation();
-			double donationPenalty = penalty();
 			
 			if(donationRate > thresh){
 			pointsCreated++;		
-				EnergyPoint ep(currentAgentWorldModel->_agentId+gMaxEnergyPoints,currentAgentWorldModel->_xReal,currentAgentWorldModel->_yReal);
+				EnergyPoint ep(currentAgentWorldModel->_agentId,currentAgentWorldModel->getGenomeString(),currentAgentWorldModel->_xReal,currentAgentWorldModel->_yReal);
+				//bool vla = (currentAgentWorldModel->getGenomeString() == ep.getGenome()) && (currentAgentWorldModel->_agentId == ep.getId());
+				//EnergyPoint ep(currentAgentWorldModel->_agentId+gMaxEnergyPoints,currentAgentWorldModel->_xReal,currentAgentWorldModel->_yReal);
 			//	ep.setEnergyPointValueIsLocal(true);
 			//	ep.setRespawnLagMethodIsLocal(true);
 			//	ep.setAgentGenerated(true);
@@ -372,7 +395,7 @@ void MedeaAltruismWorldObserver::updateAllAgentsEnergyLevel()
 					ep.setEnergyPointValue(donation);
 					}	
 
-				currentAgentWorldModel->setEnergyLevel(currentAgentWorldModel->getEnergyLevel()-ep.getEnergyPointValue()-donationPenalty);
+				currentAgentWorldModel->setEnergyLevel(currentAgentWorldModel->getEnergyLevel()-donation);
 				_world->addEnergyPoint(ep);
 			//	currentAgentWorldModel->setEnergyDonation(-1.0); //Resets donation to 0;
 				_agentPointCount ++;
@@ -394,15 +417,14 @@ void MedeaAltruismWorldObserver::updateAllAgentsEnergyLevel()
 		// * update agent energy consumption -- if inactive, "revive" the agent (ie. it ran out of energy)
 		
 		// decrease the energyLevel and deltaEnergyLevel
-
 		if (currentAgentWorldModel->getActiveStatus() == true )
 		{
 		
 			if ( currentAgentWorldModel->getEnergyLevel() > 0.0 ) 
 			{
-				currentAgentWorldModel->setEnergyLevel(currentAgentWorldModel->getEnergyLevel()-0.05); 
+				currentAgentWorldModel->setEnergyLevel(currentAgentWorldModel->getEnergyLevel()-0.005); 
 			}
-			currentAgentWorldModel->setDeltaEnergy(currentAgentWorldModel->getDeltaEnergy()-1); 
+			currentAgentWorldModel->setDeltaEnergy(currentAgentWorldModel->getDeltaEnergy()-0.05); 
 		}
 	
 
@@ -413,14 +435,50 @@ void MedeaAltruismWorldObserver::updateAllAgentsEnergyLevel()
 			
 			currentAgentWorldModel->resetActiveGenome();
 			currentAgentWorldModel->setMaturity(1);
-		
-			currentAgentWorldModel->setEnergyLevel(MedeaAltruismSharedData::gEnergyRevive); 
+			
+			srand (time(NULL));
+			int chosen = rand() % gEnergyPoints.size();
+			int i = 0;	
+			int creedence = 0;
+			for(std::vector<EnergyPoint>::iterator it = gEnergyPoints.begin(); it != gEnergyPoints.end(); it++)
+				{
+				
+					if( i == chosen )
+					{
+		//						std::cout << "Point deleted" << std::endl;
+						creedence = it->getEnergyPointValue();
+						it->setEnergyPointValue(0);
+						it->setActiveStatus(false);
+						break;
+					}
+				i++;
+			}
+			
+			chosen = rand() % gEnergyPoints.size();
+			i = 0;	
+			
+			for(std::vector<EnergyPoint>::iterator it = gEnergyPoints.begin(); it != gEnergyPoints.end(); it++)
+				{
+				
+					if( i == chosen )
+					{
+		//						std::cout << "Point deleted" << std::endl;
+						creedence = it->getEnergyPointValue();
+						it->setEnergyPointValue(0);
+						it->setActiveStatus(false);
+						break;
+					}
+				i++;
+			}
+			
+			currentAgentWorldModel->setEnergyLevel(creedence); 
 			currentAgentWorldModel->setDeltaEnergy(0.0); 
 			gLogFile << gWorld->getIterations() << " : " << currentAgentWorldModel->_agentId << " a " << (currentAgentWorldModel->_idlenessTracker.getAverageBoxesIdleness() / currentAgentWorldModel->getLifeTime()) * 100000 << std::endl;
 			currentAgentWorldModel->setLifeTime(0);
 
 			currentAgentWorldModel->setActiveStatus(false);
 			currentAgentWorldModel->setWaitForGenome(false);
+
 		
 			currentAgentWorldModel->_genomesList.empty();
 		}

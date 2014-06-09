@@ -60,6 +60,24 @@ void MedeaAltruismAgentObserver::reset()
 	_wm->_idlenessTracker.reset();
 }
 
+void MedeaAltruismAgentObserver::harvestNearest(){
+	
+			Point2d posRobot(_wm->_xReal,_wm->_yReal);
+				int reviveEnergy = 0;		
+				for(std::vector<EnergyPoint>::iterator it = gEnergyPoints.begin(); it != gEnergyPoints.end(); it++)
+				{
+					if( getEuclidianDistance (posRobot,it->getPosition()) < 5*gEnergyPointRadius )
+					{
+						reviveEnergy += it->getEnergyPointValue();
+						it->setEnergyPointValue(0);
+						it->setActiveStatus(false);
+
+				}
+			}
+
+		std::cout << "Agent " << _wm->_agentId << " tried to harvest nearest. Harvested " << _wm->getEnergyLevel() << std::endl;
+}
+
 void MedeaAltruismAgentObserver::step()
 {
 	// debug verbose
@@ -69,9 +87,9 @@ void MedeaAltruismAgentObserver::step()
 	}
 
 	// at the end of a generation
-	if( 
+	if( //if agent as grown old and waiting for genome is set to true and the agent is not active  
 		(_wm->getLifeTime() >= MedeaAltruismSharedData::gEvaluationTime && _wm->getWaitForGenome() && !(_wm->getActiveStatus()))
-		||
+		|| //Or agent is old and active
 		(_wm->getLifeTime() >= MedeaAltruismSharedData::gEvaluationTime && _wm->getActiveStatus())
 	) 
 	{		
@@ -89,6 +107,8 @@ void MedeaAltruismAgentObserver::step()
 	// at the end of the dead time (maby redondancy between control variables), the robot state should be in a listened mode (waitforgeneome)
 	if(_wm->getLifeTime() >= (MedeaAltruismSharedData::gEvaluationTime*MedeaAltruismSharedData::gDeadTime) && !(_wm->getWaitForGenome()) && !(_wm->getActiveStatus()))
 	{
+		//harvestNearest();
+		//This is not the right place for harvestNearest since this is when the agent starts to listen for new genomes. It's not actually revived here.
 		gLogFile << gWorld->getIterations() << " : " << _wm->_agentId << " listen" << std::endl;
 		_wm->setWaitForGenome(true);
 		_wm->setLifeTime(0);
@@ -224,6 +244,11 @@ void MedeaAltruismAgentObserver::checkGenomeList()
 			gLogFile << "selection scheme unknown" << std::endl;
 			exit(1);
 		}
+		/*
+		if(!_wm->getActiveStatus()){
+
+			harvestNearest();
+		}*/
 		_wm->setWaitForGenome(true);
 		_wm->setActiveStatus(true);
 
@@ -247,8 +272,9 @@ void MedeaAltruismAgentObserver::checkGenomeList()
 
 		_wm->resetActiveGenome(); // optional -- could be set to zeroes.
 		_wm->setWaitForGenome(true); // inactive robot *must* import a genome from others (ie. no restart).
-
+		//harvestNearest();
 		_wm->setActiveStatus(false);//The robot is waiting for genome but not active yet
+		//_wm->setActiveStatus(true);//The robot is waiting for genome but not active yet
 	}
 	
 	//Re-initialize the main parameters

@@ -1612,6 +1612,9 @@ bool runRoborobo(int __maxIt) // default parameter is -1 (infinite)
 		}
 		
 		currentIt++;
+		if(currentIt >= __maxIt){
+			gStatFile << "AGENTS SURVIVED" << std::endl;
+		}
 
 		if (gUseOrganisms && (gWorld->getIterations() % gOrganismSampleFrequency == 0)) 
 		{
@@ -1621,6 +1624,7 @@ bool runRoborobo(int __maxIt) // default parameter is -1 (infinite)
 		if (gWorld->getNbOfAgent() <= 0)
 		{
 			quit = true;
+			gStatFile << "AGENTS DEAD" << std::endl;
 		}
 	}
 

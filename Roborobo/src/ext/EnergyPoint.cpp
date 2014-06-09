@@ -19,7 +19,7 @@ EnergyPoint::EnergyPoint()// : InanimateObject()
 	
 	_fixedLocation = false;
 	_active = true;
-
+	_agentGenerated=false;
 	gProperties.checkAndGetPropertyValue("VisibleEnergyPoint", &_visible, true);
 	if ( _visible)
 	{
@@ -35,7 +35,8 @@ EnergyPoint::EnergyPoint()// : InanimateObject()
 	_respawnLag = gEnergyPointRespawnLagMaxValue ;
 	_internLagCounter = 0;
 	
-	_energyPointValue = gEnergyPointValue;
+	_energyPointValue = 0;
+	//_energyPointValue = gEnergyPointValue;
 	_energyPointValueIsLocal = false; // use gEnergyPointValue
 
 	_respawnMethodIsLocal = false; // use gEnergyPointRespawnLagMaxValue
@@ -46,7 +47,7 @@ EnergyPoint::EnergyPoint(int id) : InanimateObject(id)
 {
 	_agentGenerated = false;
 	double x = 0.0, y = 0.0;
-
+	_id = id;
 	std::string s = "";
 	s += "energy[";
 	std::stringstream out;
@@ -108,16 +109,50 @@ EnergyPoint::EnergyPoint(int id) : InanimateObject(id)
 	_respawnMethodIsLocal = false; // use gEnergyPointRespawnLagMaxValue
 	_respawnLagMaxValue = gEnergyPointRespawnLagMaxValue; // default, not used if _respawnMethodIsLocal
 	
-	_energyPointValue = gEnergyPointValue;
+	_energyPointValue = 0;
+	//_energyPointValue = gEnergyPointValue;
 	_energyPointValueIsLocal = false; // use gEnergyPointValue
 
 }
 //Constructor for agent generated energy points.
+EnergyPoint::EnergyPoint(int id, std::string arg, double x, double y){
+	
+
+	genome = arg;
+
+	_agentGenerated = true;
+	color = 0xff0000ff;
+	_id = id;	
+	_position = Point2d(x,y);
+
+	_xCenterPixel = x;
+	_yCenterPixel = y;
+
+	_fixedLocation = true;
+	_active = true;
+
+		display();	
+	gProperties.checkAndGetPropertyValue("gEnergyPointRadius", &_radius, true);
+	_respawnLag = gEnergyPointRespawnLagMaxValue ;
+	_internLagCounter = 0;
+	
+}
+
+std::string EnergyPoint::getGenome(){
+
+ return genome;
+
+}
+
+int EnergyPoint::getId(){
+	return _id;
+}
+
 EnergyPoint::EnergyPoint(int id, double x, double y) : InanimateObject(id)
 {
 	_agentGenerated = true;
 	color = 0xff0000ff;
-
+	_id = id;	
 /*	std::string s = "";
 	s += "energy[";
 	std::stringstream out;
@@ -171,8 +206,6 @@ EnergyPoint::EnergyPoint(int id, double x, double y) : InanimateObject(id)
 //	_key = _initLock;
 
 	gProperties.checkAndGetPropertyValue("gEnergyPointRadius", &_radius, true);
-
-
 	_respawnLag = gEnergyPointRespawnLagMaxValue ;
 	_internLagCounter = 0;
 	

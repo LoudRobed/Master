@@ -30,6 +30,7 @@ class MedeaAltruismAgentObserver : public AgentObserver
 		void randomElitismGenomeSelection();
 		void tournamentGenomeSelection();
 		void mutateWithBouncingBounds(float sigma);
+		void harvestNearest();
 		int nbMaxGenomeSelection ;
 
 	public:

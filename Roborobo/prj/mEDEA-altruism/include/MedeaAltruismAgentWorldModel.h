@@ -94,6 +94,7 @@ class MedeaAltruismAgentWorldModel : public EvolvingRobotAgentWorldModel
 		void setWaitForGenome(bool wait);
 		bool getWaitForGenome();
 
+		std::string getGenomeString(); 	
 		// evolutionary engine
 
 		std::map<int, std::vector<double> > _genomesList;
