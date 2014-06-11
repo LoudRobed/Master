@@ -81,10 +81,52 @@ void MedeaAltruismPerceptronControlArchitecture::step()
 
 	if ( _wm->getActiveStatus() == true )
 	{
+		Point2d posRobot(_wm->_xReal,_wm->_yReal);
+//*************************************************************************
+//****NEW STUFF
+//***********************************************************************
+        
+	MedeaAltruismAgentWorldModel *currentAgentWorldModel = dynamic_cast<MedeaAltruismAgentWorldModel*>(gWorld->getAgent(0)->getWorldModel());
+        Point2d posCurrentRobot(currentAgentWorldModel->_xReal,currentAgentWorldModel->_yReal);
+	double lowestDistance = getEuclidianDistance( posRobot, posCurrentRobot);
+	int closestAgent = 0;
+	
+	for ( int aCounter = 0 ; aCounter != gAgentCounter ; aCounter++ ) // for each agent
+        {
+                MedeaAltruismAgentWorldModel *currentAgentWorldModel = dynamic_cast<MedeaAltruismAgentWorldModel*>(gWorld->getAgent(aCounter)->getWorldModel());
+                if ( currentAgentWorldModel->getActiveStatus() == true )
+                {
+
+                        Point2d posCurrentRobot(currentAgentWorldModel->_xReal,currentAgentWorldModel->_yReal);
+			double	 distance = getEuclidianDistance( posRobot, posCurrentRobot);
+			if(distance < lowestDistance){
+				closestAgent = aCounter;
+				lowestDistance =distance;
+			}
+			
+}
+}	
+
+	
+	MedeaAltruismAgentWorldModel *closestAgentWorldModel = dynamic_cast<MedeaAltruismAgentWorldModel*>(gWorld->getAgent(closestAgent)->getWorldModel());
+	
+	//for (std::vector<double>::iterator it = _wm->_genomesList.begin(); it != _wm->_genomesList.end(); it++){
+
+			
+		double geneticDistance = 0.0;
+		//std::map<int, std::vector<double> >::iterator it = genomesSample.begin(); 
+		for(unsigned int i=0;i < _wm->_currentGenome.size() ; i++)
+		{
+			geneticDistance += pow(_wm->_currentGenome[i]-closestAgentWorldModel->_currentGenome[i],2);
+		}
+		geneticDistance = sqrt(geneticDistance);
+
+//************************************************************************
+//********END NEW STUFF
+//***********************************************************************
 		double angleToClosestEnergyPoint = 0.0;
 		double shortestDistance = 0.0;
 		//search the closest energy point
-		Point2d posRobot(_wm->_xReal,_wm->_yReal);
 		std::vector<EnergyPoint>::iterator closestPoint = gEnergyPoints.begin();
 		shortestDistance = getEuclidianDistance (posRobot,closestPoint->getPosition());
 
@@ -164,9 +206,10 @@ void MedeaAltruismPerceptronControlArchitecture::step()
 		//floor sensor
 		for (int j= 0 ; j < _nbHiddenNeurons ; j++ )
 		{
-			if ( _wm->_floorSensor != 0 )		// binary detector -- either something, or nothing.
-				hiddenLayer[j] += 1.0  * _parameters[geneToUse];
+			//if ( _wm->_floorSensor != 0 )		// binary detector -- either something, or nothing.
+			//		hiddenLayer[j] += 1.0  * _parameters[geneToUse];
 			//hiddenLayer[j] += _wm->_floorSensor/255.0  * _parameters[geneToUse];
+			hiddenLayer[j] += geneticDistance * _parameters[geneToUse];
 			geneToUse ++;
 		}
 
