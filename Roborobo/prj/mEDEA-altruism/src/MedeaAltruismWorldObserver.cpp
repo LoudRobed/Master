@@ -104,7 +104,7 @@ MedeaAltruismWorldObserver::MedeaAltruismWorldObserver( World* __world ) : World
 	}
 	std::cout << "Donation threshold: " << MedeaAltruismSharedData::gDonationThreshold << std::endl;
 	// * iteration and generation counters
-	loadGenomes();	
+	//loadGenomes();	
 	_lifeIterationCount = -1;
 	_agentPointCount = -0;
 }
@@ -169,6 +169,7 @@ void MedeaAltruismWorldObserver::step()
 	// ***
 	// * update iteration and generation counters + switch btw experimental setups if required
 	// ***
+/*
 if (_firstStep)
     {
         //give genomes to agents as long as there is genomes available
@@ -197,7 +198,9 @@ if (_firstStep)
             agentWorldModel->setWaitingAfterLifeSynchronization(false);
         }
         _firstStep = false ;
-    }	
+
+    }
+*/	
 	_lifeIterationCount++;
 
 	if( _lifeIterationCount >= MedeaAltruismSharedData::gEvaluationTime ) // print mEDEA state
@@ -281,7 +284,7 @@ void MedeaAltruismWorldObserver::updateAllAgentsEnergyLevel()
 	for ( int i = 0 ; i != gAgentCounter ; i++ ) // for each agent
 	{
 		MedeaAltruismAgentWorldModel *currentAgentWorldModel = dynamic_cast<MedeaAltruismAgentWorldModel*>(gWorld->getAgent(i)->getWorldModel());
-	
+			
 		// * check energy level. Becomes inactive if zero.
 	/*	
 		if ( currentAgentWorldModel->getEnergyLevel() <= 0 )
@@ -295,7 +298,6 @@ void MedeaAltruismWorldObserver::updateAllAgentsEnergyLevel()
 		if ( currentAgentWorldModel->getActiveStatus() == true )
 		{
 			// * update agent energy (if needed) - agent should be on an active energy point location to get energy
-		
 			Point2d posRobot(currentAgentWorldModel->_xReal,currentAgentWorldModel->_yReal);
 		
 			if ( gEnergyMode && currentAgentWorldModel->getActiveStatus())
@@ -309,15 +311,18 @@ void MedeaAltruismWorldObserver::updateAllAgentsEnergyLevel()
 					if( 	((getEuclidianDistance (posRobot,it->getPosition()) < gEnergyPointRadius) 						
 					
 					//||	(getEuclidianDistance (posRobot,it->getPosition()) < gEnergyPointRadius*4 && currentAgentWorldModel->getLifeTime() < 4))
-					)&&	(it->getActiveStatus())  && it->getId() != currentAgentWorldModel->_agentId  						&&
-						!(it->getGenome() == currentAgentWorldModel->getGenomeString()))
+					//)&&	(it->getActiveStatus())  && it->getId() != currentAgentWorldModel->_agentId  						&&
+					//	!(it->getGenome() == currentAgentWorldModel->getGenomeString()i
+						&& it->getActiveStatus()))
 					{
 						float loadingEnergy = 0.0;
 						pointsConsumed++;
 						if ( MedeaAltruismSharedData::harvestingScheme.compare("dynCost") == 0)
 						{
-						//	loadingEnergy = currentAgentWorldModel->getEnergyHarvestingRate() * gEnergyPointValue;
-							loadingEnergy = it->getEnergyPointValue();
+							loadingEnergy = currentAgentWorldModel->getEnergyHarvestingRate() * gEnergyPointValue;
+						//	loadingEnergy = it->getEnergyPointValue();
+							
+				//		std::cout << it->getEnergyPointValue() << std::endl;
 						}
 						else if ( MedeaAltruismSharedData::harvestingScheme.compare("fixedCost") == 0)
 						{
@@ -422,9 +427,10 @@ void MedeaAltruismWorldObserver::updateAllAgentsEnergyLevel()
 		
 			if ( currentAgentWorldModel->getEnergyLevel() > 0.0 ) 
 			{
-				currentAgentWorldModel->setEnergyLevel(currentAgentWorldModel->getEnergyLevel()-0.005); 
+				//currentAgentWorldModel->setEnergyLevel(currentAgentWorldModel->getEnergyLevel()-0.005); 
+				currentAgentWorldModel->setEnergyLevel(currentAgentWorldModel->getEnergyLevel()-1); 
 			}
-			currentAgentWorldModel->setDeltaEnergy(currentAgentWorldModel->getDeltaEnergy()-0.05); 
+			currentAgentWorldModel->setDeltaEnergy(currentAgentWorldModel->getDeltaEnergy()-1); 
 		}
 	
 
@@ -435,7 +441,7 @@ void MedeaAltruismWorldObserver::updateAllAgentsEnergyLevel()
 			
 			currentAgentWorldModel->resetActiveGenome();
 			currentAgentWorldModel->setMaturity(1);
-			
+			/*
 			srand (time(NULL));
 			int chosen = rand() % gEnergyPoints.size();
 			int i = 0;	
@@ -470,8 +476,9 @@ void MedeaAltruismWorldObserver::updateAllAgentsEnergyLevel()
 					}
 				i++;
 			}
-			
-			currentAgentWorldModel->setEnergyLevel(creedence); 
+			*/
+			//currentAgentWorldModel->setEnergyLevel(creedence); 
+			currentAgentWorldModel->setEnergyLevel(MedeaAltruismSharedData::gEnergyRevive); 
 			currentAgentWorldModel->setDeltaEnergy(0.0); 
 			gLogFile << gWorld->getIterations() << " : " << currentAgentWorldModel->_agentId << " a " << (currentAgentWorldModel->_idlenessTracker.getAverageBoxesIdleness() / currentAgentWorldModel->getLifeTime()) * 100000 << std::endl;
 			currentAgentWorldModel->setLifeTime(0);

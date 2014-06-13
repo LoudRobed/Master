@@ -1382,7 +1382,7 @@ bool loadProperties( std::string __propertiesFilename )
 		gStatFilename = gProperties.getProperty("gStatFilename");
 	else
 	{
-		gStatFilename = gPropertiesFilename+".kinRecogntion.txt";
+		gStatFilename = gPropertiesFilename+gStartTime+".genome";
 		gProperties.setProperty("gStatFilename",gLogFilename);
 
 		std::cout << "[WARNING] No default gLogFilename string value. Log data will be written in \"" << gStatFilename << "\"\n";

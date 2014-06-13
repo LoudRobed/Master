@@ -85,7 +85,77 @@ void MedeaAltruismPerceptronControlArchitecture::step()
 //*************************************************************************
 //****NEW STUFF
 //***********************************************************************
-        
+        int active = 0 ;
+	double angleToClosestRelated = 0.0;
+	double	diffAngleToClosestRelated = 0.0; 
+	int indulgeMe = -1;
+	for ( int aCounter = 0 ; aCounter != gAgentCounter ; aCounter++ ) // for each agent
+	{
+				
+        	MedeaAltruismAgentWorldModel *currentAgentWorldModel = dynamic_cast<MedeaAltruismAgentWorldModel*>(gWorld->getAgent(aCounter)->getWorldModel());
+		if(currentAgentWorldModel->getActiveStatus() == true)
+			active++;
+	}
+	
+	
+	if(active > 1) {	
+	double lowestGeneticDistance = 0.0;
+	
+	int closestAgent = 0;
+	
+	bool set = false;
+	for ( int aCounter = 0 ; aCounter != gAgentCounter ; aCounter++ ) // for each agent
+        {
+                MedeaAltruismAgentWorldModel *currentAgentWorldModel = dynamic_cast<MedeaAltruismAgentWorldModel*>(gWorld->getAgent(aCounter)->getWorldModel());
+                if ( currentAgentWorldModel->getActiveStatus() == true  && _wm->_agentId != currentAgentWorldModel->_agentId)
+                {
+		
+			double geneticDistance = 0.0;
+				for(unsigned int i=0;i < _wm->_currentGenome.size() ; i++)
+				{
+					geneticDistance += pow(_wm->_currentGenome[i]-currentAgentWorldModel->_currentGenome[i],2);
+				}	
+                        
+			geneticDistance = sqrt(geneticDistance);
+
+			if((geneticDistance < lowestGeneticDistance) || !set){
+				closestAgent = aCounter;
+				lowestGeneticDistance = geneticDistance;
+				set = true;
+			}
+			
+}
+}	
+
+	indulgeMe = closestAgent;
+	
+	MedeaAltruismAgentWorldModel *cr = dynamic_cast<MedeaAltruismAgentWorldModel*>(gWorld->getAgent(closestAgent)->getWorldModel());
+
+	
+		angleToClosestRelated = (atan2(cr->_yReal-posRobot.y,cr->_xReal-posRobot.x)/M_PI)*180.0;
+		angleToClosestRelated += 360.0 ;
+		angleToClosestRelated = computeModulo(angleToClosestRelated,360.0);
+		if ( angleToClosestRelated > 180 ) // force btw -180 and 180
+			angleToClosestRelated -= 360.0;
+
+		//compute the angle between the actual orientation of the robot and the orientation of the closest energy point ( in degree between -180 and 180 )
+		diffAngleToClosestRelated = angleToClosestRelated -  _wm->_agentAbsoluteOrientation ;
+		if ( diffAngleToClosestRelated < -180.0 )
+		{
+			diffAngleToClosestRelated += 360.0 ; 
+		}
+		if ( diffAngleToClosestRelated > 180.0 )
+		{
+			diffAngleToClosestRelated -= 360.0 ;
+		}
+		
+		//cast the diffAngle between -1 and 1
+		diffAngleToClosestRelated = diffAngleToClosestRelated / 180.0 ; 
+	}
+	//for (std::vector<double>::iterator it = _wm->_genomesList.begin(); it != _wm->_genomesList.end(); it++){
+
+			
+       /* 
 	MedeaAltruismAgentWorldModel *currentAgentWorldModel = dynamic_cast<MedeaAltruismAgentWorldModel*>(gWorld->getAgent(0)->getWorldModel());
         Point2d posCurrentRobot(currentAgentWorldModel->_xReal,currentAgentWorldModel->_yReal);
 	double lowestDistance = getEuclidianDistance( posRobot, posCurrentRobot);
@@ -94,7 +164,7 @@ void MedeaAltruismPerceptronControlArchitecture::step()
 	for ( int aCounter = 0 ; aCounter != gAgentCounter ; aCounter++ ) // for each agent
         {
                 MedeaAltruismAgentWorldModel *currentAgentWorldModel = dynamic_cast<MedeaAltruismAgentWorldModel*>(gWorld->getAgent(aCounter)->getWorldModel());
-                if ( currentAgentWorldModel->getActiveStatus() == true )
+                if ( currentAgentWorldModel->getActiveStatus() == true && _wm->_agentId != currentAgentWorldModel->_agentId )
                 {
 
                         Point2d posCurrentRobot(currentAgentWorldModel->_xReal,currentAgentWorldModel->_yReal);
@@ -120,7 +190,7 @@ void MedeaAltruismPerceptronControlArchitecture::step()
 			geneticDistance += pow(_wm->_currentGenome[i]-closestAgentWorldModel->_currentGenome[i],2);
 		}
 		geneticDistance = sqrt(geneticDistance);
-
+*/
 //************************************************************************
 //********END NEW STUFF
 //***********************************************************************
@@ -203,13 +273,14 @@ void MedeaAltruismPerceptronControlArchitecture::step()
 			}
 		}
 
-		//floor sensor
+		//greenbeard sensor / all-purpose sensor
 		for (int j= 0 ; j < _nbHiddenNeurons ; j++ )
 		{
 			//if ( _wm->_floorSensor != 0 )		// binary detector -- either something, or nothing.
 			//		hiddenLayer[j] += 1.0  * _parameters[geneToUse];
 			//hiddenLayer[j] += _wm->_floorSensor/255.0  * _parameters[geneToUse];
-			hiddenLayer[j] += geneticDistance * _parameters[geneToUse];
+			//hiddenLayer[j] += geneticDistance * _parameters[geneToUse];
+			hiddenLayer[j] += diffAngleToClosestRelated * _parameters[geneToUse]; 
 			geneToUse ++;
 		}
 

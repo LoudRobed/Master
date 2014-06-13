@@ -195,7 +195,7 @@ void MedeaAltruismAgentObserver::step()
 
 void MedeaAltruismAgentObserver::checkGenomeList()
 {
-		/*
+		
 		//Logging genomes
 		if ( _wm->getActiveStatus() == true )
 		{
@@ -208,7 +208,7 @@ void MedeaAltruismAgentObserver::checkGenomeList()
 			gStatFile << std::endl;
 	}
 
-	*/
+	
 	if (_wm->_agentId == gAgentIndexFocus && gVerbose) // debug
 	{
 		std::cout << "agent #" << gAgentIndexFocus << " is renewed" << std::endl;
