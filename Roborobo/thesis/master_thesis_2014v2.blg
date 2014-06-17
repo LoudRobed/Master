@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: master_thesis_2014v2.aux
+The style file: apalike.bst
+Database file #1: library.bib
+Warning--empty publisher in dessalles_coalition_1999
+Warning--empty publisher in mayoh_evolution_2000-1
+Warning--empty booktitle in montanier_surviving_2011
+You've used 25 entries,
+            1935 wiz_defined-function locations,
+            627 strings with 8261 characters,
+and the built_in function-call counts, 10132 in all, are:
+= -- 1019
+> -- 344
+< -- 32
++ -- 125
+- -- 106
+* -- 768
+:= -- 1684
+add.period$ -- 79
+call.type$ -- 25
+change.case$ -- 166
+chr.to.int$ -- 24
+cite$ -- 28
+duplicate$ -- 463
+empty$ -- 737
+format.name$ -- 149
+if$ -- 2086
+int.to.chr$ -- 2
+int.to.str$ -- 0
+missing$ -- 27
+newline$ -- 125
+num.names$ -- 83
+pop$ -- 155
+preamble$ -- 1
+purify$ -- 170
+quote$ -- 0
+skip$ -- 384
+stack$ -- 0
+substring$ -- 662
+swap$ -- 119
+text.length$ -- 11
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 140
+warning$ -- 3
+while$ -- 82
+width$ -- 0
+write$ -- 333
+(There were 3 warnings)

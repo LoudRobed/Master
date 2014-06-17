@@ -1,0 +1,49 @@
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.1.1}{What is Altruism?}{chapter.1}% 2
+\BOOKMARK [2][-]{subsection.1.1.1}{Altruism in Biology}{section.1.1}% 3
+\BOOKMARK [1][-]{section.1.2}{Research on Altruism and Cooperation in multi-agent systems}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.3}{Most related work}{chapter.1}% 5
+\BOOKMARK [1][-]{section.1.4}{Research question}{chapter.1}% 6
+\BOOKMARK [0][-]{chapter.2}{Method}{}% 7
+\BOOKMARK [1][-]{section.2.1}{Basic setup}{chapter.2}% 8
+\BOOKMARK [2][-]{subsection.2.1.1}{Initial period}{section.2.1}% 9
+\BOOKMARK [2][-]{subsection.2.1.2}{Second period}{section.2.1}% 10
+\BOOKMARK [2][-]{subsection.2.1.3}{Desired behaviour}{section.2.1}% 11
+\BOOKMARK [1][-]{section.2.2}{The scenarios}{chapter.2}% 12
+\BOOKMARK [2][-]{subsection.2.2.1}{Baseline experiment}{section.2.2}% 13
+\BOOKMARK [2][-]{subsection.2.2.2}{Kin recognition of nearest individual}{section.2.2}% 14
+\BOOKMARK [2][-]{subsection.2.2.3}{Recognition of direction of closest related individual}{section.2.2}% 15
+\BOOKMARK [2][-]{subsection.2.2.4}{Kin-Selection in the evolutionary algorithm}{section.2.2}% 16
+\BOOKMARK [1][-]{section.2.3}{The Robots}{chapter.2}% 17
+\BOOKMARK [2][-]{subsection.2.3.1}{Sensors and actuators}{section.2.3}% 18
+\BOOKMARK [1][-]{section.2.4}{Artificial Neural Networks}{chapter.2}% 19
+\BOOKMARK [1][-]{section.2.5}{The Evolutionary algorithm - mEDEA}{chapter.2}% 20
+\BOOKMARK [1][-]{section.2.6}{Donating Energy}{chapter.2}% 21
+\BOOKMARK [2][-]{subsection.2.6.1}{The environment}{section.2.6}% 22
+\BOOKMARK [1][-]{section.2.7}{Important parameters for the initial period }{chapter.2}% 23
+\BOOKMARK [1][-]{section.2.8}{Important parameters for the final period}{chapter.2}% 24
+\BOOKMARK [1][-]{section.2.9}{Experimental setup}{chapter.2}% 25
+\BOOKMARK [0][-]{chapter.3}{Results}{}% 26
+\BOOKMARK [1][-]{section.3.1}{Baseline}{chapter.3}% 27
+\BOOKMARK [1][-]{section.3.2}{Kin recognition}{chapter.3}% 28
+\BOOKMARK [1][-]{section.3.3}{Kin seeking}{chapter.3}% 29
+\BOOKMARK [1][-]{section.3.4}{Kin selction}{chapter.3}% 30
+\BOOKMARK [1][-]{section.3.5}{Graph overlay}{chapter.3}% 31
+\BOOKMARK [0][-]{chapter.4}{Discussion}{}% 32
+\BOOKMARK [1][-]{section.4.1}{How succesful were the kin oriented mechanisms?}{chapter.4}% 33
+\BOOKMARK [1][-]{section.4.2}{Simliarities of kin seeking and recognition}{chapter.4}% 34
+\BOOKMARK [1][-]{section.4.3}{Future work}{chapter.4}% 35
+\BOOKMARK [2][-]{subsection.4.3.1}{More advanced version of kin seeking algorithm}{section.4.3}% 36
+\BOOKMARK [2][-]{subsection.4.3.2}{More advanced version of the kin recognizing algorithm}{section.4.3}% 37
+\BOOKMARK [1][-]{section.4.4}{Energy transferring}{chapter.4}% 38
+\BOOKMARK [0][-]{section*.4}{Appendices}{}% 39
+\BOOKMARK [0][-]{Appendix.1.A}{Systematic Literature Review Protocol}{}% 40
+\BOOKMARK [1][-]{section.1.A.1}{Defining the Review Questions}{Appendix.1.A}% 41
+\BOOKMARK [1][-]{section.1.A.2}{Search for Relevant Studies}{Appendix.1.A}% 42
+\BOOKMARK [2][-]{subsection.1.A.2.1}{Searching the online resources }{section.1.A.2}% 43
+\BOOKMARK [2][-]{subsection.1.A.2.2}{Selection of Studies}{section.1.A.2}% 44
+\BOOKMARK [1][-]{section.1.A.3}{Data Collection}{Appendix.1.A}% 45
+\BOOKMARK [1][-]{section.1.A.4}{Dissemination}{Appendix.1.A}% 46
+\BOOKMARK [0][-]{Appendix.1.B}{Property files}{}% 47
+\BOOKMARK [1][-]{section.1.B.1}{Initial period}{Appendix.1.B}% 48
+\BOOKMARK [0][-]{lstnumber.-1.170}{Bibliography}{}% 49

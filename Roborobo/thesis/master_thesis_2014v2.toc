@@ -1,0 +1,59 @@
+\select@language {english}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}What is Altruism?}{2}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Altruism in Biology}{2}{subsection.1.1.1}
+\contentsline {section}{\numberline {1.2}Research on Altruism and Cooperation in multi-agent systems}{3}{section.1.2}
+\contentsline {section}{\numberline {1.3}Most related work}{5}{section.1.3}
+\contentsline {section}{\numberline {1.4}Research question}{5}{section.1.4}
+\contentsline {chapter}{\numberline {2}Method}{7}{chapter.2}
+\contentsline {section}{\numberline {2.1}Basic setup}{7}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Initial period}{7}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Second period}{8}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}Desired behaviour}{8}{subsection.2.1.3}
+\contentsline {section}{\numberline {2.2}The scenarios}{8}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Baseline experiment}{8}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Kin recognition of nearest individual}{8}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Recognition of direction of closest related individual}{9}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.4}Kin-Selection in the evolutionary algorithm}{9}{subsection.2.2.4}
+\contentsline {section}{\numberline {2.3}The Robots}{9}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Sensors and actuators}{10}{subsection.2.3.1}
+\contentsline {section}{\numberline {2.4}Artificial Neural Networks}{11}{section.2.4}
+\contentsline {section}{\numberline {2.5}The Evolutionary algorithm - mEDEA}{14}{section.2.5}
+\contentsline {section}{\numberline {2.6}Donating Energy}{16}{section.2.6}
+\contentsline {subsection}{\numberline {2.6.1}The environment}{16}{subsection.2.6.1}
+\contentsline {section}{\numberline {2.7}Important parameters for the initial period }{17}{section.2.7}
+\contentsline {section}{\numberline {2.8}Important parameters for the final period}{18}{section.2.8}
+\contentsline {section}{\numberline {2.9}Experimental setup}{19}{section.2.9}
+\contentsline {chapter}{\numberline {3}Results}{21}{chapter.3}
+\contentsline {section}{\numberline {3.1}Baseline}{21}{section.3.1}
+\contentsline {section}{\numberline {3.2}Kin recognition}{25}{section.3.2}
+\contentsline {section}{\numberline {3.3}Kin seeking}{25}{section.3.3}
+\contentsline {section}{\numberline {3.4}Kin selction}{25}{section.3.4}
+\contentsline {section}{\numberline {3.5}Graph overlay}{25}{section.3.5}
+\contentsline {chapter}{\numberline {4}Discussion}{39}{chapter.4}
+\contentsline {section}{\numberline {4.1}How succesful were the kin oriented mechanisms?}{39}{section.4.1}
+\contentsline {section}{\numberline {4.2}Simliarities of kin seeking and recognition}{39}{section.4.2}
+\contentsline {section}{\numberline {4.3}Future work}{40}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}More advanced version of kin seeking algorithm}{40}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}More advanced version of the kin recognizing algorithm}{41}{subsection.4.3.2}
+\contentsline {section}{\numberline {4.4}Energy transferring}{41}{section.4.4}
+\contentsline {chapter}{Appendices}{43}{section*.4}
+\contentsline {chapter}{\numberline {A}Systematic Literature Review Protocol}{45}{Appendix.1.A}
+\contentsline {section}{\numberline {A.1}Defining the Review Questions}{46}{section.1.A.1}
+\contentsline {section}{\numberline {A.2}Search for Relevant Studies}{46}{section.1.A.2}
+\contentsline {subsection}{\numberline {A.2.1}Searching the online resources }{46}{subsection.1.A.2.1}
+\contentsline {subsubsection}{ACM Digital Library}{47}{section*.5}
+\contentsline {subsubsection}{Springer Link}{48}{section*.6}
+\contentsline {subsubsection}{IEEE Xplore}{48}{section*.7}
+\contentsline {subsubsection}{Web of Knowledge}{48}{section*.8}
+\contentsline {subsubsection}{Search Results}{48}{section*.9}
+\contentsline {subsection}{\numberline {A.2.2}Selection of Studies}{49}{subsection.1.A.2.2}
+\contentsline {subsubsection}{Screening based on title}{49}{section*.10}
+\contentsline {subsubsection}{Abstract inclusion criteria screening}{49}{section*.11}
+\contentsline {subsubsection}{Full text inclusion criteria screening}{50}{section*.12}
+\contentsline {subsubsection}{Full text quality criteria screening}{50}{section*.13}
+\contentsline {section}{\numberline {A.3}Data Collection}{50}{section.1.A.3}
+\contentsline {section}{\numberline {A.4}Dissemination}{51}{section.1.A.4}
+\contentsline {chapter}{\numberline {B}Property files}{53}{Appendix.1.B}
+\contentsline {section}{\numberline {B.1}Initial period}{53}{section.1.B.1}
+\contentsline {chapter}{Bibliography}{57}{lstnumber.-1.170}

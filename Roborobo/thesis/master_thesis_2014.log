@@ -1,0 +1,16 @@
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdftex 2014.5.21)  2 JUN 2014 18:22
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**master_thesis_2014.tex
+(./master_thesis_2014.tex
+! Undefined control sequence.
+l.2 \documentclass
+                  [a4paper]{book}
+? x
+No pages of output.
+PDF statistics:
+ 0 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

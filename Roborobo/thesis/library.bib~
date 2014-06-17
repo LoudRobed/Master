@@ -1182,12 +1182,3 @@ Special cases of the model are used to show (a) that selection in the social sit
     year = {2012},
     pages = {101–129}
 }
-
-@article{roborobo,
-  author    = {Nicolas Bredeche and Jean-Marc Montanier and Berend Weel and Evert Haasdijk},
-  title     = {Roborobo! a Fast Robot Simulator for Swarm and Collective Robotics},
-  journal   = {CoRR},
-  volume    = {abs/1304.2888},
-  year      = {2013},
-  ee        = {http://arxiv.org/abs/1304.2888},
-}

@@ -124,20 +124,20 @@ This paper was written as a specialization project in the autumn of 2013 at the 
 \chapter{Introduction}
 \label{cha:Introduction}
 
-%This paper explores the research done on mechanisms that are responsible for the evolution of altruistic behavior and in the most extreme case; the act of self-sacrifice.
-%The intended use is within the field of evolutionary computation where wanted behavior is often found by mimicking the mechanisms of natural evolution. 
-%The goal of the paper is to shed light on how the mechanisms we know to exist from nature have been utilized in the artificial evolution of altruism.
-%Section \ref{sec:BackgroundAndMotivation} gives a cursory introduction to the evolution of altruism and cooperation and outlines why research on altruism is of interest in artificial intelligence.
-%Chapter \ref{cha:review} gives a review of the existing literature related to the mechanisms behind altruism and the simulation of these mechanisms in simulated 
-%environments. Chapter \ref{cha:discussion} gives a discussion of some of the questions that arise from the literature review and proposes a research question
-%that addresses one of the issues brought to attention. Some thoughts on how this question should be researched is also given. The protocol for the structured literature review and the documentation of the review is given in chapter \ref{cha:STL}
+This paper explores the research done on mechanisms that are responsible for the evolution of altruistic behavior and in the most extreme case; the act of self-sacrifice.
+The intended use is within the field of evolutionary computation where wanted behavior is often found by mimicking the mechanisms of natural evolution. 
+The goal of the paper is to shed light on how the mechanisms we know to exist from nature have been utilized in the artificial evolution of altruism.
+Section \ref{sec:BackgroundAndMotivation} gives a cursory introduction to the evolution of altruism and cooperation and outlines why research on altruism is of interest in artificial intelligence.
+Chapter \ref{cha:review} gives a review of the existing literature related to the mechanisms behind altruism and the simulation of these mechanisms in simulated 
+environments. Chapter \ref{cha:discussion} gives a discussion of some of the questions that arise from the literature review and proposes a research question
+that addresses one of the issues brought to attention. Some thoughts on how this question should be researched is also given. The protocol for the structured literature review and the documentation of the review is given in chapter \ref{cha:STL}
 
 %All chapters should begin with an introduction before any sections begin. Further, each sections begins with an introduction before  subsections begin. Chapters with just one section or sections with just one sub-section, should be avoided. Think carefully about chapter and section titles as each title stand alone in the table of contents (without associated text) and should convey meaning for the contents of the chapter or section. 
 
 %In all chapters and sections it is important to write clearly and concisely. Avoid repetitions and if needed, refer back to the original discussion or presentation. Each new section, subsection or paragraph should provide the reader with new information and be written in your own words. Avoid direct quotes. If you use direct quotes, unless the quote itself is very significant, you are conveying to the reader that you are unable to express this discussion or fact yourself. Such direct quotes also break the flow of the language (yours to someone else's).   
 
 
-Evolutionary robotics 
+
 
 \section{Background and Motivation}\label{cit}
 \label{sec:BackgroundAndMotivation}
@@ -336,61 +336,30 @@ This system was chosen because it was available in open source and because it pr
 The agents that are simulated in the environment are basd on the epuck model and is thought to be compact differential wheeled robots with sensors that sense distance in eight directions as shown in figure [INSERT FIGURE]. The agents also have a sensor that can sense if they are directly on top of an energy point. The sensory input the agents get are fed into the neural network that controls the actuators of the robots. There are four actuators: The two wheels, the "mouth" that absorbs food and the output that creates energy points. 
 
 
-\subsubsection{Donating Energy}
+\subsection{Donating Energy}
 The agents each have an output neuron that outputs a floating point value. If the value is above a predetermined threshold the agent creates an energy point in the environment that 
 it cannot utilize for itself. As interesting as seeing hoarding behaviour would be, it is not the purpose of this experiment. The energy points that are created are never replenished unlike the energy points that are intrinsic to the environment. The amount of energy donated is set to be a predetermined number. This was chosen to simplify the experiments, but ideally the amount of energy donated should be determined by the output value of the neuron.
 
-Using a predetermined value relieves the model of biological accuracy, but it allows for greater control and understanding of the parameters 
+Using a predetermined value value for relieves the model of biological accuracy, but it allows for greater control and understanding of the parameters 
 that are needed for the wanted behaviour to occur, which is the object of the experiment. Early initial tests showed that linking the amount of energy donated in each timestep unsurprisingly 
 led to the first generation of agents commiting mass suicide in the first few timesteps since the output value from the beginning is random. It is a reasonable to assume that the insects or
 animals the robots model already have evolved an inclination towards not dropping food and that this should only happen when a certain sensory input is provided.   
 
-\subsection{The environment}
-The environment the robots inhabit is a large two dimensional square with a few obstacles scattered around. Very little exists in the environment and the robots roam around freely.  
 
-\section{Important parameters for experiment number 1}
-
-The complete properties file for the experiment can be found in the appendices. 
-
-The agents have a total of 800 units of energy and a generation lasts 400 iterations.
-For the first experiment the number value of each energy point to be generated by each agent was set to be 50. 
-This means that the agents can run out of energy if they create more than 16 energy points in a generation.
-This number was chosen to be low enough that not all agents that are inclined to donate energy will die, but 
-high enough so that the energy point provides useful sustainance for other agents. 
-
-The threshold that the output of the donation neuron needs to exceed for a donation to occur is set to 0.5.
-Since the initial output value of this neuron is not a factor in the initial evolution of the agents it is to be expected that half of the agents will become donators immediately and the other half wont't 
-Introducing the trait in this way is artificial but it if the trait has a negative enough impact on the fitness of the individuals the trait will soon disappear. 
-The energy expenditure in the altruism part of the experiment is set to 0.05 per iteration. This makes the total expenditure of energy per generation 20 units for each agents. This means that they
-can survive for 20 generations without needing food provided they don't donate energy. This value is set low to ensure that the agents survive long enough that evolution can occur. 
-
-\begin{table}[htdp]
-\begin{center}
-\begin{tabular}{|l|c|}\hline
-Donation Threshold    &  0.5  \\\hline\hline
-Energy Point value    &  50  \\\hline\hline
-Energy expenditure    &  0.05 \\\hline\hline
-Initial energy 		& 800 \\\hline\hline
-Iterations/generation & 400 \\\hline\hline
-
-\end{tabular}
-\end{center}
-\label{table:parameteres}
-\caption{Important paramters for the first experiment}
-\end{table}
-  
 
 \section{Experimental setup}
 
 All the experiments were run on Kongull, a Linux Cluster on NTNU. For each setting, each experiment was run 200 times and the results computed as an average over those runs. 
 Each run was made over 200 generations which has been shown experimentally to be enough for convergence of behaviour in similar setups. 
+For each of the settings tested, a box plot was created by averaging over 20 generations to see the development in energy donations. The average size of the donation
+for each generational segment was computed, and also the average percentage of energy donated in relation to the energy available to the agent. The greater percentage 
+is deemed to be a greater sacrifice as per (CITATION NEEDED) 
 
 \chapter{Results}
 
 Graphs and stuff.
 
-\section{Visual inspection}
-Something here about what the experiment looks like.
+
 \chapter{Discussion}
 
 Write about what the results mean, probably write a lot about what can be done beyond what I have done since I've accomplished nothing.
